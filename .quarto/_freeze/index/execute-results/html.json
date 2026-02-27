@@ -1,0 +1,15 @@
+{
+  "hash": "7c8d99c512aa1a8fe02034958beda8c1",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"CDMetaPOP Tutorial\"\n---\n\nThis is a tutorial to get started with CDMetaPOP using R.\n\nCDMetaPOP models genetic exchange for individuals across space as a function of individual-based movement through mating, migration and dispersal, vital dynamics (birth and death), density-dependent mortality, selection, and mutation. CDMetaPOP can be used for plant and animal applications in both aquatic and terrestrial environments.\n\nTo learn more about CDMetaPop visit our lab web page <https://www.cellab.org/> or the different tools available at: <https://github.com/ComputationalEcologyLab>.\n\nYou can download the latest CDMetaPop manual here:\n\n\n::: {.cell}\n\n```{.r .cell-code}\n1 + 1\n```\n\n::: {.cell-output .cell-output-stdout}\n\n```\n[1] 2\n```\n\n\n:::\n:::\n\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

@@ -1,0 +1,10 @@
+---
+title: "How to write a popVars.csv"
+---
+
+The values defined in a popVars.csv control population level parameters. Click on the link below to start the shinyApp that will help you define the parameters for your run.
+
+**Remember to download your work from the PREVIEW TAB before closing the shinyApp**
+
+-   **Start building a new popVars.csv**\
+    [Open App](https://computationalecologylab.shinyapps.io/popVars/){.btn .btn-primary target="_blank"}

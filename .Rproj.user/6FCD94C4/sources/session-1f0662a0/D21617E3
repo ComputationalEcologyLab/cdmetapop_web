@@ -1,0 +1,26 @@
+{
+    "id": "D21617E3",
+    "path": "~/Documents/UM_backup/CDMetaPop/cdmetapop_web/scripts/deploy_shiny_apps.R",
+    "project_path": null,
+    "type": "r_source",
+    "hash": "121142350",
+    "contents": "",
+    "dirty": false,
+    "created": 1770974709174.0,
+    "source_on_save": false,
+    "relative_order": 10,
+    "properties": {
+        "source_window_id": "",
+        "Source": "Source",
+        "cursorPosition": "25,0",
+        "scrollLine": "21"
+    },
+    "folds": "",
+    "lastKnownWriteTime": 1771507902,
+    "encoding": "UTF-8",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1771507902110,
+    "read_only": false,
+    "read_only_alternatives": []
+}

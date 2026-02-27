@@ -1,0 +1,150 @@
+library(dplyr)
+library(tidyr)
+library(purrr)
+library(stringr)
+library(ggplot2)
+
+# empirical sex-ratio in sullivan headwaters 
+# Set working directory for scenario 1
+parent_dir <- '~/Documents/UM_backup/CDMetaPop/EBT/EBT_Inputs/benchmark_testing/limited/output_master_modified1763682572'
+# Get all subdirectories
+target_dirs <- list.dirs(path = parent_dir, full.names = TRUE, recursive = FALSE)
+
+patches <- read.csv("~/Documents/UM_backup/UtilityFiles/sullivan_patches_409.csv")
+empirical <- data.frame(Year = c(2020:2024), 
+                        ind = c(24:28),
+                        male_percent_upper = c(0.53, 0.58, 0.54, 0.76, 0.73),
+                        male_percent_middle = c(0.53, 0.47, 0.60, 0.56, 0.62))
+
+# Initialize list to store results
+
+sexratio_list <- list()
+
+# Iterate once through all files
+walk(target_dirs, function(dir_path) {
+  mc_number <- str_extract(dir_path, "(?<=mc)\\d+")
+  ind_files <- list.files(path = dir_path, pattern = "^ind\\d+\\.csv$", full.names = TRUE)
+  
+  walk(ind_files, function(file_path) {
+    ind_number <- str_extract(basename(file_path), "\\d+")
+    df <- read.csv(file_path, stringsAsFactors = FALSE)
+    df <- df %>% left_join(patches, by = "PatchID", relationship = "many-to-many")
+    
+    # calculation: proportion of YOY xy over total wild
+    sexratio_df <- df %>%
+      filter(sex != "MYY", age == 1) %>%
+      group_by(sullivan) %>%
+      summarise(
+        proportion_XYmales = mean(sex == "MXY", na.rm = TRUE),
+        .groups = "drop"
+      ) %>%
+      mutate(
+        mc = as.integer(mc_number),
+        ind = as.integer(ind_number)
+      )
+
+    # Append to list
+  
+    sexratio_list <<- append(sexratio_list, list(sexratio_df))
+  })
+})
+
+# Combine into final data frames
+sexratio_results <- bind_rows(sexratio_list)
+
+# Create table with results - comparing empirical and simulated
+simulation <- sexratio_results %>%
+  filter(!is.na(sullivan), sullivan != "", between(ind, 24, 28)) %>%
+  group_by(ind, sullivan) %>%
+  summarise(
+    avg_male = mean(proportion_XYmales, na.rm = TRUE),
+    .groups = "drop"
+  )
+
+table_out <- simulation %>%
+  select(ind, sullivan, avg_male) %>%
+  mutate(sullivan = tolower(trimws(sullivan))) %>%      # normalize names
+  filter(sullivan %in% c("middle", "upper")) %>%        # keep only desired categories
+  pivot_wider(
+    names_from = sullivan,
+    values_from = avg_male,
+    values_fill = NA_real_
+  ) %>%
+  arrange(ind)
+
+
+table_out <- table_out %>%
+  mutate(
+    middle = round(middle, 2),
+    upper  = round(upper, 2)
+  )
+
+# Join empirical and simulation results by 'ind'
+combined <- left_join(empirical, table_out, by = "ind")
+
+# Rename and rearrange columns for clarity
+combined <- combined %>%
+  rename(
+    Year             = Year,
+    ind              = ind,
+    empirical_upper  = male_percent_upper,
+    scenario_1_upper  = upper,
+    empirical_middle = male_percent_middle,
+    scenario_1_middle = middle
+  ) %>%
+  select(Year, ind, empirical_upper, scenario_1_upper, empirical_middle, scenario_1_middle)
+
+# Save combined results to CSV
+write.csv(combined, file = "mxy_yoy_simulated_empirical_table.csv", row.names = FALSE)
+
+#####################################
+# Focus on Upper Sullivan 
+#####################################
+
+# Initialize list to store results
+
+upper_sexratio_list <- list()
+
+# Iterate once through all files
+walk(target_dirs, function(dir_path) {
+  mc_number <- str_extract(dir_path, "(?<=mc)\\d+")
+  ind_files <- list.files(path = dir_path, pattern = "^ind\\d+\\.csv$", full.names = TRUE)
+  
+  walk(ind_files, function(file_path) {
+    ind_number <- str_extract(basename(file_path), "\\d+")
+    df <- read.csv(file_path, stringsAsFactors = FALSE)
+    df <- df %>% left_join(patches, by = "PatchID", relationship = "many-to-many")
+    
+    # calculation: proportion of YOY xy over total wild
+    upper_sexratio_df <- df %>%
+      filter(sex != "MYY", sullivan == "upper") %>%
+      group_by(sullivan, age) %>%
+      summarise(
+        proportion_XYmales = mean(sex == "MXY", na.rm = TRUE),
+        .groups = "drop"
+      ) %>%
+      mutate(
+        mc = as.integer(mc_number),
+        ind = as.integer(ind_number)
+      )
+    
+    # Append to list
+    
+    upper_sexratio_list <<- append(upper_sexratio_list, list(upper_sexratio_df))
+  })
+})
+
+# Combine into final data frame
+upper_sexratio_results <- bind_rows(upper_sexratio_list)
+
+# Create table with results 
+upper <- upper_sexratio_results %>%
+  filter(age != 1, between(ind, 24, 28)) %>%
+  group_by(ind) %>%
+  summarise(
+    avg_male = mean(proportion_XYmales, na.rm = TRUE)
+  )
+
+
+
+
