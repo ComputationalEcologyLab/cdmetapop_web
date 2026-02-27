@@ -1,0 +1,100 @@
+[
+  {
+    "objectID": "introduction.html",
+    "href": "introduction.html",
+    "title": "Introduction",
+    "section": "",
+    "text": "Here you will find the basic instructions to start a simulation with cdmetapop.R.\nLet’s start with a suggestion on how to arrange your files, an example of how you could arrange your data directory structure:\ndata/\n├── runVars.csv\n├── popvars/\n│   └── popVars.csv\n├── patchvars/\n│   └── patchVars.csv\n├── classvars/\n│   └── classVars.csv\n├── genes/\n│   └── allelefrequencies.csv\n├── cdmats/\n│   ├── cdmat1.csv\n│   ├── cdmat2.csv\n│   └── cdmat3.csv\n└── otherfiles/\n    ├── correlation_matrix1.csv\n    └── correlation_matrix2.csv\nCDMetaPOP can simulate very complex systems but you can get started with a very simple template. This platform and tutorial are meant to help you get acquainted with the basic functions without having to deal with changing too many parameters at once. It will help you build the basic files needed to run CDMetaPOP and give you some tips along the way.\nThe basic files you need are:\n\nclassVars.csv: defines parameters related to the individuals according to their ages.\npatchVars.csv: defines the parameters related to your patches (sites).\npopVars.csv: defines several parameters that relate to the population as a whole.\nrunVars.csv: defines the basic parameters of your simulation (for example how many Monte Carlo runs).\n\nAlthough it may be counterintuitive, it is suggested to start preparing your files in the order given, as the runVars.csv requires to define a popVars.csv, which in turn designates both patchVars.csv and classVars.csv files.\nAdditional files can include distance matrices to guide individual movement and genetic files to initialize population genetic structure.\nFor more detailed instructions you can refer to CDMetaPOP manual and several publications:\n\nManual\nbla\nblabla\nblablabla"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "CDMetaPOP Tutorial",
+    "section": "",
+    "text": "This is a tutorial to get started with CDMetaPOP using R.\nCDMetaPOP models genetic exchange for individuals across space as a function of individual-based movement through mating, migration and dispersal, vital dynamics (birth and death), density-dependent mortality, selection, and mutation. CDMetaPOP can be used for plant and animal applications in both aquatic and terrestrial environments.\nTo learn more about CDMetaPop visit our lab web page https://www.cellab.org/ or the different tools available at: https://github.com/ComputationalEcologyLab.\nYou can download the latest CDMetaPop manual here:\n\n1 + 1\n\n[1] 2"
+  },
+  {
+    "objectID": "CDMetaPOPwebTutorial/about.html",
+    "href": "CDMetaPOPwebTutorial/about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site\n\n1 + 1\n\n[1] 2"
+  },
+  {
+    "objectID": "CDMetaPOPwebTutorial/input_files/popVars.html",
+    "href": "CDMetaPOPwebTutorial/input_files/popVars.html",
+    "title": "How to write a popVars.csv",
+    "section": "",
+    "text": "The values defined in a popVars.csv control population level parameters. Click on the link below to start the shinyApp that will help you define the parameters for your run.\nRemember to download your work from the PREVIEW TAB before closing the shinyApp\n\nStart building a new popVars.csv\nOpen App"
+  },
+  {
+    "objectID": "CDMetaPOPwebTutorial/input_files/classVars.html",
+    "href": "CDMetaPOPwebTutorial/input_files/classVars.html",
+    "title": "How to write a classVars.csv",
+    "section": "",
+    "text": "The parameters defined in a classVars.csv XXXXXXXX Click on the link below to start the shinyApp that will help you define the parameters for your run.\nRemember to download your work from the PREVIEW TAB before closing the shinyApp\n\nStart building a new classVars.csv\nOpen App"
+  },
+  {
+    "objectID": "input_files/popVars.html",
+    "href": "input_files/popVars.html",
+    "title": "How to write a popVars.csv",
+    "section": "",
+    "text": "The values defined in a popVars.csv control population level parameters. Click on the link below to start the shinyApp that will help you define the parameters for your run.\nRemember to download your work from the PREVIEW TAB before closing the shinyApp\n\nStart building a new popVars.csv\nOpen App"
+  },
+  {
+    "objectID": "input_files/classVars.html",
+    "href": "input_files/classVars.html",
+    "title": "How to write a classVars.csv",
+    "section": "",
+    "text": "The parameters defined in a classVars.csv XXXXXXXX Click on the link below to start the shinyApp that will help you define the parameters for your run.\nRemember to download your work from the PREVIEW TAB before closing the shinyApp\n\nStart building a new classVars.csv\nOpen App"
+  },
+  {
+    "objectID": "input_files/patchVars.html",
+    "href": "input_files/patchVars.html",
+    "title": "How to write a patchVars.csv",
+    "section": "",
+    "text": "The parameters defined in a patchVars.csv apply to patches. Click on the link below to start the shinyApp that will help you define the parameters for your run.\nRemember to download your work from the PREVIEW TAB before closing the shinyApp\n\nStart building a new patchVars.csv\nOpen App"
+  },
+  {
+    "objectID": "input_files/runVars.html",
+    "href": "input_files/runVars.html",
+    "title": "How to write a runVars.csv",
+    "section": "",
+    "text": "The parameters defined in a runVars.csv apply to all species. Click on the link below to start the shinyApp that will help you define the parameters for your run.\nRemember to download your work from the PREVIEW TAB before closing the shinyApp\n\nStart building a new runVars.csv\nOpen App"
+  },
+  {
+    "objectID": "CDMetaPOPwebTutorial/input_files/patchVars.html",
+    "href": "CDMetaPOPwebTutorial/input_files/patchVars.html",
+    "title": "How to write a patchVars.csv",
+    "section": "",
+    "text": "The parameters defined in a patchVars.csv apply to patches. Click on the link below to start the shinyApp that will help you define the parameters for your run.\nRemember to download your work from the PREVIEW TAB before closing the shinyApp\n\nStart building a new patchVars.csv\nOpen App"
+  },
+  {
+    "objectID": "CDMetaPOPwebTutorial/input_files/runVars.html",
+    "href": "CDMetaPOPwebTutorial/input_files/runVars.html",
+    "title": "How to write a runVars.csv",
+    "section": "",
+    "text": "The parameters defined in a runVars.csv apply to all species. Click on the link below to start the shinyApp that will help you define the parameters for your run.\nRemember to download your work from the PREVIEW TAB before closing the shinyApp\n\nStart building a new runVars.csv\nOpen App"
+  },
+  {
+    "objectID": "CDMetaPOPwebTutorial/index.html",
+    "href": "CDMetaPOPwebTutorial/index.html",
+    "title": "CDMetaPOP Tutorial",
+    "section": "",
+    "text": "This is a tutorial to get started with CDMetaPOP using R.\nCDMetaPOP models genetic exchange for individuals across space as a function of individual-based movement through mating, migration and dispersal, vital dynamics (birth and death), density-dependent mortality, selection, and mutation. CDMetaPOP can be used for plant and animal applications in both aquatic and terrestrial environments.\nTo learn more about CDMetaPop visit our lab web page https://www.cellab.org/ or the different tools available at: https://github.com/ComputationalEcologyLab.\nYou can download the latest CDMetaPop manual here:\n\n1 + 1\n\n[1] 2"
+  },
+  {
+    "objectID": "CDMetaPOPwebTutorial/introduction.html",
+    "href": "CDMetaPOPwebTutorial/introduction.html",
+    "title": "Introduction",
+    "section": "",
+    "text": "Here you will find the basic instructions to start a simulation with cdmetapop.R.\nLet’s start with a suggestion on how to arrange your files, an example of how you could arrange your data directory structure:\ndata/\n├── runVars.csv\n├── popvars/\n│   └── popVars.csv\n├── patchvars/\n│   └── patchVars.csv\n├── classvars/\n│   └── classVars.csv\n├── genes/\n│   └── allelefrequencies.csv\n├── cdmats/\n│   ├── cdmat1.csv\n│   ├── cdmat2.csv\n│   └── cdmat3.csv\n└── otherfiles/\n    ├── correlation_matrix1.csv\n    └── correlation_matrix2.csv\nCDMetaPOP can simulate very complex systems but you can get started with a very simple template. This platform and tutorial are meant to help you get acquainted with the basic functions without having to deal with changing too many parameters at once. It will help you build the basic files needed to run CDMetaPOP and give you some tips along the way.\nThe basic files you need are:\n\nclassVars.csv: defines parameters related to the individuals according to their ages.\npatchVars.csv: defines the parameters related to your patches (sites).\npopVars.csv: defines several parameters that relate to the population as a whole.\nrunVars.csv: defines the basic parameters of your simulation (for example how many Monte Carlo runs).\n\nAlthough it may be counterintuitive, it is suggested to start preparing your files in the order given, as the runVars.csv requires to define a popVars.csv, which in turn designates both patchVars.csv and classVars.csv files.\nAdditional files can include distance matrices to guide individual movement and genetic files to initialize population genetic structure.\nFor more detailed instructions you can refer to CDMetaPOP manual and several publications:\n\nManual\nbla\nblabla\nblablabla"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site\n\n1 + 1\n\n[1] 2"
+  }
+]
