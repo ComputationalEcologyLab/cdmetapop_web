@@ -20,41 +20,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
@@ -133,44 +98,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <a class="nav-link" href="./introduction.html"> 
 <span class="menu-text">Introduction</span></a>
   </li>  
-  <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-input-files" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Input Files</span>
-    </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-input-files">    
-        <li>
-    <a class="dropdown-item" href="./input_files/classVars.html">
- <span class="dropdown-text">classVars</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="./input_files/patchVars.html">
- <span class="dropdown-text">patchVars</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="./input_files/popVars.html">
- <span class="dropdown-text">popVars</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="./input_files/runVars.html">
- <span class="dropdown-text">runVars</span></a>
-  </li>  
-    </ul>
-  </li>
   <li class="nav-item">
-    <a class="nav-link" href="./run_cdmetapop.qmd"> 
+    <a class="nav-link" href="./run_cdmetapop.html"> 
 <span class="menu-text">Run CDMetaPOP</span></a>
   </li>  
-  <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-cdmetapop.r-functions-examples" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">CDMetaPOP.R functions examples</span>
-    </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-cdmetapop.r-functions-examples">    
-        <li>
-    <a class="dropdown-item" href="./functions/example1.qmd">
- <span class="dropdown-text">example1</span></a>
+  <li class="nav-item">
+    <a class="nav-link" href="./functions.html"> 
+<span class="menu-text">CDMetaPOP.R functions</span></a>
   </li>  
-    </ul>
-  </li>
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
@@ -207,16 +142,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>This is a tutorial to get started with CDMetaPOP using R.</p>
+<p>This is a tutorial to get started running CDMetaPOP simulations using its companion helper cdmetapopR.</p>
 <p>CDMetaPOP models genetic exchange for individuals across space as a function of individual-based movement through mating, migration and dispersal, vital dynamics (birth and death), density-dependent mortality, selection, and mutation. CDMetaPOP can be used for plant and animal applications in both aquatic and terrestrial environments.</p>
+<p>If you are ready to get started using cdmetapopR to run CDMetaPOP simulations, proceed to the next step:</p>
+<p><a href="./introduction.html" class="btn btn-primary">➡️ Get started with cdmetapopR</a></p>
 <p>To learn more about CDMetaPop visit our lab web page <a href="https://www.cellab.org/" class="uri">https://www.cellab.org/</a> or the different tools available at: <a href="https://github.com/ComputationalEcologyLab" class="uri">https://github.com/ComputationalEcologyLab</a>.</p>
-<p>You can download the latest CDMetaPop manual here:</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">+</span> <span class="dv">1</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 2</code></pre>
-</div>
-</div>
+<p>You can download the latest CDMetaPop manual <a href="files/cdmetapop2_usermanual.docx">here</a>.</p>
 
 
 

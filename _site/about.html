@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>About – CDMetaPOP</title>
+<title>Functions Tutorial – CDMetaPOP</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -133,41 +133,30 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <a class="nav-link" href="./introduction.html"> 
 <span class="menu-text">Introduction</span></a>
   </li>  
-  <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-input-files" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Input Files</span>
-    </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-input-files">    
-        <li>
-    <a class="dropdown-item" href="./input_files/classVars.html">
- <span class="dropdown-text">classVars</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="./input_files/patchVars.html">
- <span class="dropdown-text">patchVars</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="./input_files/popVars.html">
- <span class="dropdown-text">popVars</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="./input_files/runVars.html">
- <span class="dropdown-text">runVars</span></a>
-  </li>  
-    </ul>
-  </li>
   <li class="nav-item">
-    <a class="nav-link" href="./run_cdmetapop.qmd"> 
+    <a class="nav-link" href="./run_cdmetapop.html"> 
 <span class="menu-text">Run CDMetaPOP</span></a>
   </li>  
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-cdmetapop.r-functions-examples" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">CDMetaPOP.R functions examples</span>
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-cdmetapop.r-functions" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">CDMetaPOP.R functions</span>
     </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-cdmetapop.r-functions-examples">    
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-cdmetapop.r-functions">    
         <li>
-    <a class="dropdown-item" href="./functions/example1.qmd">
- <span class="dropdown-text">example1</span></a>
+    <a class="dropdown-item" href="./functions/age_plus_one_plot.qmd">
+ <span class="dropdown-text">age_plus_one_plot</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./functions/age_structure_proportions.qmd">
+ <span class="dropdown-text">age_structure_proportions</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./functions/alleles_by_year.qmd">
+ <span class="dropdown-text">alleles_by_year</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./functions/births.qmd">
+ <span class="dropdown-text">births</span></a>
   </li>  
     </ul>
   </li>
@@ -182,15 +171,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#plot-births" id="toc-plot-births" class="nav-link active" data-scroll-target="#plot-births">Plot births</a></li>
+  <li><a href="#progeny" id="toc-progeny" class="nav-link" data-scroll-target="#progeny">progeny</a></li>
+  <li><a href="#age-class" id="toc-age-class" class="nav-link" data-scroll-target="#age-class">age class</a></li>
+  <li><a href="#plot-patch-distribution-for-specific-years" id="toc-plot-patch-distribution-for-specific-years" class="nav-link" data-scroll-target="#plot-patch-distribution-for-specific-years">Plot patch distribution for specific years</a></li>
+  <li><a href="#age-plus-one" id="toc-age-plus-one" class="nav-link" data-scroll-target="#age-plus-one">age plus one (?)</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">About</h1>
+<h1 class="title">Functions Tutorial</h1>
 </div>
 
 
@@ -207,15 +206,34 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>About this site</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">+</span> <span class="dv">1</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 2</code></pre>
-</div>
-</div>
+<p><strong>Load data once</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>my_data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"summary_popAllTime.csv"</span>) </span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>class_data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"summary_classAllTime.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><em>Plot general count</em> plot_population(my_data, type = “count”) ## old function: pop_count_plot(my_data) ``` # Plot sex breakdown</p>
+<p>plot_population(my_data, type = “sex”) ## old function: pop_sex_plot(my_data)</p>
+<p>plot_population(my_data, type = “mature”) ## old function: pop_mature_plot(“summary_popAllTime.csv”)</p>
+<section id="plot-births" class="level1">
+<h1>Plot births</h1>
+<p>plot_population(my_data, type = “births”) ## old function: births(“summary_popAllTime.csv”)</p>
+</section>
+<section id="progeny" class="level1">
+<h1>progeny</h1>
+<p>plot_population(my_data, type = “myy_ratio”) ## old function: myy_progeny_plot(“summary_popAllTime.csv”)</p>
+</section>
+<section id="age-class" class="level1">
+<h1>age class</h1>
+<p>plot_population(class_data, type = “age_class”, n = 5) ## old function: pop_year_class(“summary_classAllTime.csv”, n = 5)</p>
+</section>
+<section id="plot-patch-distribution-for-specific-years" class="level1">
+<h1>Plot patch distribution for specific years</h1>
+<p>plot_population(my_data, type = “patch”, years = c(0, 10, 20)) ## old function pop_patch_count(my_data)</p>
+</section>
+<section id="age-plus-one" class="level1">
+<h1>age plus one (?)</h1>
+<p>plot_population(class_data, type = “age_plus_one”) ## old function: Age_plus_one_plot(class_data)</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

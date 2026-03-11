@@ -9,22 +9,30 @@ website:
         href: index.qmd
       - text: "Introduction"
         href: introduction.qmd
-      - text: "Input Files"        
-        menu:
-          - text: "classVars"
-            href: input_files/classVars.qmd
-          - text: "patchVars"
-            href: input_files/patchVars.qmd
-          - text: "popVars"
-            href: input_files/popVars.qmd
-          - text: "runVars"
-            href: input_files/runVars.qmd
+      # - text: "Input Files"        
+      #   menu:
+      #     - text: "classVars"
+      #       href: input_files/classVars.qmd
+      #     - text: "patchVars"
+      #       href: input_files/patchVars.qmd
+      #     - text: "popVars"
+      #       href: input_files/popVars.qmd
+      #     - text: "runVars"
+      #       href: input_files/runVars.qmd
       - text: "Run CDMetaPOP"
         href: run_cdmetapop.qmd
-      - text: "CDMetaPOP.R functions examples"
+      - text: "CDMetaPOP.R functions"
+        href: functions.qmd
         menu:
-          - text: "example1"
-            href: functions/example1.qmd
+          - text: "age_plus_one_plot"
+            href: functions/age_plus_one_plot.qmd
+          - text: "age_structure_proportions"
+            href: functions/age_structure_proportions.qmd
+          - text: "alleles_by_year"
+            href: functions/alleles_by_year.qmd
+          - text: "births"
+            href: functions/births.qmd
+            
 
               
 format:

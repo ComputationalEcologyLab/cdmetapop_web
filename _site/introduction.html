@@ -20,6 +20,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -98,44 +133,14 @@ ul.task-list li input[type="checkbox"] {
     <a class="nav-link active" href="./introduction.html" aria-current="page"> 
 <span class="menu-text">Introduction</span></a>
   </li>  
-  <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-input-files" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Input Files</span>
-    </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-input-files">    
-        <li>
-    <a class="dropdown-item" href="./input_files/classVars.html">
- <span class="dropdown-text">classVars</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="./input_files/patchVars.html">
- <span class="dropdown-text">patchVars</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="./input_files/popVars.html">
- <span class="dropdown-text">popVars</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="./input_files/runVars.html">
- <span class="dropdown-text">runVars</span></a>
-  </li>  
-    </ul>
-  </li>
   <li class="nav-item">
-    <a class="nav-link" href="./run_cdmetapop.qmd"> 
+    <a class="nav-link" href="./run_cdmetapop.html"> 
 <span class="menu-text">Run CDMetaPOP</span></a>
   </li>  
-  <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-cdmetapop.r-functions-examples" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">CDMetaPOP.R functions examples</span>
-    </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-cdmetapop.r-functions-examples">    
-        <li>
-    <a class="dropdown-item" href="./functions/example1.qmd">
- <span class="dropdown-text">example1</span></a>
+  <li class="nav-item">
+    <a class="nav-link" href="./functions.html"> 
+<span class="menu-text">CDMetaPOP.R functions</span></a>
   </li>  
-    </ul>
-  </li>
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
@@ -172,8 +177,18 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Here you will find the basic instructions to start a simulation with cdmetapop.R.</p>
-<p>Let’s start with a <strong>suggestion</strong> on how to arrange your files, an example of how you could arrange your data directory structure:</p>
+<p>Here you will find the basic instructions to start a simulation with cdmetapopR.</p>
+<p>Install cdmetapopR and its dependencies by following the instructions in the [README]Github page or CRAN???</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"cdmetapopR"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>CDMetaPOP can simulate very complex systems but you can get started with a very simple template. This platform and tutorial are meant to help you get acquainted with the basic functions without having to deal with changing too many parameters at once. It will help you build the basic files needed to run CDMetaPOP and give you some tips along the way.</p>
+<p>The basic files you need are:</p>
+<ol type="1">
+<li><p><strong>classVars.csv</strong>: defines parameters related to the individuals according to their ages.</p></li>
+<li><p><strong>patchVars.csv:</strong> defines the parameters related to patches (sites).</p></li>
+<li><p><strong>popVars.csv:</strong> defines several parameters that relate to the population as a whole.</p></li>
+<li><p><strong>runVars.csv:</strong> defines the basic parameters of your simulation (for example how many Monte Carlo runs). These parameters apply to all species.</p></li>
+</ol>
+<p>Next, let’s start with a <strong>suggestion</strong> on how to arrange your files, an example of how you could arrange your data directory structure:</p>
 <pre><code>data/
 ├── runVars.csv
 ├── popvars/
@@ -191,19 +206,35 @@ ul.task-list li input[type="checkbox"] {
 └── otherfiles/
 &nbsp;&nbsp;&nbsp; ├── correlation_matrix1.csv
 &nbsp;&nbsp;&nbsp; └── correlation_matrix2.csv</code></pre>
-<p>CDMetaPOP can simulate very complex systems but you can get started with a very simple template. This platform and tutorial are meant to help you get acquainted with the basic functions without having to deal with changing too many parameters at once. It will help you build the basic files needed to run CDMetaPOP and give you some tips along the way.</p>
-<p>The basic files you need are:</p>
-<ol type="1">
-<li><p><strong>classVars.csv</strong>: defines parameters related to the individuals according to their ages.</p></li>
-<li><p><strong>patchVars.csv:</strong> defines the parameters related to your patches (sites).</p></li>
-<li><p><strong>popVars.csv:</strong> defines several parameters that relate to the population as a whole.</p></li>
-<li><p><strong>runVars.csv:</strong> defines the basic parameters of your simulation (for example how many Monte Carlo runs).</p></li>
-</ol>
+<p>Click on the links below to start the shinyApps that will help you define the parameters for your first run and make sure to save them in a data path following the suggestion above.</p>
+<p><strong>Remember to ALWAYS download your work from the PREVIEW TAB before closing the shinyApp</strong></p>
+<p><img src="images/DownloadPopvars.png" class="img-fluid" style="width:50.0%"></p>
+<ul>
+<li><strong>Start building a new classVars.csv</strong><br>
+<a href="https://computationalecologylab.shinyapps.io/runVars/" class="btn btn-primary" target="_blank">Open App</a></li>
+</ul>
+<!-- -->
+<ul>
+<li><strong>Start building a new patchVars.csv</strong><br>
+<a href="https://computationalecologylab.shinyapps.io/patchVars/" class="btn btn-primary" target="_blank">Open App</a></li>
+</ul>
+<!-- -->
+<ul>
+<li><strong>Start building a new popVars.csv</strong><br>
+<a href="https://computationalecologylab.shinyapps.io/popVars/" class="btn btn-primary" target="_blank">Open App</a></li>
+</ul>
+<!-- -->
+<ul>
+<li><strong>Start building a new runVars.csv</strong><br>
+<a href="https://computationalecologylab.shinyapps.io/runVars/" class="btn btn-primary" target="_blank">Open App</a></li>
+</ul>
 <p>Although it may be counterintuitive, it is suggested to start preparing your files in the order given, as the runVars.csv requires to define a popVars.csv, which in turn designates both patchVars.csv and classVars.csv files.</p>
-<p>Additional files can include distance matrices to guide individual movement and genetic files to initialize population genetic structure.</p>
+<p>Additional files can include distance matrices to guide individual movement, a correlation matrix to guide certain parameters at the patch level, and genetic files to initialize population genetic structure. But once you have the basic input files mentioned above you can start your basic simulations and get acquainted with the potential insights you can gain about your species in both space and time with CDMetaPOP.</p>
+<p>If the input files are ready, proceed to the next step:</p>
+<p><a href="./run_cdmetapop.html" class="btn btn-primary">➡️ Go to Run CDMetaPOP</a></p>
 <p>For more detailed instructions you can refer to CDMetaPOP manual and several publications:</p>
 <ol type="1">
-<li><p>Manual</p></li>
+<li><p><a href="files/cdmetapop2_usermanual.docx">Manual</a>.</p></li>
 <li><p>bla</p></li>
 <li><p>blabla</p></li>
 <li><p>blablabla</p></li>

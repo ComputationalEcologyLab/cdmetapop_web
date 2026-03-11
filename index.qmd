@@ -2,14 +2,14 @@
 title: "CDMetaPOP Tutorial"
 ---
 
-This is a tutorial to get started with CDMetaPOP using R.
+This is a tutorial to get started running CDMetaPOP simulations using its companion helper cdmetapopR.
 
 CDMetaPOP models genetic exchange for individuals across space as a function of individual-based movement through mating, migration and dispersal, vital dynamics (birth and death), density-dependent mortality, selection, and mutation. CDMetaPOP can be used for plant and animal applications in both aquatic and terrestrial environments.
 
+If you are ready to get started using cdmetapopR to run CDMetaPOP simulations, proceed to the next step:
+
+[➡️ Get started with cdmetapopR](introduction.qmd){.btn .btn-primary}
+
 To learn more about CDMetaPop visit our lab web page <https://www.cellab.org/> or the different tools available at: <https://github.com/ComputationalEcologyLab>.
 
-You can download the latest CDMetaPop manual here:
-
-```{r}
-1 + 1
-```
+You can download the latest CDMetaPop manual [here](files/cdmetapop2_usermanual.docx).
