@@ -4,7 +4,7 @@ title: "How to Start a Run with cdmetapopR"
 
 **CDMetaPOP and Python Installation**
 
-First downloaded the CDMetaPOP zip archive from GITHUB
+If you haven't already, make sure to download the CDMetaPOP zip archive from GITHUB
 
 [Download](https://www.github.com/ComputationalEcologyLab/CDMetaPOP/){.btn .btn-primary target="_blank"}
 
@@ -37,7 +37,7 @@ If 'python' is not a recognized command, it means either that python is installe
 
 In such case, please refer to more detailed instructions [here](https://github.com/ComputationalEcologyLab/CDMetaPOP?tab=readme-ov-file#requirements-and-pre-requisite-software).
 
-**Run CDMetaPOP**
+**Now let's begin to run CDMetaPOP**
 
 Once you have python and CDMetaPOP installed, you can run CDMetaPOP from R using the `launch_cdmetapop()` function.
 
@@ -73,3 +73,5 @@ runvarsDirectory = "/Users/comp_eco_lab/CDMetaPop/data/",
 runvarsFilename = "RunVarsEBT.csv", 
 outputDirectory = "test_")
 ```
+
+This will launch the command prompt or terminal and run CDMetaPOP. You will find the output files in the same directory as your runVars.csv file, in a new folder with the name you specified in the outputDirectory argument and its added time stamp.

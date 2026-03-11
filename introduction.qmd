@@ -4,7 +4,7 @@ title: "Introduction"
 
 Here you will find the basic instructions to start a simulation with cdmetapopR.
 
-Install cdmetapopR and its dependencies by following the instructions in the [README]Github page or CRAN??? 
+First, snstall cdmetapopR and its dependencies by following the instructions in the [README]Github page or CRAN??? 
 
 ``` R
 install.packages("cdmetapopR")
@@ -12,7 +12,7 @@ install.packages("cdmetapopR")
 ``` 
 CDMetaPOP can simulate very complex systems but you can get started with a very simple template. This platform and tutorial are meant to help you get acquainted with the basic functions without having to deal with changing too many parameters at once. It will help you build the basic files needed to run CDMetaPOP and give you some tips along the way.
 
-The basic files you need are:
+The basic files you need to run CDMetaPOP are:
 
 1.  **classVars.csv**: defines parameters related to the individuals according to their ages.
 
