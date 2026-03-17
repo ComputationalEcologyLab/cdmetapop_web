@@ -4,7 +4,7 @@ title: "Introduction"
 
 Here you will find the basic instructions to start a simulation with cdmetapopR.
 
-First, snstall cdmetapopR and its dependencies by following the instructions in the [README]Github page or CRAN??? 
+First, install cdmetapopR and its dependencies by following the instructions in the [README]Github page or CRAN??? 
 
 ``` R
 install.packages("cdmetapopR")
@@ -52,7 +52,7 @@ Click on the links below to start the shinyApps that will help you define the pa
 ![](images/DownloadPopvars.png){width="50%"}
 
 -   **Start building a new classVars.csv**\
-    [Open App](https://computationalecologylab.shinyapps.io/runVars/){.btn .btn-primary target="_blank"}
+    [Open App](https://computationalecologylab.shinyapps.io/classVars/){.btn .btn-primary target="_blank"}
 
 <!-- -->
 
