@@ -18,13 +18,13 @@ Next, navigate to the directory where you wish to install CDMetaPOP and unpack t
 
     1.  README.txt – a quick how to run CDMetaPOP instructions
 
-    2.  CDMetaPOP_user_manual.pdf
+    2.  CDMetaPOP3_usermanual.docx
 
-    3.  CDMetaPOP_history.txt – Notes on history and version changes
+    3.  CDmetaPOPhistory.txt – Notes on history and version changes
 
-3.  data – Example input files
+3.  example_files – Example input files
 
-Now, make sure to have Python 3.8+, NumPy, and SciPy installed, and you can test this by opening the terminal and typing “python”; If python is available, you will get the python prompt “\>\>\>” along with the python version you have installed, for example:
+Make sure to have Python 3.8+ along with the NumPy and SciPy packages installed. We recommend the Anaconda Python distribution, as it comes with these packages pre-installed. You can test for your Python install by opening a terminal (Linux/macOS) or command prompt (Windows) and typing “python”; If python is available, you will get the python prompt “\>\>\>” along with the python version you have installed, for example:
 
 ``` bash
 python
@@ -67,11 +67,11 @@ For example (**make sure to replace paths with yours**):
 library (cdmetapopR)
 
 launch_cdmetapop (
-pythonFilepath = "/opt/anaconda3/bin/python", 
-CDMetaPOPFilepath = "/Users/comp_eco_lab/CDMetaPop/src/CDMetaPOP.py", 
-runvarsDirectory = "/Users/comp_eco_lab/CDMetaPop/data/", 
+pythonFilepath = "/Users/anaconda3/bin/python", 
+CDMetaPOPFilepath = "/Users/CDMetaPop/src/CDMetaPOP.py", 
+runvarsDirectory = "/Users/CDMetaPop/data/", 
 runvarsFilename = "RunVarsEBT.csv", 
 outputDirectory = "test_")
 ```
 
-This will launch the command prompt or terminal and run CDMetaPOP. You will find the output files in the same directory as your runVars.csv file, in a new folder with the name you specified in the outputDirectory argument and its added time stamp.
+This will launch the command prompt or terminal and run CDMetaPOP. You will find the output files in the same directory as your runVars.csv file, in a new folder with the name you specified in the outputDirectory argument and its added timestamp.
