@@ -80,7 +80,7 @@ Once your input files are ready, proceed to the next step:
 
 For more detailed instructions you can refer to the CDMetaPOP user manual and several publications:
 
-1.  [Manual](files/cdmetapop2_usermanual.docx).
+1.  [Manual](https://github.com/ComputationalEcologyLab/CDMetaPOP/blob/16b17e654f853c0f2850199094f99404f199855e/doc/cdmetapop3_usermanual.docx).
 
 2.  bla
 
