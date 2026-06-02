@@ -28,6 +28,8 @@ jobs:
           packages: |
             any::dplyr
             any::ggplot2
+            any::knitr
+            any::rmarkdown
             github::ComputationalEcologyLab/cdmetapopR
 
       - name: Render site
