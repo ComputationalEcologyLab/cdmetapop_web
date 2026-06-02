@@ -21,7 +21,7 @@ website:
       #       href: input_files/runVars.qmd
       - text: "Run CDMetaPOP"
         href: run_cdmetapop.qmd
-      - text: "CDMetaPOP.R functions"
+      - text: "cdmetapopR functions vignette"
         href: functions.qmd
         menu:
           - text: "age_plus_one_plot"
