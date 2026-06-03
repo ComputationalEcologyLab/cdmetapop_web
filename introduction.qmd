@@ -82,8 +82,9 @@ For more detailed instructions you can refer to the CDMetaPOP user manual and se
 
 1.  [Manual](https://github.com/ComputationalEcologyLab/CDMetaPOP/blob/16b17e654f853c0f2850199094f99404f199855e/doc/cdmetapop3_usermanual.docx).
 
-2.  bla
+2.  Landguth EL, Bearlin A, Day C, Dunham J (2017) CDmetaPOP: an individual-based, eco-evolutionary model for spatially-explicit simulation of landscape demogenetics. Methods in Ecology and Evolution. 8, 4-11, doi: 10.1111/2041-210X.12608
 
-3.  blabla
+3.  Check out the multispecies version too:
+Day CC, Landguth EL, Simmons R, Bearlin A (2023) CDMetaPOP 2: a multispecies, eco-evolutionary simulation framework for landscape demogenetics and connectivity. Ecography https://doi.org/10.1111/ecog.06566
 
-4.  blablabla
+4. New disease model coming up soon - Stay tuned!
