@@ -4,7 +4,7 @@ title: "Introduction"
 
 Here you will find basic instructions to create input files and begin simulating with cdmetapopR.
 
-First, install cdmetapopR and its dependencies using install.packages() or by downloading the package from the Github page and installing from the archive file. 
+First, install cdmetapopR and its dependencies using install.packages() or by downloading the package from the Github page and installing from the archive file.
 
 ``` r
 install.packages("cdmetapopR")
@@ -52,23 +52,23 @@ Click on the links below to navigate to the shinyApps that will help you define 
 
 ![](images/DownloadPopvars.png){width="50%"}
 
--   **Start building a new classVars.csv**\
-    [Open App](https://kratos-shiny.umontana.net/cel-apps/cdmetapopR/classvars/){.btn .btn-primary target="_blank"}
+- **Start building a new classVars.csv**\
+  [Open App](https://kratos-shiny.umontana.net/cel-apps/cdmetapopR/classvars/){.btn .btn-primary target="_blank"}
 
 <!-- -->
 
--   **Start building a new patchVars.csv**\
-    [Open App](https://kratos-shiny.umontana.net/cel-apps/cdmetapopR/patchvars/{.btn .btn-primary target="_blank"}
+- **Start building a new patchVars.csv**\
+  [Open App](https://kratos-shiny.umontana.net/cel-apps/cdmetapopR/patchvars/){.btn .btn-primary target="_blank"}
 
 <!-- -->
 
--   **Start building a new popVars.csv**\
-    [Open App](https://kratos-shiny.umontana.net/cel-apps/cdmetapopR/popvars/){.btn .btn-primary target="_blank"}
+- **Start building a new popVars.csv**\
+  [Open App](https://kratos-shiny.umontana.net/cel-apps/cdmetapopR/popvars/){.btn .btn-primary target="_blank"}
 
 <!-- -->
 
--   **Start building a new runVars.csv**\
-    [Open App](https://kratos-shiny.umontana.net/cel-apps/cdmetapopR/runvars/){.btn .btn-primary target="_blank"}
+- **Start building a new runVars.csv**\
+  [Open App](https://kratos-shiny.umontana.net/cel-apps/cdmetapopR/runvars/){.btn .btn-primary target="_blank"}
 
 We suggest preparing your files in the order given (starting with classVars), as the runVars.csv requires defining the popVars.csv, which in turn requires defining the patchVars.csv, which requires defining the classVars.csv files. However, you may wish to start with the runVars.csv file, and filling in the file names later.
 
