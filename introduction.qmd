@@ -58,7 +58,7 @@ Click on the links below to navigate to the shinyApps that will help you define 
 <!-- -->
 
 -   **Start building a new patchVars.csv**\
-    [Open App]https://kratos-shiny.umontana.net/cel-apps/cdmetapopR/patchvars/{.btn .btn-primary target="_blank"}
+    [Open App](https://kratos-shiny.umontana.net/cel-apps/cdmetapopR/patchvars/{.btn .btn-primary target="_blank"}
 
 <!-- -->
 
