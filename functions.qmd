@@ -9,6 +9,9 @@ execute:
   echo: true
   warning: false
   message: false
+editor: 
+  markdown: 
+    wrap: 72
 ---
 
 ```{r setup, include=FALSE}
@@ -33,12 +36,12 @@ The examples use the package example output files in
 
 The example data include:
 
--   2 batches
--   2 Monte Carlo replicates per batch
--   `summary_popAllTime.csv`
--   `summary_classAllTime.csv`
--   `summary_popAllTime_DiseaseStates.csv`
--   `ind0.csv` through `ind9.csv`
+- 2 batches
+- 2 Monte Carlo replicates per batch
+- `summary_popAllTime.csv`
+- `summary_classAllTime.csv`
+- `summary_popAllTime_DiseaseStates.csv`
+- `ind0.csv` through `ind9.csv`
 
 ```{r example-paths}
 ex_dir <- system.file("extdata", "Example_dat", package = "cdmetapopR")
@@ -55,10 +58,10 @@ list.files(ex_dir)
 
 Most summary functions use the same filtering arguments:
 
--   `run = 0`
--   `batch = 0`
--   `mc = 0`
--   `species = 0`
+- `run = 0`
+- `batch = 0`
+- `mc = 0`
+- `species = 0`
 
 These defaults intentionally select one output folder. Use `"all"` or a
 range of values `c(0,1)` for any of these arguments to combine multiple
@@ -758,14 +761,4 @@ write_runvars(output_file = "my_new_runvars.csv")
 write_popvars(output_file = "my_new_popvars.csv")
 write_patchvars(output_file = "my_new_patchvars.csv")
 write_classvars(output_file = "my_new_classvars.csv")
-```
-
-# Deprecated Internal Compatibility Function
-
-`locus()` is exported for compatibility with older `gstudio` workflows.
-It is included in the package because the original function is
-deprecated elsewhere.
-
-```{r locus-example}
-locus(c("0", "1"), type = "snp")
 ```
