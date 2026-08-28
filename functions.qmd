@@ -457,14 +457,14 @@ summary_class(ex_dir, type = "age_plus_one", mc = "all")
 
 # Disease State Summaries
 
-`summarize_states()` works with `summary_popAllTime_DiseaseStates.csv`
+`summary_disease()` works with `summary_popAllTime_DiseaseStates.csv`
 files. It summarizes disease-state counts across Monte Carlo replicates
 and compares batches.
 
 ## Default State Names
 
 ```{r summarize-states-default}
-summarize_states(ex_dir)
+summary_disease(ex_dir)
 ```
 
 ## Custom State and Scenario Names
