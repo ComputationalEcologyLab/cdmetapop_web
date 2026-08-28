@@ -29,7 +29,7 @@ functions and the lower-level data-frame outputs that can be used for
 custom `ggplot2` figures.
 
 The examples use the package example output files in
-`inst/extdata/Adaptive_Run_08`.
+`inst/extdata/Example_dat`.
 
 The example data include:
 
@@ -41,7 +41,7 @@ The example data include:
 -   `ind0.csv` through `ind9.csv`
 
 ```{r example-paths}
-ex_dir <- system.file("extdata", "Adaptive_Run_08", package = "cdmetapopR")
+ex_dir <- system.file("extdata", "Example_dat", package = "cdmetapopR")
 
 pop_file <- file.path(ex_dir, "run0batch0mc0species0", "summary_popAllTime.csv")
 class_file <- file.path(ex_dir, "run0batch0mc0species0", "summary_classAllTime.csv")
