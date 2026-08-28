@@ -470,7 +470,7 @@ summary_disease(ex_dir)
 ## Custom State and Scenario Names
 
 ```{r summarize-states-custom}
-summarize_states(
+summary_disease(
   ex_dir,
   state_names = c("State 1", "State 2", "State 3"),
   scenario_names = c("Batch 0", "Batch 1")
@@ -483,7 +483,7 @@ Use `cumulative_states` for a state that should be plotted as a running
 total within each Monte Carlo replicate.
 
 ```{r summarize-states-cumulative}
-summarize_states(
+summary_disease(
   ex_dir,
   state_names = c("State 1", "State 2", "State 3"),
   scenario_names = c("Batch 0", "Batch 1"),
