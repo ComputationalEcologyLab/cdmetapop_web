@@ -23,25 +23,21 @@ library(ggplot2)
 
 # Overview
 
-This vignette shows how to use `cdmetapopR` to read, reshape, summarize,
-and plot CDMetaPOP outputs. The goal is to show both quick plotting
-functions and the lower-level data-frame outputs that can be used for
-custom `ggplot2` figures.
+This vignette shows how to use `cdmetapopR` to read, reshape, summarize, and plot CDMetaPOP outputs. The goal is to show both quick plotting functions and the lower-level data-frame outputs that can be used for custom `ggplot2` figures.
 
-The examples use the package example output files in
-`inst/extdata/Adaptive_Run_08`.
+The examples use the package example output files in `inst/extdata/Example_dat`.
 
 The example data include:
 
--   2 batches
--   2 Monte Carlo replicates per batch
--   `summary_popAllTime.csv`
--   `summary_classAllTime.csv`
--   `summary_popAllTime_DiseaseStates.csv`
--   `ind0.csv` through `ind9.csv`
+- 2 batches
+- 2 Monte Carlo replicates per batch
+- `summary_popAllTime.csv`
+- `summary_classAllTime.csv`
+- `summary_popAllTime_DiseaseStates.csv`
+- `ind0.csv` through `ind9.csv`
 
 ```{r example-paths}
-ex_dir <- system.file("extdata", "Adaptive_Run_08", package = "cdmetapopR")
+ex_dir <- system.file("extdata", "Example_dat", package = "cdmetapopR")
 
 pop_file <- file.path(ex_dir, "run0batch0mc0species0", "summary_popAllTime.csv")
 class_file <- file.path(ex_dir, "run0batch0mc0species0", "summary_classAllTime.csv")
@@ -55,19 +51,12 @@ list.files(ex_dir)
 
 Most summary functions use the same filtering arguments:
 
--   `run = 0`
--   `batch = 0`
--   `mc = 0`
--   `species = 0`
+- `run = 0`
+- `batch = 0`
+- `mc = 0`
+- `species = 0`
 
-These defaults intentionally select one output folder. Use `"all"` or a
-range of values `c(0,1)` for any of these arguments to combine multiple
-folders. The example directory includes two batches with two MCs each.
-Each of these files contains ten ind#.csvs, containing information from
-each year of the simulation. Additionally, each file has a
-summary_popAllTime.csv, summary_classAllTime.csv, and a
-summary_popAllTime_DiseaseStates.csv that summarizes information across
-the years of the simulation.
+These defaults intentionally select one output folder. Use `"all"` or a range of values `c(0,1)` for any of these arguments to combine multiple folders. The example directory includes two batches with two MCs each. Each of these files contains ten ind#.csvs, containing information from each year of the simulation. Additionally, each file has a summary_popAllTime.csv, summary_classAllTime.csv, and a summary_popAllTime_DiseaseStates.csv that summarizes information across the years of the simulation.
 
 ```{r filter-examples}
 one_mc <- summary_dataframe(ex_dir, type = "ind", years = 9, mc = 0)
@@ -81,17 +70,13 @@ c(
 )
 ```
 
-For individual files, `years` narrows the selected `ind##.csv` files.
-For summary files, years are filtered after reading by using ordinary
-data-frame operations.
+For individual files, `years` narrows the selected `ind##.csv` files. For summary files, years are filtered after reading by using ordinary data-frame operations.
 
 # Conversion Helpers
 
 ## `create_cdmat()`
 
-Use `create_cdmat()` to create a cost distance matrix from patch
-coordinates. The simplest options are Euclidean distance and equal
-distance.
+Use `create_cdmat()` to create a cost distance matrix from patch coordinates. The simplest options are Euclidean distance and equal distance.
 
 ```{r create-cdmat}
 coords <- data.frame(
@@ -105,9 +90,7 @@ create_cdmat(coords, method = "equal")
 
 ## `cdmetapop_to_gene()`
 
-Use `cdmetapop_to_gene()` to convert an `ind##.csv` file to GENEPOP or
-GENALEX format. The function writes the converted file to the current
-working directory, so this example uses a temporary directory.
+Use `cdmetapop_to_gene()` to convert an `ind##.csv` file to GENEPOP or GENALEX format. The function writes the converted file to the current working directory, so this example uses a temporary directory.
 
 ```{r cdmetapop-to-gene}
 old_wd <- getwd()
@@ -121,23 +104,14 @@ setwd(old_wd)
 
 # Output Data Frames
 
-`summary_dataframe()` returns CDMetaPOP output files as data frames for
-custom plotting or analysis. Use `type` to choose the file family and
-`run`, `batch`, `mc`, and `species` to choose which output folders to
-include. For `type = "pop"` and `type = "class"`, pipe-delimited summary
-columns are split into one row per patch or class (depending on type) by
-default while keeping metrics in separate columns.
+`summary_dataframe()` returns CDMetaPOP output files as data frames for custom plotting or analysis. Use `type` to choose the file family and `run`, `batch`, `mc`, and `species` to choose which output folders to include. For `type = "pop"` and `type = "class"`, pipe-delimited summary columns are split into one row per patch or class (depending on type) by default while keeping metrics in separate columns.
 
 ```{r summary-dataframe-pop}
 pop_df <- summary_dataframe(ex_dir, type = "pop", batch = 0, mc = 0)
 head(pop_df[, c("Year", ".batch", ".mc", "PatchID", "GrowthRate", "K", "N_Initial")])
 ```
 
-In the default long format, metrics remain in separate columns, but each
-pipe-delimited value is split into its own row. `PatchID` gives the
-position of the value inside the original `|`-delimited cell. For many
-`summary_popAllTime` columns, `PatchID == 0` is the total across patches
-(such as N_initial) and later Patch IDs are actual patch-level values.
+In the default long format, metrics remain in separate columns, but each pipe-delimited value is split into its own row. `PatchID` gives the position of the value inside the original `|`-delimited cell. For many `summary_popAllTime` columns, `PatchID == 0` is the total across patches (such as N_initial) and later Patch IDs are actual patch-level values.
 
 ```{r summary-dataframe-pop-total-plot}
 pop_totals <- pop_df %>%
@@ -185,8 +159,7 @@ ggplot(pop_mc, aes(x = Year, y = Births, color = factor(.mc), group = .mc)) +
   theme_minimal()
 ```
 
-Use `summary_format = "wide"` if you need the original summary columns
-instead.
+Use `summary_format = "wide"` if you need the original summary columns instead.
 
 ```{r summary-dataframe-pop-wide}
 pop_wide_df <- summary_dataframe(ex_dir, type = "pop", batch = 0, mc = 0, summary_format = "wide")
@@ -198,8 +171,7 @@ class_df <- summary_dataframe(ex_dir, type = "class", batch = 0, mc = 0)
 head(class_df[, c("Year", ".batch", ".mc", "ClassID", "Ages", "N_Initial_Age")])
 ```
 
-Class summaries are useful when the class ID positions correspond to age
-or size classes.
+Class summaries are useful when the class ID positions correspond to age or size classes.
 
 ```{r summary-dataframe-class-age-plot}
 class_selected_years <- class_df %>%
@@ -216,8 +188,7 @@ ggplot(class_selected_years, aes(x = Ages, y = N_Initial_Age, fill = factor(Year
   theme_minimal()
 ```
 
-Disease-state files are returned in tidy long format by default, with
-one row per year, source, and disease state.
+Disease-state files are returned in tidy long format by default, with one row per year, source, and disease state.
 
 ```{r summary-dataframe-disease}
 disease_df <- summary_dataframe(
@@ -271,8 +242,7 @@ ggplot(ind_year9, aes(x = age, fill = factor(.mc))) +
   theme_minimal()
 ```
 
-You may also examine sizes of individuals, however this does not vary in
-our example files:
+You may also examine sizes of individuals, however this does not vary in our example files:
 
 ```{r summary-dataframe-ind-custom-patch-boxplot}
 top_patches <- ind_year9 %>%
@@ -317,17 +287,11 @@ ggplot(patch_counts, aes(x = XCOORD, y = YCOORD, size = n, color = factor(.mc)))
 
 # Population Summary Plots
 
-If users prefer to view figures that can be made directly from CDMetaPOP
-outputs, they can use the following summary_pop() functions.
+If users prefer to view figures that can be made directly from CDMetaPOP outputs, they can use the following summary_pop() functions.
 
-`summary_pop()` works with `summary_popAllTime.csv` files. The input can
-be a single file, a vector of files, a data frame, or a directory
-containing CDMetaPOP output folders.
+`summary_pop()` works with `summary_popAllTime.csv` files. The input can be a single file, a vector of files, a data frame, or a directory containing CDMetaPOP output folders.
 
-When a directory is supplied, `summary_pop()` discovers the matching
-output folders. By default it uses `run = 0`, `batch = 0`, `mc = 0`, and
-`species = 0`; use `"all"` for any of those arguments to include
-multiple runs, batches, Monte Carlo replicates, or species.
+When a directory is supplied, `summary_pop()` discovers the matching output folders. By default it uses `run = 0`, `batch = 0`, `mc = 0`, and `species = 0`; use `"all"` for any of those arguments to include multiple runs, batches, Monte Carlo replicates, or species.
 
 ## Initial Population Size
 
@@ -335,9 +299,7 @@ multiple runs, batches, Monte Carlo replicates, or species.
 summary_pop(ex_dir, type = "N_initial")
 ```
 
-Include multiple Monte Carlo replicates by setting `mc = "all"`. With
-multiple source files, the default behavior can show individual MC
-trajectories and a summary band.
+Include multiple Monte Carlo replicates by setting `mc = "all"`. With multiple source files, the default behavior can show individual MC trajectories and a summary band.
 
 ```{r summary-pop-n-initial-all-mc}
 summary_pop(ex_dir, type = "N_initial", mc = "all")
@@ -357,8 +319,7 @@ By default, `type = "sex"` shows males and females only.
 summary_pop(ex_dir, type = "sex")
 ```
 
-Use `include_yys = TRUE` to include YY males and YY females. This may be
-relevant for fisheries research.
+Use `include_yys = TRUE` to include YY males and YY females. This may be relevant for fisheries research.
 
 ```{r summary-pop-sex-yys}
 summary_pop(ex_dir, type = "sex", include_yys = TRUE)
@@ -379,15 +340,13 @@ summary_pop(
 
 ## Mature Counts
 
-By default, `type = "mature"` shows mature males and mature females
-only.
+By default, `type = "mature"` shows mature males and mature females only.
 
 ```{r summary-pop-mature}
 summary_pop(ex_dir, type = "mature")
 ```
 
-Use `include_yys = TRUE` to include mature YY males and mature YY
-females.
+Use `include_yys = TRUE` to include mature YY males and mature YY females.
 
 ```{r summary-pop-mature-yys}
 summary_pop(ex_dir, type = "mature", include_yys = TRUE)
@@ -417,8 +376,7 @@ summary_pop(ex_dir, type = "patch", years = c(0, 5, 9))
 
 ## Allelic Richness and Heterozygosity from `summary_popAllTime.csv`
 
-These options summarize genetic metrics stored in the population summary
-file.
+These options summarize genetic metrics stored in the population summary file.
 
 ```{r summary-pop-allelic-richness}
 summary_pop(ex_dir, type = "allelic_richness", mc = "all")
@@ -438,8 +396,7 @@ summary_pop(ex_dir, type = "het", mc = "all")
 summary_class(ex_dir, type = "age_class", n = 10)
 ```
 
-Use a smaller `n` to facet more years. This can be useful for short
-example runs or simulations with relatively few generations.
+Use a smaller `n` to facet more years. This can be useful for short example runs or simulations with relatively few generations.
 
 ```{r summary-class-age-class-n5}
 summary_class(ex_dir, type = "age_class", n = 5)
@@ -457,20 +414,18 @@ summary_class(ex_dir, type = "age_plus_one", mc = "all")
 
 # Disease State Summaries
 
-`summarize_states()` works with `summary_popAllTime_DiseaseStates.csv`
-files. It summarizes disease-state counts across Monte Carlo replicates
-and compares batches.
+`summary_disease()` works with `summary_popAllTime_DiseaseStates.csv` files. It summarizes disease-state counts across Monte Carlo replicates and compares batches.
 
 ## Default State Names
 
 ```{r summarize-states-default}
-summarize_states(ex_dir)
+summary_disease(ex_dir)
 ```
 
 ## Custom State and Scenario Names
 
 ```{r summarize-states-custom}
-summarize_states(
+summary_disease(
   ex_dir,
   state_names = c("State 1", "State 2", "State 3"),
   scenario_names = c("Batch 0", "Batch 1")
@@ -479,11 +434,10 @@ summarize_states(
 
 ## Cumulative State
 
-Use `cumulative_states` for a state that should be plotted as a running
-total within each Monte Carlo replicate.
+Use `cumulative_states` for a state that should be plotted as a running total within each Monte Carlo replicate.
 
 ```{r summarize-states-cumulative}
-summarize_states(
+summary_disease(
   ex_dir,
   state_names = c("State 1", "State 2", "State 3"),
   scenario_names = c("Batch 0", "Batch 1"),
@@ -493,12 +447,9 @@ summarize_states(
 
 # Individual File Summaries
 
-`summary_ind()` works with `ind##.csv` files. The input can be one file,
-multiple files, a run folder, a top-level output directory, or a data
-frame.
+`summary_ind()` works with `ind##.csv` files. The input can be one file, multiple files, a run folder, a top-level output directory, or a data frame.
 
-For one-year plots, specify `year`. For movement over time, specify
-`years`.
+For one-year plots, specify `year`. For movement over time, specify `years`.
 
 ## Age Histogram
 
@@ -536,8 +487,7 @@ summary_ind(ex_dir, type = "hindex", year = 9, batch = 0, mc = 0)
 
 ## Movement Distance Histogram
 
-`CDist = -9999` is treated as no movement and is excluded from the
-histogram.
+`CDist = -9999` is treated as no movement and is excluded from the histogram.
 
 ```{r summary-ind-cdist}
 summary_ind(ex_dir, type = "cdist", year = 9, batch = 0, mc = 0)
@@ -553,10 +503,7 @@ summary_ind(ex_dir, type = "movement", years = 0:9, batch = 0, mc = 0)
 summary_ind(ex_dir, type = "movement", years = 0:9, batch = 0, mc = "all")
 ```
 
-If CDMetaPOP output includes sampled individual files, use
-`file_type = "ind_Sample"` to read `ind##_Sample.csv` files instead of
-`ind##.csv` files. The bundled example data use `ind##.csv`, so this
-example is shown but not evaluated.
+If CDMetaPOP output includes sampled individual files, use `file_type = "ind_Sample"` to read `ind##_Sample.csv` files instead of `ind##.csv` files. The bundled example data use `ind##.csv`, so this example is shown but not evaluated.
 
 ```{r summary-ind-sample-example}
 #| eval: false
@@ -565,8 +512,7 @@ summary_ind(ex_dir, type = "age", year = 9, file_type = "ind_Sample")
 
 # Individual-Level Genetics
 
-The individual-level genetics functions use genotype columns named like
-`L0A0`, `L0A1`, `L1A0`, and so on.
+The individual-level genetics functions use genotype columns named like `L0A0`, `L0A1`, `L1A0`, and so on.
 
 ## Allele Frequencies by Patch
 
@@ -594,8 +540,7 @@ allele_frequencies_ind(
 )
 ```
 
-Jittering of points on top of the boxplots can be turned off by adding
-the argument jitter = FALSE.
+Jittering of points on top of the boxplots can be turned off by adding the argument jitter = FALSE.
 
 ## Heterozygosity by Patch
 
@@ -626,8 +571,7 @@ pairwise_fst_ind(ex_dir, year = 9, batch = 0, mc = 0, loci = "L0")
 
 # Patch Maps from Individual Files
 
-`summary_patch_map()` maps patch locations from the individual files.
-Point size reflects the number of individuals in each patch.
+`summary_patch_map()` maps patch locations from the individual files. Point size reflects the number of individuals in each patch.
 
 ## All Individuals
 
@@ -641,8 +585,7 @@ summary_patch_map(
 )
 ```
 
-If patch counts vary widely, use `log_scale = TRUE` for abundance point
-sizes.
+If patch counts vary widely, use `log_scale = TRUE` for abundance point sizes.
 
 ```{r summary-patch-map-log}
 summary_patch_map(
@@ -687,8 +630,7 @@ summary_patch_map(
 
 ## Allele Frequency Map
 
-Patch maps can also show genetic summaries from individual files. For
-allele frequency maps, specify one `locus` and one `allele`.
+Patch maps can also show genetic summaries from individual files. For allele frequency maps, specify one `locus` and one `allele`.
 
 ```{r summary-patch-map-allele-frequency}
 summary_patch_map(
@@ -733,9 +675,7 @@ age_structure_proportions(
 
 # Interactive and External-Run Functions
 
-The following functions are exported, but they launch external software
-or interactive Shiny apps. They are shown here as code examples but are
-not run while knitting this document.
+The following functions are exported, but they launch external software or interactive Shiny apps. They are shown here as code examples but are not run while knitting this document.
 
 ## `launch_cdmetapop()`
 
@@ -762,10 +702,4 @@ write_classvars(output_file = "my_new_classvars.csv")
 
 # Deprecated Internal Compatibility Function
 
-`locus()` is exported for compatibility with older `gstudio` workflows.
-It is included in the package because the original function is
-deprecated elsewhere.
-
-```{r locus-example}
-locus(c("0", "1"), type = "snp")
-```
+The `locus()` function was previously exported for compatibility with older `gstudio` workflows. This function is no longer available in the current version of cdmetapopR.

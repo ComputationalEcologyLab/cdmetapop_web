@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>CDMetaPOP Tutorial – CDMetaPOP</title>
+<title>CDMetaPOP</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -94,17 +94,49 @@ ul.task-list li input[type="checkbox"] {
     <a class="nav-link active" href="./index.html" aria-current="page"> 
 <span class="menu-text">Home</span></a>
   </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./introduction.html"> 
-<span class="menu-text">Introduction</span></a>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-tutorials" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Tutorials</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-tutorials">    
+        <li><hr class="dropdown-divider"></li>
+        <li>
+    <a class="dropdown-item" href="./install.html">
+ <span class="dropdown-text">Install CDMetaPOP</span></a>
   </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./run_cdmetapop.html"> 
-<span class="menu-text">Run CDMetaPOP</span></a>
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Python</li>
+        <li>
+    <a class="dropdown-item" href="./python/python_tutorial.html">
+ <span class="dropdown-text">Python Tutorial</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="./python/python_introduction.html">
+ <span class="dropdown-text">Python Introduction</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./python/python_vignette.html">
+ <span class="dropdown-text">Python Vignette</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">R (cdmetapopR)</li>
+        <li>
+    <a class="dropdown-item" href="./introduction.html">
+ <span class="dropdown-text">Introduction</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./wrapper.html">
+ <span class="dropdown-text">Wrapper</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./functions.html">
+ <span class="dropdown-text">Functions Vignette</span></a>
+  </li>  
+    </ul>
+  </li>
   <li class="nav-item">
-    <a class="nav-link" href="./functions.html"> 
-<span class="menu-text">cdmetapopR functions vignette</span></a>
+    <a class="nav-link" href="./about.html"> 
+<span class="menu-text">Publications</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -117,39 +149,69 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#what-is-cdmetapop" id="toc-what-is-cdmetapop" class="nav-link active" data-scroll-target="#what-is-cdmetapop">What is CDMetaPOP?</a></li>
+  <li><a href="#what-can-cdmetapop-do" id="toc-what-can-cdmetapop-do" class="nav-link" data-scroll-target="#what-can-cdmetapop-do">What can CDMetaPOP do?</a></li>
+  <li><a href="#how-does-cdmetapop-work" id="toc-how-does-cdmetapop-work" class="nav-link" data-scroll-target="#how-does-cdmetapop-work">How does CDMetaPOP work?</a>
+  <ul class="collapse">
+  <li><a href="#real-world-applications" id="toc-real-world-applications" class="nav-link" data-scroll-target="#real-world-applications">Real-World Applications</a></li>
+  <li><a href="#get-started" id="toc-get-started" class="nav-link" data-scroll-target="#get-started">Get Started</a></li>
+  <li><a href="#learn-more" id="toc-learn-more" class="nav-link" data-scroll-target="#learn-more">Learn More</a></li>
+  <li><a href="#our-research" id="toc-our-research" class="nav-link" data-scroll-target="#our-research">Our Research</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">CDMetaPOP Tutorial</h1>
-</div>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
 
 
 
-<div class="quarto-title-meta">
 
-    
-  
-    
-  </div>
-  
+<section id="what-is-cdmetapop" class="level1">
+<h1>What is CDMetaPOP?</h1>
+<p>CDMetaPOP is an individual-based, spatially explicit, stochastic simulation model for studying how demography, movement, genetics, environment, and disease interact to shape populations over time. CDMetaPOP can be used for plant and animal applications in both aquatic and terrestrial environments.</p>
+<p>CDMetaPOP simulates with an individual based modeling (IBM) approach, as it allows to track every individual, capturing real-world complexity with the potential of revealing emergent patterns from simple individual decisions to more complex interactions.</p>
+</section>
+<section id="what-can-cdmetapop-do" class="level1">
+<h1>What can CDMetaPOP do?</h1>
+<p>This individual-based approach means CDMetaPOP can simulate scenarios differently from the traditional statistical population models. With CDMetaPOP is possible to simulate how individuals spread genes or diseases across populations, time, and space.</p>
+<p>CDMetaPOP can help researchers, managers, and decision-makers understand how populations of plants and animals change over time across landscapes. It models how genes flow between individuals as they move, reproduce, and interact with their environment.</p>
+<p>With CDMetaPOP, given plausible and realistic inputs, is possible to predict future outcomes under different scenarios, test management strategies, understand genetic diversity and use simulation results to guide management actions.</p>
+</section>
+<section id="how-does-cdmetapop-work" class="level1">
+<h1>How does CDMetaPOP work?</h1>
+<p>CDMetaPOP simulates movement across a landscape, where organisms move between habitats, reproduce and pass on their genes, grow and survive, get selected, and interact with pathogens.</p>
+<p>By tracking each individual’s characteristics over time, CDMetaPOP can reveal patterns that are not possible to infer with traditional population models.</p>
+<section id="real-world-applications" class="level2">
+<h2 class="anchored" data-anchor-id="real-world-applications">Real-World Applications</h2>
+<p>CDMetaPOP is used to study disease ecology, epidemiology, invasive species, climate change adaptations, habitat restorations, species recovery programs, etc.</p>
+</section>
+<section id="get-started" class="level2">
+<h2 class="anchored" data-anchor-id="get-started">Get Started</h2>
+<p><a href="./install.html" class="btn btn-primary">➡️ Installation Guide</a></p>
+<p>Or jump straight to the tutorials:</p>
+<ul>
+<li><a href="./python/python_tutorial.html">Python Tutorial</a> - For Python users</li>
+<li><a href="./introduction.html">R Tutorial (cdmetapopR)</a> - For R users</li>
+</ul>
+</section>
+<section id="learn-more" class="level2">
+<h2 class="anchored" data-anchor-id="learn-more">Learn More</h2>
+<p>Visit our <a href="https://www.cellab.org/">lab website</a> for more information about our computational ecology tools, or explore our other software including <a href="https://github.com/ComputationalEcologyLab">CDPOP</a> and <a href="https://github.com/ComputationalEcologyLab">UNICOR</a>.</p>
+<p>Download the complete <a href="files/cdmetapop2_usermanual.docx">CDMetaPOP User Manual</a> for detailed documentation.</p>
+</section>
+<section id="our-research" class="level2">
+<h2 class="anchored" data-anchor-id="our-research">Our Research</h2>
+<p>See how CDMetaPOP has been used in published research across many fields in our <a href="./about.html">Publications</a> section.</p>
 
 
-</header>
-
-
-<p>This is a tutorial to get started running CDMetaPOP simulations using its companion helper cdmetapopR or the CDMetaPOP shiny apps.</p>
-<p>CDMetaPOP models genetic exchange for individuals across space as a function of individual-based movement through mating, migration and dispersal, vital dynamics (birth and death), density-dependent mortality, selection, and mutation. CDMetaPOP can be used for plant and animal applications in both aquatic and terrestrial environments.</p>
-<p>If you are ready to get started using cdmetapopR to run CDMetaPOP simulations, proceed to Introduction tab:</p>
-<p><a href="./introduction.html" class="btn btn-primary">➡️ Get started with cdmetapopR</a></p>
-<p>To learn more about CDMetaPop visit our lab web page <a href="https://www.cellab.org/" class="uri">https://www.cellab.org/</a> or view additional software tools (CDPOP, UNICOR) available at: <a href="https://github.com/ComputationalEcologyLab" class="uri">https://github.com/ComputationalEcologyLab</a>.</p>
-<p>You can download the latest CDMetaPop manual <a href="files/cdmetapop2_usermanual.docx">here</a>.</p>
-
-
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

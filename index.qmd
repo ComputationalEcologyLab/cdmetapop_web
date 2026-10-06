@@ -1,15 +1,42 @@
----
-title: "CDMetaPOP Tutorial"
----
+# What is CDMetaPOP?
 
-This is a tutorial to get started running CDMetaPOP simulations using its companion helper cdmetapopR or the CDMetaPOP shiny apps.
+CDMetaPOP is an individual-based, spatially explicit, stochastic simulation model for studying how demography, movement, genetics, environment, and disease interact to shape populations over time. CDMetaPOP can be used for plant and animal applications in both aquatic and terrestrial environments.
 
-CDMetaPOP models genetic exchange for individuals across space as a function of individual-based movement through mating, migration and dispersal, vital dynamics (birth and death), density-dependent mortality, selection, and mutation. CDMetaPOP can be used for plant and animal applications in both aquatic and terrestrial environments.
+CDMetaPOP simulates with an individual based modeling (IBM) approach, as it allows to track every individual, capturing real-world complexity with the potential of revealing emergent patterns from simple individual decisions to more complex interactions. 
 
-If you are ready to get started using cdmetapopR to run CDMetaPOP simulations, proceed to Introduction tab:
+# What can CDMetaPOP do? 
 
-[➡️ Get started with cdmetapopR](introduction.qmd){.btn .btn-primary}
+This individual-based approach means CDMetaPOP can simulate scenarios differently from the traditional statistical population models.  With CDMetaPOP is possible to simulate how individuals spread genes or diseases across populations, time, and space.
 
-To learn more about CDMetaPop visit our lab web page <https://www.cellab.org/> or view additional software tools (CDPOP, UNICOR) available at: <https://github.com/ComputationalEcologyLab>.
+CDMetaPOP can help researchers, managers, and decision-makers understand how populations of plants and animals change over time across landscapes. It models how genes flow between individuals as they move, reproduce, and interact with their environment.
 
-You can download the latest CDMetaPop manual [here](files/cdmetapop2_usermanual.docx).
+With CDMetaPOP, given plausible and realistic inputs, is possible to predict future outcomes under different scenarios, test management strategies, understand genetic diversity and use simulation results to guide management actions. 
+
+# How does CDMetaPOP work? 
+
+CDMetaPOP simulates movement across a landscape, where organisms move between habitats, reproduce and pass on their genes, grow and survive, get selected, and interact with pathogens. 
+
+By tracking each individual's characteristics over time, CDMetaPOP can reveal patterns that are not possible to infer with traditional population models.
+
+## Real-World Applications
+
+CDMetaPOP is used to study disease ecology, epidemiology, invasive species, climate change adaptations, habitat restorations, species recovery programs, etc.
+
+## Get Started
+
+[➡️ Installation Guide](install.qmd){.btn .btn-primary}
+
+Or jump straight to the tutorials:
+
+- [Python Tutorial](python/python_tutorial.qmd) - For Python users
+- [R Tutorial (cdmetapopR)](introduction.qmd) - For R users
+
+## Learn More
+
+Visit our [lab website](https://www.cellab.org/) for more information about our computational ecology tools, or explore our other software including [CDPOP](https://github.com/ComputationalEcologyLab) and [UNICOR](https://github.com/ComputationalEcologyLab).
+
+Download the complete [CDMetaPOP User Manual](files/cdmetapop2_usermanual.docx) for detailed documentation.
+
+## Our Research
+
+See how CDMetaPOP has been used in published research across many fields in our [Publications](about.qmd) section.
