@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>How to write a runVars.csv – CDMetaPOP</title>
+<title>cdmetapopr_tutorial – CDMetaPOP</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -150,39 +150,90 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#introduction-to-cdmetapopr" id="toc-introduction-to-cdmetapopr" class="nav-link active" data-scroll-target="#introduction-to-cdmetapopr">Introduction to cdmetapopR</a>
+  <ul class="collapse">
+  <li><a href="#two-approaches-for-building-input-files" id="toc-two-approaches-for-building-input-files" class="nav-link" data-scroll-target="#two-approaches-for-building-input-files">Two Approaches for Building Input Files</a>
+  <ul class="collapse">
+  <li><a href="#shiny-apps-recommended-for-new-users" id="toc-shiny-apps-recommended-for-new-users" class="nav-link" data-scroll-target="#shiny-apps-recommended-for-new-users">1. Shiny Apps (Recommended for New Users)</a></li>
+  <li><a href="#wrapper-functions-for-r-users" id="toc-wrapper-functions-for-r-users" class="nav-link" data-scroll-target="#wrapper-functions-for-r-users">2. Wrapper Functions (For R Users)</a></li>
+  </ul></li>
+  <li><a href="#which-approach-should-you-choose" id="toc-which-approach-should-you-choose" class="nav-link" data-scroll-target="#which-approach-should-you-choose">Which Approach Should You Choose?</a></li>
+  <li><a href="#next-steps" id="toc-next-steps" class="nav-link" data-scroll-target="#next-steps">Next Steps</a></li>
+  <li><a href="#additional-resources" id="toc-additional-resources" class="nav-link" data-scroll-target="#additional-resources">Additional Resources</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">How to write a runVars.csv</h1>
-</div>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
 
 
 
-<div class="quarto-title-meta">
 
-    
-  
-    
-  </div>
-  
-
-
-</header>
-
-
-<p>The parameters defined in a runVars.csv apply to all species. Click on the link below to start the shinyApp that will help you define the parameters for your run.</p>
-<p><strong>Remember to download your work from the PREVIEW TAB before closing the shinyApp</strong></p>
+<section id="introduction-to-cdmetapopr" class="level1">
+<h1>Introduction to cdmetapopR</h1>
+<p>cdmetapopR is an R package that provides an interface for running CDMetaPOP simulations and analyzing their outputs. This package offers two main approaches for building the input files needed to run CDMetaPOP simulations.</p>
+<section id="two-approaches-for-building-input-files" class="level2">
+<h2 class="anchored" data-anchor-id="two-approaches-for-building-input-files">Two Approaches for Building Input Files</h2>
+<p>When using cdmetapopR, you have two options for creating the input files required for CDMetaPOP simulations:</p>
+<section id="shiny-apps-recommended-for-new-users" class="level3">
+<h3 class="anchored" data-anchor-id="shiny-apps-recommended-for-new-users">1. Shiny Apps (Recommended for New Users)</h3>
+<p>The Shiny apps provide an interactive, user-friendly interface for building input files. This approach is ideal if you:</p>
 <ul>
-<li><strong>Start building a new runVars.csv</strong><br>
-<a href="https://computationalecologylab.shinyapps.io/runVars/" class="btn btn-primary" target="_blank">Open App</a></li>
+<li>Are new to CDMetaPOP or R programming</li>
+<li>Prefer a visual, guided interface</li>
+<li>Want step-by-step assistance with parameter selection</li>
+<li>Need help understanding what each parameter does</li>
+</ul>
+<p>The Shiny apps offer more guidance and built-in explanations, making it easier to get started and ensure your input files are correctly formatted.</p>
+<p><a href="../cdmetapopr/cdmetapopr_shinyApps.html" class="btn btn-primary">➡️ Learn about Shiny Apps</a></p>
+</section>
+<section id="wrapper-functions-for-r-users" class="level3">
+<h3 class="anchored" data-anchor-id="wrapper-functions-for-r-users">2. Wrapper Functions (For R Users)</h3>
+<p>The wrapper functions allow you to create input files programmatically using R code. This approach is ideal if you:</p>
+<ul>
+<li>Are comfortable with R programming</li>
+<li>Need to create multiple simulation scenarios programmatically</li>
+<li>Want to integrate input file creation into automated workflows</li>
+<li>Prefer working with code rather than a graphical interface</li>
+</ul>
+<p>The wrapper functions give you more flexibility and control, allowing you to parameterize and automate input file generation.</p>
+<p><a href="../cdmetapopr/cdmetapopr_wrapper.html" class="btn btn-primary">➡️ Learn about Wrapper Functions</a></p>
+</section>
+</section>
+<section id="which-approach-should-you-choose" class="level2">
+<h2 class="anchored" data-anchor-id="which-approach-should-you-choose">Which Approach Should You Choose?</h2>
+<p><strong>Choose Shiny Apps if:</strong> - You’re just getting started with CDMetaPOP - You want guidance on parameter selection - You prefer a visual interface - You need to build a single simulation setup</p>
+<p><strong>Choose Wrapper Functions if:</strong> - You’re experienced with R - You need to create many similar simulation setups - You want to automate the process - You need programmatic control over parameters</p>
+</section>
+<section id="next-steps" class="level2">
+<h2 class="anchored" data-anchor-id="next-steps">Next Steps</h2>
+<p>After creating your input files using either approach, you’ll need to:</p>
+<ol type="1">
+<li>Run the CDMetaPOP simulation</li>
+<li>Analyze the outputs</li>
+</ol>
+<p>Learn about analyzing CDMetaPOP outputs with cdmetapopR:</p>
+<p><a href="../cdmetapopr/cdmetapopr_output_vignette.html" class="btn btn-primary">➡️ Output Analysis Tutorial</a></p>
+</section>
+<section id="additional-resources" class="level2">
+<h2 class="anchored" data-anchor-id="additional-resources">Additional Resources</h2>
+<p>For more detailed instructions, you can refer to the:</p>
+<ul>
+<li><a href="../files/cdmetapop2_usermanual.docx">CDMetaPOP User Manual</a></li>
+<li><a href="../about.html">Publications</a> - See research papers featuring CDMetaPOP</li>
+<li><a href="https://github.com/ComputationalEcologyLab/cdmetapopR">cdmetapopR GitHub Repository</a></li>
+<li><a href="https://www.cellab.org/">Computational Ecology Lab Website</a></li>
 </ul>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.10.18">
+<meta name="generator" content="quarto-1.10.19">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Introduction – CDMetaPOP</title>
+<title>Python Tutorial – CDMetaPOP</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -64,23 +64,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-e3adbaa939bcd423dddc8c8a834270b4.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-55617497126496852ff9f5a59253c640.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -110,7 +110,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }</script>
 
 
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../styles.css">
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -120,7 +120,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">CDMetaPOP</span>
     </a>
   </div>
@@ -131,20 +131,48 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html"> 
+    <a class="nav-link" href="../home.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
-  <li class="nav-item">
-    <a class="nav-link active" href="./introduction.html" aria-current="page"> 
-<span class="menu-text">Introduction</span></a>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-tutorials" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Tutorials</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-tutorials">    
+        <li><hr class="dropdown-divider"></li>
+        <li>
+    <a class="dropdown-item" href="../install.html">
+ <span class="dropdown-text">Install CDMetaPOP</span></a>
   </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./run_cdmetapop.html"> 
-<span class="menu-text">Run CDMetaPOP</span></a>
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Python</li>
+        <li>
+    <a class="dropdown-item" href="../python/python_tutorial.html">
+ <span class="dropdown-text">CDMetaPOP with Python Tutorial</span></a>
   </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">R</li>
+        <li>
+    <a class="dropdown-item" href="../cdmetapopr/cdmetapopr_tutorial.html">
+ <span class="dropdown-text">Introduction to cdmetapopR</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../cdmetapopr/cdmetapopr_shinyApps.html">
+ <span class="dropdown-text">Input files with Shiny Apps</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../cdmetapopr/cdmetapopr_wrapper.html">
+ <span class="dropdown-text">Input files with Wrapper</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../cdmetapopr/cdmetapopr_output_vignette.html">
+ <span class="dropdown-text">Outputs Vignette</span></a>
+  </li>  
+    </ul>
+  </li>
   <li class="nav-item">
-    <a class="nav-link" href="./functions.html"> 
-<span class="menu-text">cdmetapopR functions vignette</span></a>
+    <a class="nav-link" href="../about.html"> 
+<span class="menu-text">Publications</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -157,15 +185,44 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#python-interface-overview" id="toc-python-interface-overview" class="nav-link active" data-scroll-target="#python-interface-overview">Python Interface Overview</a></li>
+  <li><a href="#key-components" id="toc-key-components" class="nav-link" data-scroll-target="#key-components">Key Components</a>
+  <ul class="collapse">
+  <li><a href="#input-files" id="toc-input-files" class="nav-link" data-scroll-target="#input-files">Input Files</a></li>
+  <li><a href="#output-files" id="toc-output-files" class="nav-link" data-scroll-target="#output-files">Output Files</a></li>
+  </ul></li>
+  <li><a href="#when-to-use-python" id="toc-when-to-use-python" class="nav-link" data-scroll-target="#when-to-use-python">When to Use Python</a></li>
+  <li><a href="#getting-started" id="toc-getting-started" class="nav-link" data-scroll-target="#getting-started">Getting Started</a></li>
+  <li><a href="#additional-resources" id="toc-additional-resources" class="nav-link" data-scroll-target="#additional-resources">Additional Resources</a></li>
+  <li><a href="#running-cdmetapop-with-python" id="toc-running-cdmetapop-with-python" class="nav-link" data-scroll-target="#running-cdmetapop-with-python">Running CDMetaPOP with Python</a>
+  <ul class="collapse">
+  <li><a href="#prerequisites" id="toc-prerequisites" class="nav-link" data-scroll-target="#prerequisites">Prerequisites</a></li>
+  <li><a href="#basic-usage" id="toc-basic-usage" class="nav-link" data-scroll-target="#basic-usage">Basic Usage</a></li>
+  <li><a href="#finding-your-python-path" id="toc-finding-your-python-path" class="nav-link" data-scroll-target="#finding-your-python-path">Finding Your Python Path</a>
+  <ul class="collapse">
+  <li><a href="#windows" id="toc-windows" class="nav-link" data-scroll-target="#windows">Windows</a></li>
+  <li><a href="#linuxmac" id="toc-linuxmac" class="nav-link" data-scroll-target="#linuxmac">Linux/Mac</a></li>
+  </ul></li>
+  <li><a href="#running-cdmetapop" id="toc-running-cdmetapop" class="nav-link" data-scroll-target="#running-cdmetapop">Running CDMetaPOP</a></li>
+  <li><a href="#example" id="toc-example" class="nav-link" data-scroll-target="#example">Example</a></li>
+  <li><a href="#output-files-1" id="toc-output-files-1" class="nav-link" data-scroll-target="#output-files-1">Output Files</a></li>
+  <li><a href="#learn-more" id="toc-learn-more" class="nav-link" data-scroll-target="#learn-more">Learn More</a></li>
+  <li><a href="#our-research" id="toc-our-research" class="nav-link" data-scroll-target="#our-research">Our Research</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Introduction</h1>
+<h1 class="title">Python Tutorial</h1>
 </div>
 
 
@@ -182,18 +239,29 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>Here you will find basic instructions to create input files and begin simulating with cdmetapopR.</p>
-<p>First, install cdmetapopR and its dependencies using install.packages() or by downloading the package from the Github page and installing from the archive file.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"cdmetapopR"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>CDMetaPOP can simulate complex systems but you can get started with a simple template. This platform and tutorial are meant to help you get acquainted with the basic inputs and functions without having to deal with changing too many parameters at once. It will help you build the basic files needed to run CDMetaPOP and give you some tips along the way.</p>
-<p>The basic files you need to run CDMetaPOP are:</p>
+<section id="python-interface-overview" class="level2">
+<h2 class="anchored" data-anchor-id="python-interface-overview">Python Interface Overview</h2>
+<p>The Python interface allows you to:</p>
 <ol type="1">
-<li><p><strong>classVars.csv</strong>: defines parameters driven by the size/stage or age of individuals.</p></li>
-<li><p><strong>patchVars.csv:</strong> defines parameters driven by variation in space (i.e.&nbsp;patches or sites).</p></li>
-<li><p><strong>popVars.csv:</strong> defines parameters that apply to the entire population, and can contain parameters for multiple runs.</p></li>
-<li><p><strong>runVars.csv:</strong> defines the basic meta-parameters of your simulation. These parameters apply to all species, and can contain parameters for multiple runs.</p></li>
+<li><strong>Configure simulations</strong> through CSV input files</li>
+<li><strong>Run simulations</strong> directly from the command line</li>
 </ol>
-<p>Next, let’s start with a <strong>suggestion</strong> on the directory structure for your input files.</p>
+</section>
+<section id="key-components" class="level2">
+<h2 class="anchored" data-anchor-id="key-components">Key Components</h2>
+<section id="input-files" class="level3">
+<h3 class="anchored" data-anchor-id="input-files">Input Files</h3>
+<p>CDMetaPOP requires several input files:</p>
+<ul>
+<li><strong>RunVars.csv</strong> - Main simulation configuration</li>
+<li><strong>PopVars.csv</strong> - Population parameters</li>
+<li><strong>PatchVars.csv</strong> - Patch/landscape configuration</li>
+<li><strong>ClassVars.csv</strong> - Age/size class definitions</li>
+<li><strong>DiseaseVars.csv</strong> - Disease parameters (optional)</li>
+<li><strong>Cost Distance Matrices</strong> - (optional)</li>
+<li><strong>Allele frequencies</strong> - (optional)</li>
+</ul>
+<p>Here is a <strong>suggestion</strong> on how to organize the directory structure for your input files.</p>
 <pre><code>Your working directory (in this case './data') should contain your runVars.csv file, and may contain subdirectories to house other input files. For example:
 
 ./data/
@@ -213,41 +281,112 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 └── otherfiles/
 &nbsp;&nbsp;&nbsp; ├── correlation_matrix1.csv
 &nbsp;&nbsp;&nbsp; └── correlation_matrix2.csv</code></pre>
-<p>Click on the links below to navigate to the shinyApps that will help you define the parameters for your first run and make sure to save the resulting input files following the suggestion above, or in a way that makes sense for your simulations.</p>
-<p><strong>Remember to ALWAYS download your work from the PREVIEW TAB before closing the shinyApp</strong></p>
-<p><img src="images/DownloadPopvars.png" class="img-fluid" style="width:50.0%"></p>
+</section>
+<section id="output-files" class="level3">
+<h3 class="anchored" data-anchor-id="output-files">Output Files</h3>
+<p>CDMetaPOP generates:</p>
 <ul>
-<li><strong>Start building a new classVars.csv</strong><br>
-<a href="https://kratos-shiny.umontana.net/cel-apps/cdmetapopR/classvars/" class="btn btn-primary" target="_blank">Open App</a></li>
+<li><strong>summary_popAllTime.csv</strong> - Population-level summaries over time</li>
+<li><strong>summary_classAllTime.csv</strong> - Class-level summaries</li>
+<li><strong>ind##.csv</strong> - Individual-level data for each year</li>
+<li><strong>summary_popAllTime_DiseaseStates.csv</strong> - Disease state summaries (if applicable)</li>
 </ul>
-<!-- -->
+</section>
+</section>
+<section id="when-to-use-python" class="level2">
+<h2 class="anchored" data-anchor-id="when-to-use-python">When to Use Python</h2>
+<p>Use the Python interface when you:</p>
 <ul>
-<li><strong>Start building a new patchVars.csv</strong><br>
-<a href="https://kratos-shiny.umontana.net/cel-apps/cdmetapopR/patchvars/" class="btn btn-primary" target="_blank">Open App</a></li>
+<li>Prefer working in Python environments</li>
+<li>Need to integrate CDMetaPOP with Python-based analysis pipelines</li>
+<li>Want to use Python’s extensive scientific computing libraries (NumPy, SciPy, pandas, etc.)</li>
+<li>Are developing custom post-processing workflows</li>
 </ul>
-<!-- -->
-<ul>
-<li><strong>Start building a new popVars.csv</strong><br>
-<a href="https://kratos-shiny.umontana.net/cel-apps/cdmetapopR/popvars/" class="btn btn-primary" target="_blank">Open App</a></li>
-</ul>
-<!-- -->
-<ul>
-<li><strong>Start building a new runVars.csv</strong><br>
-<a href="https://kratos-shiny.umontana.net/cel-apps/cdmetapopR/runvars/" class="btn btn-primary" target="_blank">Open App</a></li>
-</ul>
-<p>We suggest preparing your files in the order given (starting with classVars), as the runVars.csv requires defining the popVars.csv, which in turn requires defining the patchVars.csv, which requires defining the classVars.csv files. However, you may wish to start with the runVars.csv file, and filling in the file names later.</p>
-<p>Additional input files may include distance matrices to guide individual movement, a correlation matrix, and genetic files to initialize population genetic structure. But once you have the basic input files mentioned above you can start your basic simulations and get acquainted with the potential insights you can gain about your species in both space and time with CDMetaPOP.</p>
-<p>Once your input files are ready, proceed to the next step:</p>
-<p><a href="./run_cdmetapop.html" class="btn btn-primary">➡️ Go to Run CDMetaPOP</a></p>
-<p>For more detailed instructions you can refer to the CDMetaPOP user manual and several publications:</p>
+</section>
+<section id="getting-started" class="level2">
+<h2 class="anchored" data-anchor-id="getting-started">Getting Started</h2>
 <ol type="1">
-<li><p><a href="https://github.com/ComputationalEcologyLab/CDMetaPOP/blob/16b17e654f853c0f2850199094f99404f199855e/doc/cdmetapop3_usermanual.docx">Manual</a>.</p></li>
-<li><p>Landguth EL, Bearlin A, Day C, Dunham J (2017) CDmetaPOP: an individual-based, eco-evolutionary model for spatially-explicit simulation of landscape demogenetics. Methods in Ecology and Evolution. 8, 4-11, doi: 10.1111/2041-210X.12608</p></li>
-<li><p>Check out the multispecies version too: Day CC, Landguth EL, Simmons R, Bearlin A (2023) CDMetaPOP 2: a multispecies, eco-evolutionary simulation framework for landscape demogenetics and connectivity. Ecography https://doi.org/10.1111/ecog.06566</p></li>
-<li><p>New disease model coming up soon - Stay tuned!</p></li>
+<li>Complete the <a href="../install.html">Installation</a> steps</li>
 </ol>
+</section>
+<section id="additional-resources" class="level2">
+<h2 class="anchored" data-anchor-id="additional-resources">Additional Resources</h2>
+<ul>
+<li><a href="files/cdmetapop2_usermanual.docx">CDMetaPOP User Manual</a></li>
+<li><a href="https://www.cellab.org/">Computational Ecology Lab Website</a></li>
+<li><a href="https://github.com/ComputationalEcologyLab/CDMetaPOP">CDMetaPOP GitHub Repository</a></li>
+</ul>
+</section>
+<section id="running-cdmetapop-with-python" class="level1">
+<h1>Running CDMetaPOP with Python</h1>
+<p>This tutorial covers how to run CDMetaPOP simulations directly using Python.</p>
+<section id="prerequisites" class="level2">
+<h2 class="anchored" data-anchor-id="prerequisites">Prerequisites</h2>
+<p>Before starting this tutorial, make sure you have:</p>
+<ol type="1">
+<li><a href="../install.html">Installed CDMetaPOP</a></li>
+<li>Python 3.8+ with NumPy and SciPy installed</li>
+<li>The CDMetaPOP source files available</li>
+</ol>
+</section>
+<section id="basic-usage" class="level2">
+<h2 class="anchored" data-anchor-id="basic-usage">Basic Usage</h2>
+<p>To run CDMetaPOP with Python, you need to provide the following arguments:</p>
+<ol type="1">
+<li><strong>Python executable</strong> - Path to your Python installation</li>
+<li><strong>CDMetaPOP.py</strong> - Path to the CDMetaPOP Python script</li>
+<li><strong>runvarsDirectory</strong> - Directory containing your input files</li>
+<li><strong>runvarsFilename</strong> - Name of your RunVars.csv file</li>
+<li><strong>outputDirectory</strong> - Name for your output directory</li>
+</ol>
+</section>
+<section id="finding-your-python-path" class="level2">
+<h2 class="anchored" data-anchor-id="finding-your-python-path">Finding Your Python Path</h2>
+<section id="windows" class="level3">
+<h3 class="anchored" data-anchor-id="windows">Windows</h3>
+<p>Open Command Prompt and type:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode powershell code-with-copy"><code class="sourceCode powershell"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">where</span> python</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="linuxmac" class="level3">
+<h3 class="anchored" data-anchor-id="linuxmac">Linux/Mac</h3>
+<p>Open Terminal and type:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">which</span> python</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>This will give you the location of the python executable.</p>
+</section>
+</section>
+<section id="running-cdmetapop" class="level2">
+<h2 class="anchored" data-anchor-id="running-cdmetapop">Running CDMetaPOP</h2>
+<p>Once you have everything set up, you can run CDMetaPOP using Python from the command line:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> /path/to/CDMetaPOP/src/CDMetaPOP.py /path/to/runvars/ RunVars.csv output_directory</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="example" class="level2">
+<h2 class="anchored" data-anchor-id="example">Example</h2>
+<p>Here’s a complete example (replace paths with your own):</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> /Users/anaconda3/bin/python /Users/CDMetaPop/src/CDMetaPOP.py /Users/CDMetaPop/data/ RunVarsEBT.csv test_output</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>This will launch CDMetaPOP and create output files in the specified directory.</p>
+</section>
+<section id="output-files-1" class="level2">
+<h2 class="anchored" data-anchor-id="output-files-1">Output Files</h2>
+<p>After the simulation completes, you will find output files in the directory you specified. The output includes:</p>
+<ul>
+<li>Population summary files</li>
+<li>Individual-level data files</li>
+<li>Disease state files (if applicable)</li>
+<li>Various statistical summaries</li>
+</ul>
+</section>
+<section id="learn-more" class="level2">
+<h2 class="anchored" data-anchor-id="learn-more">Learn More</h2>
+<p>Download the complete <a href="files/cdmetapop2_usermanual.docx">CDMetaPOP User Manual</a> for detailed documentation.</p>
+<p>Visit our <a href="https://www.cellab.org/">lab website</a> for more information about our computational ecology tools, or explore our other software including <a href="https://github.com/ComputationalEcologyLab">CDPOP</a> and <a href="https://github.com/ComputationalEcologyLab">UNICOR</a>. Visit our <a href="https://github.com/ComputationalEcologyLab">GitHub</a> page for many of the lab resources and data.</p>
+</section>
+<section id="our-research" class="level2">
+<h2 class="anchored" data-anchor-id="our-research">Our Research</h2>
+<p>See how CDMetaPOP has been used in published research across many fields in our <a href="about.qmd">Publications</a> section.</p>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
