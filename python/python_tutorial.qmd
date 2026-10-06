@@ -22,6 +22,30 @@ CDMetaPOP requires several input files:
 - **Cost Distance Matrices** - (optional)
 - **Allele frequencies** - (optional)
 
+Here is a **suggestion** on how to organize the directory structure for your input files.
+
+```         
+Your working directory (in this case './data') should contain your runVars.csv file, and may contain subdirectories to house other input files. For example:
+
+./data/
+├── runVars.csv
+├── popvars/
+│   └── popVars.csv
+├── patchvars/
+│   └── patchVars.csv
+├── classvars/
+│   └── classVars.csv
+├── genes/
+│   └── allelefrequencies.csv
+├── cdmats/
+│   ├── cdmat1.csv
+│   ├── cdmat2.csv
+│   └── cdmat3.csv
+└── otherfiles/
+    ├── correlation_matrix1.csv
+    └── correlation_matrix2.csv
+```
+
 ### Output Files
 
 CDMetaPOP generates:
@@ -116,3 +140,16 @@ After the simulation completes, you will find output files in the directory you 
 - Individual-level data files
 - Disease state files (if applicable)
 - Various statistical summaries
+
+## Learn More
+
+Download the complete [CDMetaPOP User Manual](files/cdmetapop2_usermanual.docx) for detailed documentation.
+
+
+Visit our [lab website](https://www.cellab.org/) for more information about our computational ecology tools, or explore our other software including [CDPOP](https://github.com/ComputationalEcologyLab) and [UNICOR](https://github.com/ComputationalEcologyLab).
+ Visit our [GitHub](https://github.com/ComputationalEcologyLab) page for many of the lab resources and data.
+
+
+## Our Research
+
+See how CDMetaPOP has been used in published research across many fields in our [Publications](about.qmd) section.

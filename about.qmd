@@ -1,18 +1,35 @@
 CDMetaPOP has been used in various research studies. Here are publications featuring CDMetaPOP:
 
+## Papers in Preparation
+
+Alò, D., Day, C.C., Williams, A., Roseman, M., & Landguth, E.L. (n.d.). cdmetapopR: A companion R package for the CDMetaPOP simulation software.
+
+## Papers in Press
+
+Davenport, K., Alò, D., Day, C.C., Simmons, R.K., Landguth, E.L., & Whiteley, A.R. (n.d.). Fitness regulates non-native species recovery in a simulated Trojan MYY brook trout application. *Evolutionary Applications*.
+
+## Papers in Review
+
+Roseman, M.A., Williams, A.K., Day, C.C., Fortnum, T.K., Weckworth, J.K., & Landguth, E.L. (n.d.). Simulating the impact of movement strategy uncertainty on cave myotis demo-genetics. *Movement Ecology* (in revision).
+
+Day, C., Alò, D., Landguth, E., Lukacs, P.M., Nowak, J., Baker, W.P., Walker, B., Jaecks, T., Coon, I., Witte, B., Olson, J., Rich, H., Combs, M., & Simmons, R.K. (n.d.). Survival, growth, and post-release movement patterns of YY-male Brook Trout in a mountain stream system. *North American Journal of Fisheries Management* (in revision).
+
 ## 2026
 
+Landguth, E.L., Williams, A., Roseman, M., Amadi, M., Fain, B., Kouete, M., Farrer, R.A., Haeseler, A.J., Razgour, O., Richardson, C., & Weckworth, B. (2026). Simulating the landscape eco-evolution of host-pathogen systems with CDMetaPOP. *Ecological Informatics*, 103892.
+[Download PDF](publications/CDMetaPOP-Disease.pdf)
+
+Sullivan, S.L., van Poorten, B.T., & Whitlock, M.C. (2026). An assessment of sampling strategies for surveying introgression in watersheds. *Canadian Journal of Fisheries and Aquatic Sciences*, 83, 1-17.
 
 ## 2025
+
+Beaman, J.E., Gates, K., Saltré, F., Hogg, C.J., Belov, K., Ashman, K., Da Silva, K.B., Beheregaray, L.B., & Bradshaw, C.J. (2025). A Guide for Developing Demo‐Genetic Models to Simulate Genetic Rescue. *Evolutionary Applications*, 18(5), e70092.
 
 
 ## 2024
 
 Day, C.C., Alo, D., Zarn, K., Robinson, Z., Small, M., Fortin, M.-J., Simmons, R., Lukacs, P., & Landguth, E.L. (2024). Disentangling effects of dispersal, environment, and anthropogenic barriers on functional connectivity in aquatic systems. *Molecular Ecology*, DOI: 10.1111/mec.17500.
 [Download PDF](publications/MEC-23-1109.pdf)
-
-Day, C.B., Landguth, E.L., et al. (2024). Simulating the landscape eco-evolution of host-pathogen systems with CDMetaPOP.
-[Download PDF](publications/CDMetaPOP-Disease.pdf)
 
 ## 2023
 

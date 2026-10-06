@@ -29,11 +29,12 @@ CDMetaPOP is used to study disease ecology, epidemiology, invasive species, clim
 Or jump straight to the tutorials:
 
 - [Python Tutorial](python/python_tutorial.qmd) - For Python users
-- [R Tutorial (cdmetapopR)](introduction.qmd) - For R users
+- [R Tutorial (cdmetapopR)](cdmetapopr/cdmetapopr_tutorial.qmd) - For R users
 
 ## Learn More
 
 Visit our [lab website](https://www.cellab.org/) for more information about our computational ecology tools, or explore our other software including [CDPOP](https://github.com/ComputationalEcologyLab) and [UNICOR](https://github.com/ComputationalEcologyLab).
+ Visit our GitHub page for many of the lab resources and data available at [GitHub](https://github.com/ComputationalEcologyLab)
 
 Download the complete [CDMetaPOP User Manual](files/cdmetapop2_usermanual.docx) for detailed documentation.
 

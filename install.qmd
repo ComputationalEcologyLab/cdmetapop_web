@@ -4,7 +4,10 @@ title: "Install CDMetaPOP"
 
 Download the CDMetaPOP zip archive from GitHub:
 
+![](images/downloadCDMetaPOP.png)
+
 [Download CDMetaPOP](https://www.github.com/ComputationalEcologyLab/CDMetaPOP/){.btn .btn-primary target="_blank"}
+
 
 ## Installation Steps
 

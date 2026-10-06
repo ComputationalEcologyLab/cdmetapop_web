@@ -6,7 +6,7 @@ website:
   navbar:
     left:
       - text: "Home"
-        href: index.qmd
+        href: home.qmd
       - text: "Tutorials"
         menu:
           - text: "---"
@@ -19,10 +19,10 @@ website:
           - text: "---"
           - text: "R"
           - text: "Introduction to cdmetapopR"
-          - href: cdmetapopr/cdmetapopr_tutorial.qmd
+            href: cdmetapopr/cdmetapopr_tutorial.qmd
           - text: "  Input files with Shiny Apps"
             href: cdmetapopr/cdmetapopr_shinyApps.qmd
-          - text: "  InputWrapper"
+          - text: "  Input files with Wrapper"
             href: cdmetapopr/cdmetapopr_wrapper.qmd
           - text: "  Outputs Vignette"
             href: cdmetapopr/cdmetapopr_output_vignette.qmd

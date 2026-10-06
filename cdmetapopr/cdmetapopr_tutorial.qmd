@@ -6,7 +6,7 @@ cdmetapopR is an R package that provides an interface for running CDMetaPOP simu
 
 When using cdmetapopR, you have two options for creating the input files required for CDMetaPOP simulations:
 
-### 1. Shiny Apps (Recommended for Beginners)
+### 1. Shiny Apps (Recommended for New Users)
 
 The Shiny apps provide an interactive, user-friendly interface for building input files. This approach is ideal if you:
 
@@ -59,6 +59,9 @@ Learn about analyzing CDMetaPOP outputs with cdmetapopR:
 
 ## Additional Resources
 
-- [cdmetapopR GitHub Repository](https://github.com/ComputationalEcologyLab/cdmetapopR)
+For more detailed instructions, you can refer to the:
+
 - [CDMetaPOP User Manual](../files/cdmetapop2_usermanual.docx)
+- [Publications](../about.qmd) - See research papers featuring CDMetaPOP
+- [cdmetapopR GitHub Repository](https://github.com/ComputationalEcologyLab/cdmetapopR)
 - [Computational Ecology Lab Website](https://www.cellab.org/)
