@@ -422,13 +422,13 @@ summary_class(ex_dir, type = "age_plus_one", mc = "all")
 ## Default State Names
 
 ```{r summarize-states-default}
-summarize_states(ex_dir)
+summary_disease(ex_dir)
 ```
 
 ## Custom State and Scenario Names
 
 ```{r summarize-states-custom}
-summarize_states(
+summary_disease(
   ex_dir,
   state_names = c("State 1", "State 2", "State 3"),
   scenario_names = c("Batch 0", "Batch 1")
