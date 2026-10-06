@@ -9,6 +9,9 @@ execute:
   echo: true
   warning: false
   message: false
+editor: 
+  markdown: 
+    wrap: 72
 ---
 
 ```{r setup, include=FALSE}
@@ -51,10 +54,10 @@ list.files(ex_dir)
 
 Most summary functions use the same filtering arguments:
 
-- `run = 0`
-- `batch = 0`
-- `mc = 0`
-- `species = 0`
+-   `run = 0`
+-   `batch = 0`
+-   `mc = 0`
+-   `species = 0`
 
 These defaults intentionally select one output folder. Use `"all"` or a range of values `c(0,1)` for any of these arguments to combine multiple folders. The example directory includes two batches with two MCs each. Each of these files contains ten ind#.csvs, containing information from each year of the simulation. Additionally, each file has a summary_popAllTime.csv, summary_classAllTime.csv, and a summary_popAllTime_DiseaseStates.csv that summarizes information across the years of the simulation.
 
@@ -419,13 +422,13 @@ summary_class(ex_dir, type = "age_plus_one", mc = "all")
 ## Default State Names
 
 ```{r summarize-states-default}
-summary_disease(ex_dir)
+summarize_states(ex_dir)
 ```
 
 ## Custom State and Scenario Names
 
 ```{r summarize-states-custom}
-summary_disease(
+summarize_states(
   ex_dir,
   state_names = c("State 1", "State 2", "State 3"),
   scenario_names = c("Batch 0", "Batch 1")
@@ -702,4 +705,10 @@ write_classvars(output_file = "my_new_classvars.csv")
 
 # Deprecated Internal Compatibility Function
 
-The `locus()` function was previously exported for compatibility with older `gstudio` workflows. This function is no longer available in the current version of cdmetapopR.
+`locus()` is exported for compatibility with older `gstudio` workflows.
+It is included in the package because the original function is
+deprecated elsewhere.
+
+```{r locus-example}
+locus(c("0", "1"), type = "snp")
+```
