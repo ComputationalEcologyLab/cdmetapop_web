@@ -1,0 +1,67 @@
+# Introduction to cdmetapopR
+
+cdmetapopR is an R package that provides an interface for running CDMetaPOP simulations and analyzing their outputs. This package offers two main approaches for building the input files needed to run CDMetaPOP simulations.
+
+## Two Approaches for Building Input Files
+
+When using cdmetapopR, you have two options for creating the input files required for CDMetaPOP simulations:
+
+### 1. Shiny Apps (Recommended for New Users)
+
+The Shiny apps provide an interactive, user-friendly interface for building input files. This approach is ideal if you:
+
+- Are new to CDMetaPOP or R programming
+- Prefer a visual, guided interface
+- Want step-by-step assistance with parameter selection
+- Need help understanding what each parameter does
+
+The Shiny apps offer more guidance and built-in explanations, making it easier to get started and ensure your input files are correctly formatted.
+
+[➡️ Learn about Shiny Apps](cdmetapopr_shinyApps.qmd){.btn .btn-primary}
+
+### 2. Wrapper Functions (For R Users)
+
+The wrapper functions allow you to create input files programmatically using R code. This approach is ideal if you:
+
+- Are comfortable with R programming
+- Need to create multiple simulation scenarios programmatically
+- Want to integrate input file creation into automated workflows
+- Prefer working with code rather than a graphical interface
+
+The wrapper functions give you more flexibility and control, allowing you to parameterize and automate input file generation.
+
+[➡️ Learn about Wrapper Functions](cdmetapopr_wrapper.qmd){.btn .btn-primary}
+
+## Which Approach Should You Choose?
+
+**Choose Shiny Apps if:**
+- You're just getting started with CDMetaPOP
+- You want guidance on parameter selection
+- You prefer a visual interface
+- You need to build a single simulation setup
+
+**Choose Wrapper Functions if:**
+- You're experienced with R
+- You need to create many similar simulation setups
+- You want to automate the process
+- You need programmatic control over parameters
+
+## Next Steps
+
+After creating your input files using either approach, you'll need to:
+
+1. Run the CDMetaPOP simulation
+2. Analyze the outputs
+
+Learn about analyzing CDMetaPOP outputs with cdmetapopR:
+
+[➡️ Output Analysis Tutorial](cdmetapopr_output_vignette.qmd){.btn .btn-primary}
+
+## Additional Resources
+
+For more detailed instructions, you can refer to the:
+
+- [CDMetaPOP User Manual](../files/cdmetapop2_usermanual.docx)
+- [Publications](../about.qmd) - See research papers featuring CDMetaPOP
+- [cdmetapopR GitHub Repository](https://github.com/ComputationalEcologyLab/cdmetapopR)
+- [Computational Ecology Lab Website](https://www.cellab.org/)

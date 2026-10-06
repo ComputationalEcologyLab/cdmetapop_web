@@ -1,0 +1,155 @@
+---
+title: "Python Tutorial"
+---
+## Python Interface Overview
+
+The Python interface allows you to:
+
+1. **Configure simulations** through CSV input files
+2. **Run simulations** directly from the command line
+
+## Key Components
+
+### Input Files
+
+CDMetaPOP requires several input files:
+
+- **RunVars.csv** - Main simulation configuration
+- **PopVars.csv** - Population parameters
+- **PatchVars.csv** - Patch/landscape configuration
+- **ClassVars.csv** - Age/size class definitions
+- **DiseaseVars.csv** - Disease parameters (optional)
+- **Cost Distance Matrices** - (optional)
+- **Allele frequencies** - (optional)
+
+Here is a **suggestion** on how to organize the directory structure for your input files.
+
+```         
+Your working directory (in this case './data') should contain your runVars.csv file, and may contain subdirectories to house other input files. For example:
+
+./data/
+├── runVars.csv
+├── popvars/
+│   └── popVars.csv
+├── patchvars/
+│   └── patchVars.csv
+├── classvars/
+│   └── classVars.csv
+├── genes/
+│   └── allelefrequencies.csv
+├── cdmats/
+│   ├── cdmat1.csv
+│   ├── cdmat2.csv
+│   └── cdmat3.csv
+└── otherfiles/
+    ├── correlation_matrix1.csv
+    └── correlation_matrix2.csv
+```
+
+### Output Files
+
+CDMetaPOP generates:
+
+- **summary_popAllTime.csv** - Population-level summaries over time
+- **summary_classAllTime.csv** - Class-level summaries
+- **ind##.csv** - Individual-level data for each year
+- **summary_popAllTime_DiseaseStates.csv** - Disease state summaries (if applicable)
+
+## When to Use Python
+
+Use the Python interface when you:
+
+- Prefer working in Python environments
+- Need to integrate CDMetaPOP with Python-based analysis pipelines
+- Want to use Python's extensive scientific computing libraries (NumPy, SciPy, pandas, etc.)
+- Are developing custom post-processing workflows
+
+## Getting Started
+
+1. Complete the [Installation](../install.qmd) steps
+
+
+## Additional Resources
+
+- [CDMetaPOP User Manual](files/cdmetapop2_usermanual.docx)
+- [Computational Ecology Lab Website](https://www.cellab.org/)
+- [CDMetaPOP GitHub Repository](https://github.com/ComputationalEcologyLab/CDMetaPOP)
+
+
+# Running CDMetaPOP with Python
+
+This tutorial covers how to run CDMetaPOP simulations directly using Python.
+
+## Prerequisites
+
+Before starting this tutorial, make sure you have:
+
+1. [Installed CDMetaPOP](../install.qmd)
+2. Python 3.8+ with NumPy and SciPy installed
+3. The CDMetaPOP source files available
+
+## Basic Usage
+
+To run CDMetaPOP with Python, you need to provide the following arguments:
+
+1. **Python executable** - Path to your Python installation
+2. **CDMetaPOP.py** - Path to the CDMetaPOP Python script
+3. **runvarsDirectory** - Directory containing your input files
+4. **runvarsFilename** - Name of your RunVars.csv file
+5. **outputDirectory** - Name for your output directory
+
+## Finding Your Python Path
+
+### Windows
+Open Command Prompt and type:
+```powershell
+where python
+```
+
+### Linux/Mac
+Open Terminal and type:
+```bash
+which python
+```
+
+This will give you the location of the python executable.
+
+## Running CDMetaPOP
+
+Once you have everything set up, you can run CDMetaPOP using Python from the command line:
+
+```bash
+python /path/to/CDMetaPOP/src/CDMetaPOP.py /path/to/runvars/ RunVars.csv output_directory
+```
+
+## Example
+
+Here's a complete example (replace paths with your own):
+
+```bash
+python /Users/anaconda3/bin/python /Users/CDMetaPop/src/CDMetaPOP.py /Users/CDMetaPop/data/ RunVarsEBT.csv test_output
+```
+
+This will launch CDMetaPOP and create output files in the specified directory.
+
+## Output Files
+
+After the simulation completes, you will find output files in the directory you specified. The output includes:
+
+- Population summary files
+- Individual-level data files
+- Disease state files (if applicable)
+- Various statistical summaries
+
+## Learn More
+
+Download the complete [CDMetaPOP User Manual](files/cdmetapop2_usermanual.docx) for detailed documentation.
+
+
+Visit our [lab website](https://www.cellab.org/) for more information about our computational ecology tools, or explore our other software including [CDPOP](https://github.com/ComputationalEcologyLab) and [UNICOR](https://github.com/ComputationalEcologyLab).
+ Visit our [GitHub](https://github.com/ComputationalEcologyLab) page for many of the lab resources and data.
+
+
+## Our Research
+
+See how CDMetaPOP has been used in published research across many fields in our [Publications](about.qmd) section.

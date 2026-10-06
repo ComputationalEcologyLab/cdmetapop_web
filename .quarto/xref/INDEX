@@ -31,5 +31,35 @@
   },
   "functions_old.qmd": {
     "functions_old.html": "6591a6f2"
+  },
+  "python/python_tutorial.qmd": {
+    "python_tutorial.html": "c07c682d"
+  },
+  "python/python_introduction.qmd": {
+    "python_introduction.html": "24a992a6"
+  },
+  "python/python_vignette.qmd": {
+    "python_vignette.html": "b94f4ee8"
+  },
+  "install.qmd": {
+    "install.html": "ff3cf98c"
+  },
+  "wrapper.qmd": {
+    "wrapper.html": "227020e1"
+  },
+  "cdmetapopr/cdmetapopr_tutorial.qmd": {
+    "cdmetapopr_tutorial.html": "6e0228d9"
+  },
+  "cdmetapopr/cdmetapopr_output_vignette.qmd": {
+    "cdmetapopr_output_vignette.html": "3a53219a"
+  },
+  "cdmetapopr/cdmetapopr_shinyApps.qmd": {
+    "cdmetapopr_shinyApps.html": "f749c4f8"
+  },
+  "cdmetapopr/cdmetapopr_wrapper.qmd": {
+    "cdmetapopr_wrapper.html": "85209d1f"
+  },
+  "home.qmd": {
+    "home.html": "b5f6c538"
   }
 }

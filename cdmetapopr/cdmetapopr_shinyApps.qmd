@@ -1,5 +1,5 @@
 ---
-title: "Introduction"
+title: "How to Create Input Files with Shiny Apps"
 ---
 
 Here you will find basic instructions to create input files and begin simulating with cdmetapopR.
@@ -76,7 +76,7 @@ Additional input files may include distance matrices to guide individual movemen
 
 Once your input files are ready, proceed to the next step:
 
-[➡️ Go to Run CDMetaPOP](run_cdmetapop.qmd){.btn .btn-primary}
+[➡️ Go to Run CDMetaPOP](../run_cdmetapop.qmd){.btn .btn-primary}
 
 For more detailed instructions you can refer to the CDMetaPOP user manual and several publications:
 
