@@ -152,4 +152,4 @@ Visit our [lab website](https://www.cellab.org/) for more information about our 
 
 ## Our Research
 
-See how CDMetaPOP has been used in published research across many fields in our [Publications](about.qmd) section.
+See how CDMetaPOP has been used in published research across many fields in our [Publications](../about.qmd) section.
