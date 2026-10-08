@@ -268,231 +268,231 @@
   {
     "objectID": "cdmetapopr/cdmetapopr_output_vignette.html",
     "href": "cdmetapopr/cdmetapopr_output_vignette.html",
-    "title": "cdmetapopR Vignette",
+    "title": "cdmetapopR Output Vignette",
     "section": "",
     "text": "This vignette shows how to use cdmetapopR to read, reshape, summarize, and plot CDMetaPOP outputs. The goal is to show both quick plotting functions and the lower-level data-frame outputs that can be used for custom ggplot2 figures.\nThe examples use the package example output files in inst/extdata/Example_dat.\nThe example data include:\n\n2 batches\n2 Monte Carlo replicates per batch\nsummary_popAllTime.csv\nsummary_classAllTime.csv\nsummary_popAllTime_DiseaseStates.csv\nind0.csv through ind9.csv\n\n\nex_dir &lt;- system.file(\"extdata\", \"Example_dat\", package = \"cdmetapopR\")\n\npop_file &lt;- file.path(ex_dir, \"run0batch0mc0species0\", \"summary_popAllTime.csv\")\nclass_file &lt;- file.path(ex_dir, \"run0batch0mc0species0\", \"summary_classAllTime.csv\")\nind_file &lt;- file.path(ex_dir, \"run0batch0mc0species0\", \"ind9.csv\")\n\nex_dir\n\n[1] \"/home/runner/work/_temp/Library/cdmetapopR/extdata/Example_dat\"\n\nlist.files(ex_dir)\n\n[1] \"run0batch0mc0species0\" \"run0batch0mc1species0\" \"run0batch1mc0species0\"\n[4] \"run0batch1mc1species0\"\n\n\n\n\nMost summary functions use the same filtering arguments:\n\nrun = 0\nbatch = 0\nmc = 0\nspecies = 0\n\nThese defaults intentionally select one output folder. Use \"all\" or a range of values c(0,1) for any of these arguments to combine multiple folders. The example directory includes two batches with two MCs each. Each of these files contains ten ind#.csvs, containing information from each year of the simulation. Additionally, each file has a summary_popAllTime.csv, summary_classAllTime.csv, and a summary_popAllTime_DiseaseStates.csv that summarizes information across the years of the simulation.\n\none_mc &lt;- summary_dataframe(ex_dir, type = \"ind\", years = 9, mc = 0)\nboth_mcs &lt;- summary_dataframe(ex_dir, type = \"ind\", years = 9, mc = \"all\")\nall_batches_mcs &lt;- summary_dataframe(ex_dir, type = \"pop\", batch = \"all\", mc = \"all\")\n\nc(\n  one_mc_rows = nrow(one_mc),\n  both_mcs_rows = nrow(both_mcs),\n  all_batches_mcs_rows = nrow(all_batches_mcs)\n)\n\n         one_mc_rows        both_mcs_rows all_batches_mcs_rows \n                 400                  800                80800 \n\n\nFor individual files, years narrows the selected ind##.csv files. For summary files, years are filtered after reading by using ordinary data-frame operations."
   },
   {
     "objectID": "cdmetapopr/cdmetapopr_output_vignette.html#choosing-runs-batches-monte-carlo-replicates-and-species",
     "href": "cdmetapopr/cdmetapopr_output_vignette.html#choosing-runs-batches-monte-carlo-replicates-and-species",
-    "title": "cdmetapopR Vignette",
+    "title": "cdmetapopR Output Vignette",
     "section": "",
     "text": "Most summary functions use the same filtering arguments:\n\nrun = 0\nbatch = 0\nmc = 0\nspecies = 0\n\nThese defaults intentionally select one output folder. Use \"all\" or a range of values c(0,1) for any of these arguments to combine multiple folders. The example directory includes two batches with two MCs each. Each of these files contains ten ind#.csvs, containing information from each year of the simulation. Additionally, each file has a summary_popAllTime.csv, summary_classAllTime.csv, and a summary_popAllTime_DiseaseStates.csv that summarizes information across the years of the simulation.\n\none_mc &lt;- summary_dataframe(ex_dir, type = \"ind\", years = 9, mc = 0)\nboth_mcs &lt;- summary_dataframe(ex_dir, type = \"ind\", years = 9, mc = \"all\")\nall_batches_mcs &lt;- summary_dataframe(ex_dir, type = \"pop\", batch = \"all\", mc = \"all\")\n\nc(\n  one_mc_rows = nrow(one_mc),\n  both_mcs_rows = nrow(both_mcs),\n  all_batches_mcs_rows = nrow(all_batches_mcs)\n)\n\n         one_mc_rows        both_mcs_rows all_batches_mcs_rows \n                 400                  800                80800 \n\n\nFor individual files, years narrows the selected ind##.csv files. For summary files, years are filtered after reading by using ordinary data-frame operations."
   },
   {
     "objectID": "cdmetapopr/cdmetapopr_output_vignette.html#create_cdmat",
     "href": "cdmetapopr/cdmetapopr_output_vignette.html#create_cdmat",
-    "title": "cdmetapopR Vignette",
+    "title": "cdmetapopR Output Vignette",
     "section": "2.1 create_cdmat()",
     "text": "2.1 create_cdmat()\nUse create_cdmat() to create a cost distance matrix from patch coordinates. The simplest options are Euclidean distance and equal distance.\n\ncoords &lt;- data.frame(\n  x = c(0, 1, 3, 6),\n  y = c(0, 2, 2, 5)\n)\n\ncreate_cdmat(coords, method = \"euclidean\")\n\n         1        2        3        4\n1 0.000000 2.236068 3.605551 7.810250\n2 2.236068 0.000000 2.000000 5.830952\n3 3.605551 2.000000 0.000000 4.242641\n4 7.810250 5.830952 4.242641 0.000000\n\ncreate_cdmat(coords, method = \"equal\")\n\n     [,1] [,2] [,3] [,4]\n[1,]    1    1    1    1\n[2,]    1    1    1    1\n[3,]    1    1    1    1\n[4,]    1    1    1    1"
   },
   {
     "objectID": "cdmetapopr/cdmetapopr_output_vignette.html#cdmetapop_to_gene",
     "href": "cdmetapopr/cdmetapopr_output_vignette.html#cdmetapop_to_gene",
-    "title": "cdmetapopR Vignette",
+    "title": "cdmetapopR Output Vignette",
     "section": "2.2 cdmetapop_to_gene()",
     "text": "2.2 cdmetapop_to_gene()\nUse cdmetapop_to_gene() to convert an ind##.csv file to GENEPOP or GENALEX format. The function writes the converted file to the current working directory, so this example uses a temporary directory.\n\nold_wd &lt;- getwd()\nsetwd(tempdir())\n\ncdmetapop_to_gene(ind_file, format = \"genepop\")\nlist.files(pattern = \"^my_genepop\")\n\n[1] \"my_genepop_ind9.txt\"\n\nsetwd(old_wd)"
   },
   {
     "objectID": "cdmetapopr/cdmetapopr_output_vignette.html#initial-population-size",
     "href": "cdmetapopr/cdmetapopr_output_vignette.html#initial-population-size",
-    "title": "cdmetapopR Vignette",
+    "title": "cdmetapopR Output Vignette",
     "section": "4.1 Initial Population Size",
     "text": "4.1 Initial Population Size\n\nsummary_pop(ex_dir, type = \"N_initial\")\n\n\n\n\n\n\n\n\nInclude multiple Monte Carlo replicates by setting mc = \"all\". With multiple source files, the default behavior can show individual MC trajectories and a summary band.\n\nsummary_pop(ex_dir, type = \"N_initial\", mc = \"all\")\n\n\n\n\n\n\n\n\nTo show only the summarized pattern, set show_mc = FALSE.\n\nsummary_pop(ex_dir, type = \"N_initial\", mc = \"all\", show_mc = FALSE)"
   },
   {
     "objectID": "cdmetapopr/cdmetapopr_output_vignette.html#sex-counts",
     "href": "cdmetapopr/cdmetapopr_output_vignette.html#sex-counts",
-    "title": "cdmetapopR Vignette",
+    "title": "cdmetapopR Output Vignette",
     "section": "4.2 Sex Counts",
     "text": "4.2 Sex Counts\nBy default, type = \"sex\" shows males and females only.\n\nsummary_pop(ex_dir, type = \"sex\")\n\n\n\n\n\n\n\n\nUse include_yys = TRUE to include YY males and YY females. This may be relevant for fisheries research.\n\nsummary_pop(ex_dir, type = \"sex\", include_yys = TRUE)\n\n\n\n\n\n\n\n\nThe same YY option works when comparing multiple batches or MCs.\n\nsummary_pop(\n  ex_dir,\n  type = \"sex\",\n  batch = \"all\",\n  mc = \"all\",\n  include_yys = TRUE,\n  show_mc = FALSE\n)"
   },
   {
     "objectID": "cdmetapopr/cdmetapopr_output_vignette.html#mature-counts",
     "href": "cdmetapopr/cdmetapopr_output_vignette.html#mature-counts",
-    "title": "cdmetapopR Vignette",
+    "title": "cdmetapopR Output Vignette",
     "section": "4.3 Mature Counts",
     "text": "4.3 Mature Counts\nBy default, type = \"mature\" shows mature males and mature females only.\n\nsummary_pop(ex_dir, type = \"mature\")\n\n\n\n\n\n\n\n\nUse include_yys = TRUE to include mature YY males and mature YY females.\n\nsummary_pop(ex_dir, type = \"mature\", include_yys = TRUE)"
   },
   {
     "objectID": "cdmetapopr/cdmetapopr_output_vignette.html#births",
     "href": "cdmetapopr/cdmetapopr_output_vignette.html#births",
-    "title": "cdmetapopR Vignette",
+    "title": "cdmetapopR Output Vignette",
     "section": "4.4 Births",
     "text": "4.4 Births\n\nsummary_pop(ex_dir, type = \"births\")\n\n\n\n\n\n\n\n\n\nsummary_pop(ex_dir, type = \"births\", mc = \"all\")"
   },
   {
     "objectID": "cdmetapopr/cdmetapopr_output_vignette.html#myy-ratio",
     "href": "cdmetapopr/cdmetapopr_output_vignette.html#myy-ratio",
-    "title": "cdmetapopR Vignette",
+    "title": "cdmetapopR Output Vignette",
     "section": "4.5 Myy Ratio",
     "text": "4.5 Myy Ratio\n\nsummary_pop(ex_dir, type = \"myy_ratio\")"
   },
   {
     "objectID": "cdmetapopr/cdmetapopr_output_vignette.html#patch-abundance-from-summary_popalltime.csv",
     "href": "cdmetapopr/cdmetapopr_output_vignette.html#patch-abundance-from-summary_popalltime.csv",
-    "title": "cdmetapopR Vignette",
+    "title": "cdmetapopR Output Vignette",
     "section": "4.6 Patch Abundance from summary_popAllTime.csv",
     "text": "4.6 Patch Abundance from summary_popAllTime.csv\n\nsummary_pop(ex_dir, type = \"patch\", years = c(0, 5, 9))"
   },
   {
     "objectID": "cdmetapopr/cdmetapopr_output_vignette.html#allelic-richness-and-heterozygosity-from-summary_popalltime.csv",
     "href": "cdmetapopr/cdmetapopr_output_vignette.html#allelic-richness-and-heterozygosity-from-summary_popalltime.csv",
-    "title": "cdmetapopR Vignette",
+    "title": "cdmetapopR Output Vignette",
     "section": "4.7 Allelic Richness and Heterozygosity from summary_popAllTime.csv",
     "text": "4.7 Allelic Richness and Heterozygosity from summary_popAllTime.csv\nThese options summarize genetic metrics stored in the population summary file.\n\nsummary_pop(ex_dir, type = \"allelic_richness\", mc = \"all\")\n\n\n\n\n\n\n\n\n\nsummary_pop(ex_dir, type = \"het\", mc = \"all\")"
   },
   {
     "objectID": "cdmetapopr/cdmetapopr_output_vignette.html#age-class-counts",
     "href": "cdmetapopr/cdmetapopr_output_vignette.html#age-class-counts",
-    "title": "cdmetapopR Vignette",
+    "title": "cdmetapopR Output Vignette",
     "section": "5.1 Age Class Counts",
     "text": "5.1 Age Class Counts\n\nsummary_class(ex_dir, type = \"age_class\", n = 10)\n\n\n\n\n\n\n\n\nUse a smaller n to facet more years. This can be useful for short example runs or simulations with relatively few generations.\n\nsummary_class(ex_dir, type = \"age_class\", n = 5)"
   },
   {
     "objectID": "cdmetapopr/cdmetapopr_output_vignette.html#age-plus-one",
     "href": "cdmetapopr/cdmetapopr_output_vignette.html#age-plus-one",
-    "title": "cdmetapopR Vignette",
+    "title": "cdmetapopR Output Vignette",
     "section": "5.2 Age Plus One",
     "text": "5.2 Age Plus One\n\nsummary_class(ex_dir, type = \"age_plus_one\")\n\n\n\n\n\n\n\n\n\nsummary_class(ex_dir, type = \"age_plus_one\", mc = \"all\")"
   },
   {
     "objectID": "cdmetapopr/cdmetapopr_output_vignette.html#default-state-names",
     "href": "cdmetapopr/cdmetapopr_output_vignette.html#default-state-names",
-    "title": "cdmetapopR Vignette",
+    "title": "cdmetapopR Output Vignette",
     "section": "6.1 Default State Names",
     "text": "6.1 Default State Names\n\nsummary_disease(ex_dir)"
   },
   {
     "objectID": "cdmetapopr/cdmetapopr_output_vignette.html#custom-state-and-scenario-names",
     "href": "cdmetapopr/cdmetapopr_output_vignette.html#custom-state-and-scenario-names",
-    "title": "cdmetapopR Vignette",
+    "title": "cdmetapopR Output Vignette",
     "section": "6.2 Custom State and Scenario Names",
     "text": "6.2 Custom State and Scenario Names\n\nsummary_disease(\n  ex_dir,\n  state_names = c(\"State 1\", \"State 2\", \"State 3\"),\n  scenario_names = c(\"Batch 0\", \"Batch 1\")\n)"
   },
   {
     "objectID": "cdmetapopr/cdmetapopr_output_vignette.html#cumulative-state",
     "href": "cdmetapopr/cdmetapopr_output_vignette.html#cumulative-state",
-    "title": "cdmetapopR Vignette",
+    "title": "cdmetapopR Output Vignette",
     "section": "6.3 Cumulative State",
     "text": "6.3 Cumulative State\nUse cumulative_states for a state that should be plotted as a running total within each Monte Carlo replicate.\n\nsummary_disease(\n  ex_dir,\n  state_names = c(\"State 1\", \"State 2\", \"State 3\"),\n  scenario_names = c(\"Batch 0\", \"Batch 1\"),\n  cumulative_states = \"State 3\"\n)"
   },
   {
     "objectID": "cdmetapopr/cdmetapopr_output_vignette.html#age-histogram",
     "href": "cdmetapopr/cdmetapopr_output_vignette.html#age-histogram",
-    "title": "cdmetapopR Vignette",
+    "title": "cdmetapopR Output Vignette",
     "section": "7.1 Age Histogram",
     "text": "7.1 Age Histogram\n\nsummary_ind(ex_dir, type = \"age\", year = 9, batch = 0, mc = 0)\n\n\n\n\n\n\n\n\n\nsummary_ind(ex_dir, type = \"age\", year = 9, batch = 0, mc = \"all\")"
   },
   {
     "objectID": "cdmetapopr/cdmetapopr_output_vignette.html#size-histogram",
     "href": "cdmetapopr/cdmetapopr_output_vignette.html#size-histogram",
-    "title": "cdmetapopR Vignette",
+    "title": "cdmetapopR Output Vignette",
     "section": "7.2 Size Histogram",
     "text": "7.2 Size Histogram\n\nsummary_ind(ex_dir, type = \"size\", year = 9, batch = 0, mc = 0)"
   },
   {
     "objectID": "cdmetapopr/cdmetapopr_output_vignette.html#size-by-age",
     "href": "cdmetapopr/cdmetapopr_output_vignette.html#size-by-age",
-    "title": "cdmetapopR Vignette",
+    "title": "cdmetapopR Output Vignette",
     "section": "7.3 Size by Age",
     "text": "7.3 Size by Age\n\nsummary_ind(ex_dir, type = \"age_size\", year = 9, batch = 0, mc = 0)\n\n\n\n\n\n\n\n\nFilter to a subset of patches with patches.\n\nsummary_ind(ex_dir, type = \"age_size\", year = 9, batch = 0, mc = 0, patches = c(1, 3, 4, 5))"
   },
   {
     "objectID": "cdmetapopr/cdmetapopr_output_vignette.html#hindex-histogram",
     "href": "cdmetapopr/cdmetapopr_output_vignette.html#hindex-histogram",
-    "title": "cdmetapopR Vignette",
+    "title": "cdmetapopR Output Vignette",
     "section": "7.4 Hindex Histogram",
     "text": "7.4 Hindex Histogram\n\nsummary_ind(ex_dir, type = \"hindex\", year = 9, batch = 0, mc = 0)"
   },
   {
     "objectID": "cdmetapopr/cdmetapopr_output_vignette.html#movement-distance-histogram",
     "href": "cdmetapopr/cdmetapopr_output_vignette.html#movement-distance-histogram",
-    "title": "cdmetapopR Vignette",
+    "title": "cdmetapopR Output Vignette",
     "section": "7.5 Movement Distance Histogram",
     "text": "7.5 Movement Distance Histogram\nCDist = -9999 is treated as no movement and is excluded from the histogram.\n\nsummary_ind(ex_dir, type = \"cdist\", year = 9, batch = 0, mc = 0)"
   },
   {
     "objectID": "cdmetapopr/cdmetapopr_output_vignette.html#movement-over-time",
     "href": "cdmetapopr/cdmetapopr_output_vignette.html#movement-over-time",
-    "title": "cdmetapopR Vignette",
+    "title": "cdmetapopR Output Vignette",
     "section": "7.6 Movement Over Time",
     "text": "7.6 Movement Over Time\n\nsummary_ind(ex_dir, type = \"movement\", years = 0:9, batch = 0, mc = 0)\n\n\n\n\n\n\n\n\n\nsummary_ind(ex_dir, type = \"movement\", years = 0:9, batch = 0, mc = \"all\")\n\n\n\n\n\n\n\n\nIf CDMetaPOP output includes sampled individual files, use file_type = \"ind_Sample\" to read ind##_Sample.csv files instead of ind##.csv files. The bundled example data use ind##.csv, so this example is shown but not evaluated.\n\nsummary_ind(ex_dir, type = \"age\", year = 9, file_type = \"ind_Sample\")"
   },
   {
     "objectID": "cdmetapopr/cdmetapopr_output_vignette.html#allele-frequencies-by-patch",
     "href": "cdmetapopr/cdmetapopr_output_vignette.html#allele-frequencies-by-patch",
-    "title": "cdmetapopR Vignette",
+    "title": "cdmetapopR Output Vignette",
     "section": "8.1 Allele Frequencies by Patch",
     "text": "8.1 Allele Frequencies by Patch\n\nallele_frequencies_ind(ex_dir, year = 9, batch = 0, mc = 0)\n\n\n\n\n\n\n\n\nFocus on one locus with loci.\n\nallele_frequencies_ind(ex_dir, year = 9, batch = 0, mc = 0, loci = \"L0\")\n\n\n\n\n\n\n\n\nFilter to selected patches when a figure would otherwise be too dense.\n\nallele_frequencies_ind(\n  ex_dir,\n  year = 9,\n  batch = 0,\n  mc = 0,\n  loci = \"L0\",\n  patches = c(1, 3, 4, 5, 7, 9)#, \n  #jitter = FALSE\n)\n\n\n\n\n\n\n\n\nJittering of points on top of the boxplots can be turned off by adding the argument jitter = FALSE."
   },
   {
     "objectID": "cdmetapopr/cdmetapopr_output_vignette.html#heterozygosity-by-patch",
     "href": "cdmetapopr/cdmetapopr_output_vignette.html#heterozygosity-by-patch",
-    "title": "cdmetapopR Vignette",
+    "title": "cdmetapopR Output Vignette",
     "section": "8.2 Heterozygosity by Patch",
     "text": "8.2 Heterozygosity by Patch\n\nheterozygosity_ind(ex_dir, year = 9, batch = 0, mc = 0)\n\n\n\n\n\n\n\n\n\nheterozygosity_ind(\n  ex_dir,\n  year = 9,\n  batch = 0,\n  mc = 0,\n  loci = \"L0\",\n  patches = c(1, 3, 4, 5, 7, 9)\n)"
   },
   {
     "objectID": "cdmetapopr/cdmetapopr_output_vignette.html#pairwise-fst",
     "href": "cdmetapopr/cdmetapopr_output_vignette.html#pairwise-fst",
-    "title": "cdmetapopR Vignette",
+    "title": "cdmetapopR Output Vignette",
     "section": "8.3 Pairwise FST",
     "text": "8.3 Pairwise FST\n\npairwise_fst_ind(ex_dir, year = 9, batch = 0, mc = 0)\n\n\n\n\n\n\n\n\n\npairwise_fst_ind(ex_dir, year = 9, batch = 0, mc = 0, loci = \"L0\")"
   },
   {
     "objectID": "cdmetapopr/cdmetapopr_output_vignette.html#all-individuals",
     "href": "cdmetapopr/cdmetapopr_output_vignette.html#all-individuals",
-    "title": "cdmetapopR Vignette",
+    "title": "cdmetapopR Output Vignette",
     "section": "9.1 All Individuals",
     "text": "9.1 All Individuals\n\nsummary_patch_map(\n  ex_dir,\n  years = c(0, 5, 9),\n  batch = 0,\n  mc = 0,\n  crs = 5070\n)\n\n\n\n\n\n\n\n\nIf patch counts vary widely, use log_scale = TRUE for abundance point sizes.\n\nsummary_patch_map(\n  ex_dir,\n  years = c(0, 5, 9),\n  batch = 0,\n  mc = 0,\n  log_scale = TRUE,\n  crs = 5070\n)"
   },
   {
     "objectID": "cdmetapopr/cdmetapopr_output_vignette.html#one-disease-state",
     "href": "cdmetapopr/cdmetapopr_output_vignette.html#one-disease-state",
-    "title": "cdmetapopR Vignette",
+    "title": "cdmetapopR Output Vignette",
     "section": "9.2 One Disease State",
     "text": "9.2 One Disease State\nUse states to count only individuals in selected disease states.\n\nsummary_patch_map(\n  ex_dir,\n  years = c(0, 5, 9),\n  batch = 0,\n  mc = 0,\n  states = 1,\n  crs = 5070\n)"
   },
   {
     "objectID": "cdmetapopr/cdmetapopr_output_vignette.html#faceted-by-disease-state",
     "href": "cdmetapopr/cdmetapopr_output_vignette.html#faceted-by-disease-state",
-    "title": "cdmetapopR Vignette",
+    "title": "cdmetapopR Output Vignette",
     "section": "9.3 Faceted by Disease State",
     "text": "9.3 Faceted by Disease State\n\nsummary_patch_map(\n  ex_dir,\n  years = c(0, 9),\n  batch = 0,\n  mc = 0,\n  states = c(0, 1),\n  facet_by_state = TRUE,\n  crs = 5070\n)"
   },
   {
     "objectID": "cdmetapopr/cdmetapopr_output_vignette.html#allele-frequency-map",
     "href": "cdmetapopr/cdmetapopr_output_vignette.html#allele-frequency-map",
-    "title": "cdmetapopR Vignette",
+    "title": "cdmetapopR Output Vignette",
     "section": "9.4 Allele Frequency Map",
     "text": "9.4 Allele Frequency Map\nPatch maps can also show genetic summaries from individual files. For allele frequency maps, specify one locus and one allele.\n\nsummary_patch_map(\n  ex_dir,\n  type = \"allele_frequency\",\n  years = 9,\n  batch = 0,\n  mc = 0,\n  locus = \"L0\",\n  allele = \"A1\",\n  crs = 5070\n)"
   },
   {
     "objectID": "cdmetapopr/cdmetapopr_output_vignette.html#heterozygosity-map",
     "href": "cdmetapopr/cdmetapopr_output_vignette.html#heterozygosity-map",
-    "title": "cdmetapopR Vignette",
+    "title": "cdmetapopR Output Vignette",
     "section": "9.5 Heterozygosity Map",
     "text": "9.5 Heterozygosity Map\n\nsummary_patch_map(\n  ex_dir,\n  type = \"heterozygosity\",\n  years = 9,\n  batch = 0,\n  mc = 0,\n  locus = \"L0\",\n  metric = \"Ho\",\n  crs = 5070\n)"
   },
   {
     "objectID": "cdmetapopr/cdmetapopr_output_vignette.html#age_structure_proportions",
     "href": "cdmetapopr/cdmetapopr_output_vignette.html#age_structure_proportions",
-    "title": "cdmetapopR Vignette",
+    "title": "cdmetapopR Output Vignette",
     "section": "10.1 age_structure_proportions()",
     "text": "10.1 age_structure_proportions()\n\nage_structure_proportions(\n  path = paste0(ex_dir, \"/\"),\n  runs = 1,\n  gen = 9,\n  species = 0\n)\n\n              MC1         Avg\nAge1  0.498127341 0.498127341\nAge2  0.202247191 0.202247191\nAge3  0.153558052 0.153558052\nAge4  0.116104869 0.116104869\nAge5  0.082397004 0.082397004\nAge6  0.074906367 0.074906367\nAge7  0.063670412 0.063670412\nAge8  0.052434457 0.052434457\nAge9  0.014981273 0.014981273\nAge10 0.011235955 0.011235955\nAge11 0.011235955 0.011235955\nAge12 0.018726592 0.018726592\nAge13 0.007490637 0.007490637\nAge14 0.003745318 0.003745318\nAge15 0.044943820 0.044943820\nAge16 0.142322097 0.142322097"
   },
   {
     "objectID": "cdmetapopr/cdmetapopr_output_vignette.html#launch_cdmetapop",
     "href": "cdmetapopr/cdmetapopr_output_vignette.html#launch_cdmetapop",
-    "title": "cdmetapopR Vignette",
+    "title": "cdmetapopR Output Vignette",
     "section": "11.1 launch_cdmetapop()",
     "text": "11.1 launch_cdmetapop()\n\nlaunch_cdmetapop(\n  pythonFilepath = \"C:/path/to/python.exe\",\n  CDMetaPOPFilepath = \"C:/path/to/CDMetaPOP.py\",\n  runvarsDirectory = \"C:/path/to/example_files/\",\n  runvarsFilename = \"RunVars.csv\",\n  outputDirectory = \"test_output\"\n)"
   },
   {
     "objectID": "cdmetapopr/cdmetapopr_output_vignette.html#template-editors",
     "href": "cdmetapopr/cdmetapopr_output_vignette.html#template-editors",
-    "title": "cdmetapopR Vignette",
+    "title": "cdmetapopR Output Vignette",
     "section": "11.2 Template Editors",
     "text": "11.2 Template Editors\n\nwrite_runvars(output_file = \"my_new_runvars.csv\")\nwrite_popvars(output_file = \"my_new_popvars.csv\")\nwrite_patchvars(output_file = \"my_new_patchvars.csv\")\nwrite_classvars(output_file = \"my_new_classvars.csv\")"
   },
@@ -502,6 +502,27 @@
     "title": "How to Start a Run with cdmetapopR",
     "section": "",
     "text": "CDMetaPOP and Python Installation\nIf you haven’t already, make sure to download the CDMetaPOP zip archive from GITHUB\nDownload\n\nNext, navigate to the directory where you wish to install CDMetaPOP and unpack the archive. Three directories will be installed in the directory you chose:\n\nsrc – CDMetaPOP source code\ndoc – documents\n\nREADME.txt – a quick how to run CDMetaPOP instructions\nCDMetaPOP3_usermanual.docx\nCDmetaPOPhistory.txt – Notes on history and version changes\n\nexample_files – Example input files\n\nMake sure to have Python 3.8+ along with the NumPy and SciPy packages installed. We recommend the Anaconda Python distribution, as it comes with these packages pre-installed. You can test for your Python install by opening a terminal (Linux/macOS) or command prompt (Windows) and typing “python”; If python is available, you will get the python prompt “&gt;&gt;&gt;” along with the python version you have installed, for example:\npython\nPython 3.12.4 | packaged by Anaconda, Inc. | (main, Jun 18 2024, 10:14:12) [Clang 14.0.6 ] on darwin\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n&gt;&gt;&gt; \nIf ‘python’ is not a recognized command, it means either that python is installed but not in your command shell’s paths, or that python is not installed.\nIn such case, please refer to more detailed instructions here.\nNow let’s begin to run CDMetaPOP\nOnce you have python and CDMetaPOP installed, you can run CDMetaPOP from R using the launch_cdmetapop() function.\nThis function will launch a command prompt (Windows) or terminal (Linux/Mac) that will call Python and supply the 5 arguments needed to launch CDMetaPOP simulations.\nThe five arguments are:\n\nPYTHON: Location of Python executable, or just ‘python’ if the environment is already established. To figure out where Python is located in your directories. At the command prompt for Windows, you can type:\n\nwhere python\nIn the terminal (Linux/Mac), you can type\nwhich python \nThis will give you the location of the python executable, and your first argument for the launch_cdmetapop() function.\nMake sure the input files you created for your run are in the same directory as the runVars.csv file, and that you have the CDMetaPOP.py file in the same directory as your R session or that you provide the path to it in the second argument.\nFor example (make sure to replace paths with yours):\nlibrary (cdmetapopR)\n\nlaunch_cdmetapop (\npythonFilepath = \"/Users/anaconda3/bin/python\", \nCDMetaPOPFilepath = \"/Users/CDMetaPop/src/CDMetaPOP.py\", \nrunvarsDirectory = \"/Users/CDMetaPop/data/\", \nrunvarsFilename = \"RunVarsEBT.csv\", \noutputDirectory = \"test_\")\nThis will launch the command prompt or terminal and run CDMetaPOP. You will find the output files in the same directory as your runVars.csv file, in a new folder with the name you specified in the outputDirectory argument and its added timestamp."
+  },
+  {
+    "objectID": "cdmetapopr/cdmetapopr_wrapper.html",
+    "href": "cdmetapopr/cdmetapopr_wrapper.html",
+    "title": "Building CDMetaPOP input files with the R wrapper",
+    "section": "",
+    "text": "CDMetaPOP input files consist of a series of connected csv files: a RunVars.csv naming one or more PopVars.csv files, each naming a PatchVars.csv, which in turn names a ClassVars.csv, plus cost-distance matrices, gene frequency files, and other inputs.\nThis tutorial is meant to help the user create and assemble these files and handle the directories and relative paths of the different input files under the hood.\ncdmetapopR represents these file types as R objects based on unique classes:\n\n\n\nObject\nFile\nEach row is\n\n\n\n\nClassVars()\nClassVars.csv\nan age class\n\n\nPatchVars()\nPatchVars.csv\na patch\n\n\nPopVars()\nPopVars.csv\na batch\n\n\nRunVars()\nRunVars.csv\na run\n\n\n\nDefault values for each input class match values in CDMetaPOP’s own example files, each column can be modified by the user, after which the wrapper will validate everything assigned to an input object, and can hold another object wherever the inputs call for another object.\nlaunch_cdmetapop() will write the entire input file directory for you, and you never have to name a csv file or manage subdirectories. If your CDMetaPOP input files already exist, you can read them in as R objects using read_cdmetapop() or using the path argument in each of the above functions.\nHere is an example that will create all necessary inputs:\n\nmycv     &lt;- ClassVars()\nmypv     &lt;- PatchVars(class_vars = mycv)       # an object, not a path\nmypopv   &lt;- PopVars(xyfilename = mypv)\nmyrv     &lt;- RunVars(Popvars = mypopv)\nrun_dir  &lt;- launch_cdmetapop(myrv, pythonFilepath = \"python\",\n                             CDMetaPOPFilepath = \"CDMetaPOP.py\")\n\nEven simpler, you can run the default example simulation by just calling RunVars() in the launch_cdmetapop() function.\n\nrun_dir  &lt;- launch_cdmetapop(RunVars(), pythonFilepath = \"python\",\n                             CDMetaPOPFilepath = \"CDMetaPOP.py\")\n\nwrite_cdmetapop() can be used to write a single object to file, read_cdmetapop() or the path = argument can be used to read an existing file in as an R object.\nThis vignette builds a complete, valid input set from scratch. Everything except the launch itself runs as shown."
+  },
+  {
+    "objectID": "cdmetapopr/cdmetapopr_wrapper.html#create-classvars-patchvars-popvars-and-runvars-objects-and-launch-a-simulation",
+    "href": "cdmetapopr/cdmetapopr_wrapper.html#create-classvars-patchvars-popvars-and-runvars-objects-and-launch-a-simulation",
+    "title": "Building CDMetaPOP input files with the R wrapper",
+    "section": "",
+    "text": "CDMetaPOP input files consist of a series of connected csv files: a RunVars.csv naming one or more PopVars.csv files, each naming a PatchVars.csv, which in turn names a ClassVars.csv, plus cost-distance matrices, gene frequency files, and other inputs.\nThis tutorial is meant to help the user create and assemble these files and handle the directories and relative paths of the different input files under the hood.\ncdmetapopR represents these file types as R objects based on unique classes:\n\n\n\nObject\nFile\nEach row is\n\n\n\n\nClassVars()\nClassVars.csv\nan age class\n\n\nPatchVars()\nPatchVars.csv\na patch\n\n\nPopVars()\nPopVars.csv\na batch\n\n\nRunVars()\nRunVars.csv\na run\n\n\n\nDefault values for each input class match values in CDMetaPOP’s own example files, each column can be modified by the user, after which the wrapper will validate everything assigned to an input object, and can hold another object wherever the inputs call for another object.\nlaunch_cdmetapop() will write the entire input file directory for you, and you never have to name a csv file or manage subdirectories. If your CDMetaPOP input files already exist, you can read them in as R objects using read_cdmetapop() or using the path argument in each of the above functions.\nHere is an example that will create all necessary inputs:\n\nmycv     &lt;- ClassVars()\nmypv     &lt;- PatchVars(class_vars = mycv)       # an object, not a path\nmypopv   &lt;- PopVars(xyfilename = mypv)\nmyrv     &lt;- RunVars(Popvars = mypopv)\nrun_dir  &lt;- launch_cdmetapop(myrv, pythonFilepath = \"python\",\n                             CDMetaPOPFilepath = \"CDMetaPOP.py\")\n\nEven simpler, you can run the default example simulation by just calling RunVars() in the launch_cdmetapop() function.\n\nrun_dir  &lt;- launch_cdmetapop(RunVars(), pythonFilepath = \"python\",\n                             CDMetaPOPFilepath = \"CDMetaPOP.py\")\n\nwrite_cdmetapop() can be used to write a single object to file, read_cdmetapop() or the path = argument can be used to read an existing file in as an R object.\nThis vignette builds a complete, valid input set from scratch. Everything except the launch itself runs as shown."
+  },
+  {
+    "objectID": "cdmetapopr/cdmetapopr_wrapper.html#what-gets-written",
+    "href": "cdmetapopr/cdmetapopr_wrapper.html#what-gets-written",
+    "title": "Building CDMetaPOP input files with the R wrapper",
+    "section": "What gets written",
+    "text": "What gets written\nThe run directory holds CDMetaPOP’s canonical layout, with every cross-reference rewritten to the right relative path:\ncdmetapop_run_20261002_143015/\n├── RunVars.csv\n├── popvars/mypopv.csv\n├── patchvars/mypv.csv\n├── classvars/mycv.csv\n├── cdmats/cdmat.csv\n└── manifest.csv\nFiles are named after the R variables that held the objects, so you can trace any csv back to where it came from. manifest.csv records that mapping explicitly."
   },
   {
     "objectID": "cdmetapopr/cdmetapopr_shinyApps.html",

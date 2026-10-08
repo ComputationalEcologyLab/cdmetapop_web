@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>cdmetapopR Wrapper – CDMetaPOP</title>
+<title>cdmetapopr_wrapper – CDMetaPOP</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -25,6 +25,41 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -150,33 +185,459 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#building-cdmetapop-input-files-with-the-r-wrapper" id="toc-building-cdmetapop-input-files-with-the-r-wrapper" class="nav-link active" data-scroll-target="#building-cdmetapop-input-files-with-the-r-wrapper">Building CDMetaPOP input files with the R wrapper</a>
+  <ul class="collapse">
+  <li><a href="#create-classvars-patchvars-popvars-and-runvars-objects-and-launch-a-simulation" id="toc-create-classvars-patchvars-popvars-and-runvars-objects-and-launch-a-simulation" class="nav-link" data-scroll-target="#create-classvars-patchvars-popvars-and-runvars-objects-and-launch-a-simulation">Create ClassVars, PatchVars, PopVars and RunVars objects, and launch a simulation</a></li>
+  </ul></li>
+  <li><a href="#classvars" id="toc-classvars" class="nav-link" data-scroll-target="#classvars">ClassVars</a></li>
+  <li><a href="#patchvars" id="toc-patchvars" class="nav-link" data-scroll-target="#patchvars">PatchVars</a></li>
+  <li><a href="#changing-parameter-values-over-time-and-by-sex" id="toc-changing-parameter-values-over-time-and-by-sex" class="nav-link" data-scroll-target="#changing-parameter-values-over-time-and-by-sex">Changing parameter values over time and by sex</a></li>
+  <li><a href="#cost-distance-matrices" id="toc-cost-distance-matrices" class="nav-link" data-scroll-target="#cost-distance-matrices">Cost-distance matrices</a></li>
+  <li><a href="#popvars" id="toc-popvars" class="nav-link" data-scroll-target="#popvars">PopVars</a></li>
+  <li><a href="#runvars" id="toc-runvars" class="nav-link" data-scroll-target="#runvars">RunVars</a></li>
+  <li><a href="#writing-and-reading-single-files" id="toc-writing-and-reading-single-files" class="nav-link" data-scroll-target="#writing-and-reading-single-files">Writing and reading single files</a></li>
+  <li><a href="#launching-a-simulation" id="toc-launching-a-simulation" class="nav-link" data-scroll-target="#launching-a-simulation">Launching a simulation</a>
+  <ul class="collapse">
+  <li><a href="#what-gets-written" id="toc-what-gets-written" class="nav-link" data-scroll-target="#what-gets-written">What gets written</a></li>
+  </ul></li>
+  <li><a href="#validation" id="toc-validation" class="nav-link" data-scroll-target="#validation">Validation</a></li>
+  <li><a href="#reading-results" id="toc-reading-results" class="nav-link" data-scroll-target="#reading-results">Reading results</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
 
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">cdmetapopR Wrapper</h1>
+
+
+
+<section id="building-cdmetapop-input-files-with-the-r-wrapper" class="level1">
+<h1>Building CDMetaPOP input files with the R wrapper</h1>
+<section id="create-classvars-patchvars-popvars-and-runvars-objects-and-launch-a-simulation" class="level2">
+<h2 class="anchored" data-anchor-id="create-classvars-patchvars-popvars-and-runvars-objects-and-launch-a-simulation">Create ClassVars, PatchVars, PopVars and RunVars objects, and launch a simulation</h2>
+<p>CDMetaPOP input files consist of a series of connected csv files: a <code>RunVars.csv</code> naming one or more <code>PopVars.csv</code> files, each naming a <code>PatchVars.csv</code>, which in turn names a <code>ClassVars.csv</code>, plus cost-distance matrices, gene frequency files, and other inputs.</p>
+<p>This tutorial is meant to help the user create and assemble these files and handle the directories and relative paths of the different input files under the hood.</p>
+<p><code>cdmetapopR</code> represents these file types as R objects based on unique classes:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Object</th>
+<th>File</th>
+<th>Each row is</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>ClassVars()</code></td>
+<td><code>ClassVars.csv</code></td>
+<td>an age class</td>
+</tr>
+<tr class="even">
+<td><code>PatchVars()</code></td>
+<td><code>PatchVars.csv</code></td>
+<td>a patch</td>
+</tr>
+<tr class="odd">
+<td><code>PopVars()</code></td>
+<td><code>PopVars.csv</code></td>
+<td>a batch</td>
+</tr>
+<tr class="even">
+<td><code>RunVars()</code></td>
+<td><code>RunVars.csv</code></td>
+<td>a run</td>
+</tr>
+</tbody>
+</table>
+<p>Default values for each input class match values in CDMetaPOP’s own example files, each column can be modified by the user, after which the wrapper will validate everything assigned to an input object, and can hold another object wherever the inputs call for another object.</p>
+<p><code>launch_cdmetapop()</code> will write the entire input file directory for you, and you never have to name a csv file or manage subdirectories. If your CDMetaPOP input files already exist, you can read them in as R objects using <code>read_cdmetapop()</code> or using the <code>path</code> argument in each of the above functions.</p>
+<p>Here is an example that will create all necessary inputs:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>mycv     <span class="ot">&lt;-</span> <span class="fu">ClassVars</span>()</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>mypv     <span class="ot">&lt;-</span> <span class="fu">PatchVars</span>(<span class="at">class_vars =</span> mycv)       <span class="co"># an object, not a path</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>mypopv   <span class="ot">&lt;-</span> <span class="fu">PopVars</span>(<span class="at">xyfilename =</span> mypv)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>myrv     <span class="ot">&lt;-</span> <span class="fu">RunVars</span>(<span class="at">Popvars =</span> mypopv)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>run_dir  <span class="ot">&lt;-</span> <span class="fu">launch_cdmetapop</span>(myrv, <span class="at">pythonFilepath =</span> <span class="st">"python"</span>,</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>                             <span class="at">CDMetaPOPFilepath =</span> <span class="st">"CDMetaPOP.py"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
+<p>Even simpler, you can run the default example simulation by just calling <code>RunVars()</code> in the <code>launch_cdmetapop()</code> function.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>run_dir  <span class="ot">&lt;-</span> <span class="fu">launch_cdmetapop</span>(<span class="fu">RunVars</span>(), <span class="at">pythonFilepath =</span> <span class="st">"python"</span>,</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>                             <span class="at">CDMetaPOPFilepath =</span> <span class="st">"CDMetaPOP.py"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p><code>write_cdmetapop()</code> can be used to write a single object to file, <code>read_cdmetapop()</code> or the <code>path =</code> argument can be used to read an existing file in as an R object.</p>
+<p>This vignette builds a complete, valid input set from scratch. Everything except the launch itself runs as shown.</p>
+</section>
+</section>
+<section id="classvars" class="level1">
+<h1>ClassVars</h1>
+<p><code>ClassVars.csv</code> holds the age-class parameters: size at age, mortality, maturation, migration probability, etc. A default call reproduces CDMetaPOP’s <code>ClassVars_AS1.csv</code>, which has six age classes.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>mycv <span class="ot">&lt;-</span> <span class="fu">ClassVars</span>()</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>mycv<span class="sc">$</span>ages</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0 1 2 3 4 5</code></pre>
+</div>
+</div>
+<p>Columns are read and written as vectors with one value per age class. Printing the object shows the table; <code>as.data.frame()</code> gives you an ordinary data frame to inspect or subset.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">as.data.frame</span>(mycv)[, <span class="fu">c</span>(<span class="st">"Age class"</span>, <span class="st">"Body Size Mean"</span>, <span class="st">"Age Mortality Out"</span>)]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  Age class Body Size Mean Age Mortality Out
+1         0             31                 N
+2         1             53                 N
+3         2             92                 N
+4         3            123                 N
+5         4            147                 N
+6         5            184                 N</code></pre>
+</div>
+</div>
+<p>Default columns can be modified when the function is called, or already created objects can be modified just like a data frame. Input values are validated immediately, so incorrect input values will be flagged immediately:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>mycv<span class="sc">$</span>age_mortality_out <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">0.6</span>, <span class="fl">0.4</span>, <span class="fl">0.2</span>, <span class="fl">0.1</span>, <span class="fl">0.1</span>, <span class="fl">0.1</span>)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>mycv<span class="sc">$</span>maturation <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>, <span class="fl">0.5</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>mycv<span class="sc">$</span>age_mortality_out</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "0.6" "0.4" "0.2" "0.1" "0.1" "0.1"</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Alternatively, edit the columns at creation</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>mycv <span class="ot">&lt;-</span> <span class="fu">ClassVars</span>(<span class="at">age_mortality_out =</span> <span class="fu">c</span>(<span class="fl">0.6</span>, <span class="fl">0.4</span>, <span class="fl">0.2</span>, <span class="fl">0.1</span>, <span class="fl">0.1</span>, <span class="fl">0.1</span>),</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>                  <span class="at">maturation =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>, <span class="fl">0.5</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p><code>add_rows()</code> adds age classes, copying the current last row so you only edit what differs:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">add_rows</span>(mycv)</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>mycv<span class="sc">$</span>ages</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0 1 2 3 4 5 6</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>mycv<span class="sc">$</span>maturation</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "0"   "0"   "0.5" "1"   "1"   "1"   "1"  </code></pre>
+</div>
+</div>
+</section>
+<section id="patchvars" class="level1">
+<h1>PatchVars</h1>
+<p><code>PatchVars.csv</code> contains one row for each patch and includes spatial coordinates, carrying capacity, initial population size, mortality, migration, and growth parameters. The default is CDMetaPOP’s seven-patch <code>PatchVarsS1.csv</code>.</p>
+<p>The <code>class_vars</code> column is where a <code>PatchVars</code> file would normally name a <code>ClassVars.csv</code>. With the wrapper, you can provide either the R object or the relative filepath:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>mypv <span class="ot">&lt;-</span> <span class="fu">PatchVars</span>(<span class="at">class_vars =</span> mycv, <span class="at">genes_initialize =</span> <span class="st">"random"</span>)</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>mypv<span class="sc">$</span>patch_id</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1 2 3 4 5 6 7</code></pre>
+</div>
+</div>
+<p><code>genes_initialize = "random"</code> draws random starting genotypes rather than reading an allele-frequency file.</p>
+<p>Edit columns one value per patch, and add patches with <code>add_rows()</code>:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>mypv<span class="sc">$</span>k <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">300</span>, <span class="dv">300</span>, <span class="dv">500</span>, <span class="dv">500</span>, <span class="dv">200</span>, <span class="dv">200</span>, <span class="dv">200</span>)</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>mypv<span class="sc">$</span>n0 <span class="ot">&lt;-</span> <span class="dv">100</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Alternatively,</span></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>mypv <span class="ot">&lt;-</span> <span class="fu">PatchVars</span>(<span class="at">k =</span> <span class="fu">c</span>(<span class="dv">300</span>, <span class="dv">300</span>, <span class="dv">500</span>, <span class="dv">500</span>, <span class="dv">200</span>, <span class="dv">200</span>, <span class="dv">200</span>),</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>                  <span class="at">n0 =</span> <span class="dv">100</span>)</span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a><span class="fu">add_rows</span>(mypv)</span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>mypv<span class="sc">$</span>patch_id</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1 2 3 4 5 6 7 8</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>mypv<span class="sc">$</span>k</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "300" "300" "500" "500" "200" "200" "200" "200"</code></pre>
+</div>
+</div>
+</section>
+<section id="changing-parameter-values-over-time-and-by-sex" class="level1">
+<h1>Changing parameter values over time and by sex</h1>
+<p>CDMetaPOP packs multiple values into one cell using delimiters, be careful to get the formatting correct.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Delimiter</th>
+<th>Meaning</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>|</td>
+<td>changes over time, at the years set by <code>RunVars$cdclimgentime</code></td>
+<td><code>"0|0.2|0.5"</code></td>
+</tr>
+<tr class="even">
+<td><code>~</code></td>
+<td>differs by sex, in the order FXX, MXY, MYY, FYY</td>
+<td><code>"0.5~0.5"</code></td>
+</tr>
+<tr class="odd">
+<td><code>;</code></td>
+<td>multiple species, or multiple files for one field</td>
+<td><code>"popvars/speciesA.csv;popvars/speciesB.csv"</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>A delimited value is a single string, not a vector.</strong></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># One patch's mortality changing over time: 0, then 0.2, then 0.5</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>mypv<span class="sc">$</span>mortality_out <span class="ot">&lt;-</span> <span class="st">"0|0.2|0.5"</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Eight patches, each with different mortality values over time</span></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>mypv<span class="sc">$</span>mortality_out <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"0|0.2|0.2"</span>,<span class="st">"0|0.2|0.3"</span>,<span class="st">"0|0.2|0.4"</span>,<span class="st">"0|0.2|0.5"</span>,<span class="st">"0|0.2|0.6"</span>,<span class="st">"0|0.2|0.7"</span>,<span class="st">"0|0.2|0.8"</span>,<span class="st">"0|0.2|0.8"</span>)</span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Eight patches, each with its own constant mortality</span></span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>mypv<span class="sc">$</span>mortality_out <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">0.1</span>, <span class="fl">0.1</span>, <span class="fl">0.2</span>, <span class="fl">0.2</span>, <span class="fl">0.2</span>, <span class="fl">0.3</span>, <span class="fl">0.3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>The first assigns the same three-stage schedule to every patch. The second gives each patch different values over time, and the third gives one value for each patch. Writing <code>c(0, 0.2, 0.5)</code> when you meant <code>"0|0.2|0.5"</code> won’t raise any errors but is not correct and won’t be caught.</p>
+<p>Each segment is validated independently, so an out-of-range value inside a delimited string is still rejected:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>mypv<span class="sc">$</span>mortality_out <span class="ot">&lt;-</span> <span class="st">"0|0.2|1.5"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-error">
+<pre><code>Error in `.pv_check_segment()`:
+! `mortality_out`[1] = 1.5 is outside the allowed range [0, 1].</code></pre>
+</div>
+</div>
+<p>Sex-specific values work the same way, as one <code>~</code>-delimited string:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># XX~XY</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>mycv<span class="sc">$</span>sex_ratio <span class="ot">&lt;-</span> <span class="st">"0.5~0.5"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="cost-distance-matrices" class="level1">
+<h1>Cost-distance matrices</h1>
+<p><code>PopVars</code> has five movement fields (mating, emigration, immigration, straying and dispersal) that CDMetaPOP reads as patch-by-patch cost-distance matrices. Each accepts either a path to a csv or <strong>a raw R matrix</strong> which will be created and serialized for you at launch.</p>
+<p><code>create_cdmat()</code> builds a distance matrix from patch coordinates:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"pkg path:   "</span>, <span class="fu">find.package</span>(<span class="st">"cdmetapopR"</span>), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>pkg path:    /home/runner/work/_temp/Library/cdmetapopR </code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"pkg version:"</span>, <span class="fu">as.character</span>(<span class="fu">packageVersion</span>(<span class="st">"cdmetapopR"</span>)), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>pkg version: 1.1.0 </code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"R version:  "</span>, R.version.string, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>R version:   R version 4.6.1 (2026-06-24) </code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"libPaths:   "</span>, <span class="fu">paste</span>(<span class="fu">.libPaths</span>(), <span class="at">collapse =</span> <span class="st">" | "</span>), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>libPaths:    /home/runner/work/_temp/Library | /opt/R/4.6.1/lib/R/site-library | /opt/R/4.6.1/lib/R/library </code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>coords <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(mypv)[, <span class="fu">c</span>(<span class="st">"X"</span>, <span class="st">"Y"</span>)]</span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(coords)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>'data.frame':   8 obs. of  2 variables:
+ $ X: num  2540471 2536860 2532969 2539041 2535012 ...
+ $ Y: num  712452 708059 705414 728417 720258 ...</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>cdmat <span class="ot">&lt;-</span> <span class="fu">create_cdmat</span>(coords, <span class="at">method =</span> <span class="st">"euclidean"</span>)</span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(cdmat)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> num [1:8, 1:8] 0 5686 10287 16028 9525 ...
+ - attr(*, "dimnames")=List of 2
+  ..$ : chr [1:8] "1" "2" "3" "4" ...
+  ..$ : chr [1:8] "1" "2" "3" "4" ...</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(cdmat)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 8 8</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(cdmat[<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>      1     2     3     4
+1     0  5686 10287 16028
+2  5686     0  4705 20474
+3 10287  4705     0 23791
+4 16028 20474 23791     0</code></pre>
+</div>
+</div>
+<p><code>method = "equal"</code> gives every patch pair the same cost, and <code>method = "lcp"</code> computes least-cost paths across a resistance raster. See the main vignette for more on <code>create_cdmat()</code>.</p>
+</section>
+<section id="popvars" class="level1">
+<h1>PopVars</h1>
+<p><code>PopVars.csv</code> holds one row per <em>batch</em> - a set of population-level settings that CDMetaPOP runs as an independent simulation. The <code>xyfilename</code> column points at a <code>PatchVars</code> file, so hand it the object, and give the five movement fields the matrix built above:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>mypopv <span class="ot">&lt;-</span> <span class="fu">PopVars</span>(</span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">n_batches =</span> <span class="dv">1</span>,</span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">xyfilename =</span> mypv,</span>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">mate_cdmat =</span> cdmat,</span>
+<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">migrateout_cdmat =</span> cdmat,</span>
+<span id="cb40-6"><a href="#cb40-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">migrateback_cdmat =</span> cdmat,</span>
+<span id="cb40-7"><a href="#cb40-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">stray_cdmat =</span> cdmat,</span>
+<span id="cb40-8"><a href="#cb40-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">disperseLocal_cdmat =</span> cdmat,</span>
+<span id="cb40-9"><a href="#cb40-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">correlation_matrix =</span> <span class="st">"N"</span>,</span>
+<span id="cb40-10"><a href="#cb40-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">subpopmort_file =</span> <span class="st">"N"</span>,</span>
+<span id="cb40-11"><a href="#cb40-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">betaFile_selection =</span> <span class="st">"N"</span></span>
+<span id="cb40-12"><a href="#cb40-12" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p><code>"N"</code> is CDMetaPOP’s off switch, used here for the three optional fields so that nothing outside this session is referenced.</p>
+<p><code>PopVars</code> has 81 columns, and unlike <code>ClassVars</code>/<code>PatchVars</code> CDMetaPOP reads its headers as dictionary keys so the <code>PopVars()</code> argument and the csv column names match exactly:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>mypopv<span class="sc">$</span>loci <span class="ot">&lt;-</span> <span class="dv">4</span></span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>mypopv<span class="sc">$</span>matemoveno <span class="ot">&lt;-</span> <span class="st">"4"</span></span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a><span class="fu">add_rows</span>(mypopv)</span>
+<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a>mypopv<span class="sc">$</span>popmodel <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"packing"</span>, <span class="st">"logistic_back"</span>)</span>
+<span id="cb41-6"><a href="#cb41-6" aria-hidden="true" tabindex="-1"></a><span class="fu">as.data.frame</span>(mypopv)[, <span class="fu">c</span>(<span class="st">"loci"</span>, <span class="st">"alleles"</span>, <span class="st">"matemoveno"</span>, <span class="st">"popmodel"</span>)]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  loci alleles matemoveno      popmodel
+1    4       2          4       packing
+2    4       2          4 logistic_back</code></pre>
+</div>
+</div>
+<p>The second batch reuses the same <code>PatchVars</code> object with a different set of population parameters, which CDMetaPOP will run as a separate simulation.</p>
+</section>
+<section id="runvars" class="level1">
+<h1>RunVars</h1>
+<p><code>RunVars.csv</code> is the top of the file tree. Each row is a <em>run</em>, and its <code>Popvars</code> column names one <code>PopVars</code> file per species. CDMetaPOP executes every run × every batch × every Monte Carlo replicate as a separate simulation.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>myrv <span class="ot">&lt;-</span> <span class="fu">RunVars</span>(<span class="at">n_runs =</span> <span class="dv">1</span>, <span class="at">Popvars =</span> mypopv)</span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>myrv<span class="sc">$</span>runtime <span class="ot">&lt;-</span> <span class="dv">50</span></span>
+<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a>myrv<span class="sc">$</span>output_years <span class="ot">&lt;-</span> <span class="dv">5</span></span>
+<span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a>myrv</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>&lt;RunVars&gt; 1 run(s)
+           Popvars sizecontrol constMortans mcruns runtime output_years
+1 &lt;PopVars object&gt;           Y            1      1      50            5
+  gridformat gridsampling summaryOutput cdclimgentime startcomp implementcomp
+1      cdpop       Sample             N         0|1|2         0          Back
+  ncores
+1      1</code></pre>
+</div>
+</div>
+<p>The set of R input objects is now complete: <code>myrv</code> → <code>mypopv</code> → <code>mypv</code> → <code>mycv</code>, plus the cost matrix. Nothing has been written to disk at this point, and no file has been named.</p>
+</section>
+<section id="writing-and-reading-single-files" class="level1">
+<h1>Writing and reading single files</h1>
+<p>The normal route writes everything at launch (next section). But when you want one file on its own to inspect, hand-edit, send to a collaborator, or feed it to one of the <code>make_*()</code> Shiny apps, <code>write_cdmetapop()</code> writes a single object to a csv you name:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>out_dir <span class="ot">&lt;-</span> <span class="fu">file.path</span>(<span class="fu">tempdir</span>(), <span class="st">"cdmetapop_inputs"</span>)</span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dir.create</span>(out_dir, <span class="at">showWarnings =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-4"><a href="#cb45-4" aria-hidden="true" tabindex="-1"></a><span class="fu">write_cdmetapop</span>(mycv, <span class="fu">file.path</span>(out_dir, <span class="st">"ClassVars.csv"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Read one back either with <code>read_cdmetapop()</code>, or by passing <code>path =</code> to the constructor. The two are equivalent:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>cv_a <span class="ot">&lt;-</span> <span class="fu">read_cdmetapop</span>(<span class="fu">file.path</span>(out_dir, <span class="st">"ClassVars.csv"</span>), <span class="at">type =</span> <span class="st">"ClassVars"</span>)</span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>cv_b <span class="ot">&lt;-</span> <span class="fu">ClassVars</span>(<span class="at">path =</span> <span class="fu">file.path</span>(out_dir, <span class="st">"ClassVars.csv"</span>))</span>
+<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-4"><a href="#cb46-4" aria-hidden="true" tabindex="-1"></a><span class="fu">identical</span>(<span class="fu">as.data.frame</span>(cv_a), <span class="fu">as.data.frame</span>(cv_b))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] TRUE</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="fu">identical</span>(<span class="fu">as.data.frame</span>(cv_a), <span class="fu">as.data.frame</span>(mycv))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] TRUE</code></pre>
+</div>
+</div>
+<p><code>path =</code> has the advantage that you can override columns as you read:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a>cv_c <span class="ot">&lt;-</span> <span class="fu">ClassVars</span>(<span class="at">path =</span> <span class="fu">file.path</span>(out_dir, <span class="st">"ClassVars.csv"</span>), <span class="at">maturation =</span> <span class="dv">1</span>)</span>
+<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a>cv_c<span class="sc">$</span>maturation</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "1" "1" "1" "1" "1" "1" "1"</code></pre>
+</div>
+</div>
+<p>The same works for all four classes.</p>
+<p>There is one important limit. <code>write_cdmetapop()</code> deliberately does <strong>not</strong> follow references: a cell holding a path is written verbatim, but a cell holding a live object or a raw matrix has no path to write, so it is written as <code>NA</code> with a warning:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="fu">write_cdmetapop</span>(myrv, <span class="fu">file.path</span>(out_dir, <span class="st">"RunVars_nested.csv"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: These cells held a live R object (an R6 object or a matrix), which has
+no file path, and were written as NA: `Popvars` (row 1). To keep a reference,
+write that object or matrix to its own file and assign its path instead.</code></pre>
+</div>
+</div>
+<p>A file written that way cannot be read back in immediately or launched with <code>launch_cdmetapop</code>, since <code>NA</code> is not a valid value. So <code>write_cdmetapop()</code> is more for getting an object onto disk to look at, hand-edit, or prep for a direct Python launch.</p>
+</section>
+<section id="launching-a-simulation" class="level1">
+<h1>Launching a simulation</h1>
+<p><code>launch_cdmetapop()</code> takes the <code>RunVars</code> object, writes every file in the set into a fresh timestamped run directory, and calls Python to start CDMetaPOP:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb54"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a>run_dir <span class="ot">&lt;-</span> <span class="fu">launch_cdmetapop</span>(</span>
+<span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a>  myrv,</span>
+<span id="cb54-3"><a href="#cb54-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">pythonFilepath =</span> <span class="st">"C:/Users/User1/anaconda3/python.exe"</span>,</span>
+<span id="cb54-4"><a href="#cb54-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">CDMetaPOPFilepath =</span> <span class="st">"C:/Users/User1/CDMetaPOP/src/CDMetaPOP.py"</span></span>
+<span id="cb54-5"><a href="#cb54-5" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Runs can take days, so the simulation launches in the background by default and the function returns immediately. Pass <code>wait = TRUE</code> to block until it finishes. On macOS and Linux a background run opens no console window, so check CDMetaPOP’s <code>CDmetaPOP0.log</code> in the output folder for progress and errors.</p>
+<p>You can also point it at a directory of existing csvs instead of an object:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb55"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="fu">launch_cdmetapop</span>(<span class="st">"C:/Users/User1/CDMetaPOP/example_files"</span>, <span class="at">wait =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<section id="what-gets-written" class="level2">
+<h2 class="anchored" data-anchor-id="what-gets-written">What gets written</h2>
+<p>The run directory holds CDMetaPOP’s canonical layout, with every cross-reference rewritten to the right relative path:</p>
+<pre><code>cdmetapop_run_20261002_143015/
+├── RunVars.csv
+├── popvars/mypopv.csv
+├── patchvars/mypv.csv
+├── classvars/mycv.csv
+├── cdmats/cdmat.csv
+└── manifest.csv</code></pre>
+<p>Files are named after the R variables that held the objects, so you can trace any csv back to where it came from. <code>manifest.csv</code> records that mapping explicitly.</p>
+</section>
+</section>
+<section id="validation" class="level1">
+<h1>Validation</h1>
+<p>Values are checked as you assign them, against the rules in CDMetaPOP’s user manual, so problems surface at the point you introduce them:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb57"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a>myrv<span class="sc">$</span>gridformat <span class="ot">&lt;-</span> <span class="st">"csv"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-error">
+<pre><code>Error in `.rv_check_segment()`:
+! `gridformat`[1] = "csv" must be one of: cdpop, general, genalex, structure, genepop.</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb59"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a>mypv<span class="sc">$</span>straying_prob <span class="ot">&lt;-</span> <span class="fl">1.5</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-error">
+<pre><code>Error in `.pv_check_segment()`:
+! `straying_prob`[1] = 1.5 is outside the allowed range [0, 1].</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb61"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a>mycv<span class="sc">$</span>maturation <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-error">
+<pre><code>Error in `.validate_cv_field()`:
+! `maturation` must have length 1 or 7 (the number of age classes), not 2.</code></pre>
+</div>
+</div>
+<p>Cross-file consistency is checked at launch, where the whole file set is visible at once. For example, a <code>PopVars</code> whose referenced <code>PatchVars</code> is missing something it needs. Those errors are raised before any directory is created, so a failed launch leaves nothing behind to clean up.</p>
+</section>
+<section id="reading-results" class="level1">
+<h1>Reading results</h1>
+<p><code>launch_cdmetapop()</code> returns the run directory, which is what the <code>summary_*()</code> functions take. Once a run has finished:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb63"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary_pop</span>(run_dir, <span class="at">type =</span> <span class="st">"N_Initial"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Using the example output bundled with the package:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb64"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a>example_out <span class="ot">&lt;-</span> <span class="fu">system.file</span>(<span class="st">"extdata"</span>, <span class="st">"Example_dat"</span>, <span class="at">package =</span> <span class="st">"cdmetapopR"</span>)</span>
+<span id="cb64-2"><a href="#cb64-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary_pop</span>(example_out, <span class="at">type =</span> <span class="st">"N_Initial"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="cdmetapopr_wrapper_files/figure-html/read-results-live-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>See the <a href="../cdmetapopr/cdmetapopr_output_vignette.html" class="btn btn-primary">Outputs Vignette</a> for the full set of summary and plotting functions.</p>
 
 
-
-<div class="quarto-title-meta">
-
-    
-  
-    
-  </div>
-  
-
-
-</header>
-
-
-
-
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
