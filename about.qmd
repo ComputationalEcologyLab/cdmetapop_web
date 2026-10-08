@@ -95,7 +95,7 @@ Landguth, E.L., Holden, Z.A., Mahalovich, M.F., & Cushman, S.A. (2017). Using la
 [Download PDF](publications/fgene-08-00009.pdf)
 
 Landguth, E.L., Bearlin, A., Day, C.C., & Dunham, J. (2017). CDmetaPOP: an individual-based, eco-evolutionary model for spatially-explicit simulation of landscape demogenetics. *Methods in Ecology and Evolution*, 8, 4-11, DOI: 10.1111/2041-210X.12608.
-[Download PDF](publications/Methods%20Ecol%20Evol%20-%202016%20-%20Landguth%20-%20CDMetaPOP%20%20an%20individual%E2%90%9Fbased%20%20eco%E2%90%9Fevolutionary%20model%20for%20spatially%20explicit.pdf)
+[Download PDF](publications/Landguth2017_MethodsEcolEvol.pdf)
 
 ## Citation
 

@@ -1,5 +1,5 @@
 ---
-title: "cdmetapopR Vignette"
+title: "cdmetapopR Output Vignette"
 subtitle: "Reading, summarizing, customizing, and plotting CDMetaPOP outputs"
 format:
   html:

@@ -1,5 +1,7 @@
 project:
   type: website
+  resources:
+    - "publications/**"
 
 website:
   title: "CDMetaPOP"
@@ -28,9 +30,7 @@ website:
             href: cdmetapopr/cdmetapopr_output_vignette.qmd
       - text: "Publications"
         href: about.qmd
-            
 
-              
 format:
   html:
     theme:
