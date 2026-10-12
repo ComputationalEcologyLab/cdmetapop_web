@@ -532,36 +532,36 @@
     "text": "Here you will find basic instructions to create input files and begin simulating with cdmetapopR.\nFirst, install cdmetapopR and its dependencies using install.packages() or by downloading the package from the Github page and installing from the archive file.\ninstall.packages(\"cdmetapopR\")\nCDMetaPOP can simulate complex systems but you can get started with a simple template. This platform and tutorial are meant to help you get acquainted with the basic inputs and functions without having to deal with changing too many parameters at once. It will help you build the basic files needed to run CDMetaPOP and give you some tips along the way.\nThe basic files you need to run CDMetaPOP are:\n\nclassVars.csv: defines parameters driven by the size/stage or age of individuals.\npatchVars.csv: defines parameters driven by variation in space (i.e. patches or sites).\npopVars.csv: defines parameters that apply to the entire population, and can contain parameters for multiple runs.\nrunVars.csv: defines the basic meta-parameters of your simulation. These parameters apply to all species, and can contain parameters for multiple runs.\n\nNext, let’s start with a suggestion on the directory structure for your input files.\nYour working directory (in this case './data') should contain your runVars.csv file, and may contain subdirectories to house other input files. For example:\n\n./data/\n├── runVars.csv\n├── popvars/\n│   └── popVars.csv\n├── patchvars/\n│   └── patchVars.csv\n├── classvars/\n│   └── classVars.csv\n├── genes/\n│   └── allelefrequencies.csv\n├── cdmats/\n│   ├── cdmat1.csv\n│   ├── cdmat2.csv\n│   └── cdmat3.csv\n└── otherfiles/\n    ├── correlation_matrix1.csv\n    └── correlation_matrix2.csv\nClick on the links below to navigate to the shinyApps that will help you define the parameters for your first run and make sure to save the resulting input files following the suggestion above, or in a way that makes sense for your simulations.\nRemember to ALWAYS download your work from the PREVIEW TAB before closing the shinyApp\n\n\nStart building a new classVars.csv\nOpen App\n\n\n\nStart building a new patchVars.csv\nOpen App\n\n\n\nStart building a new popVars.csv\nOpen App\n\n\n\nStart building a new runVars.csv\nOpen App\n\nWe suggest preparing your files in the order given (starting with classVars), as the runVars.csv requires defining the popVars.csv, which in turn requires defining the patchVars.csv, which requires defining the classVars.csv files. However, you may wish to start with the runVars.csv file, and filling in the file names later.\nAdditional input files may include distance matrices to guide individual movement, a correlation matrix, and genetic files to initialize population genetic structure. But once you have the basic input files mentioned above you can start your basic simulations and get acquainted with the potential insights you can gain about your species in both space and time with CDMetaPOP.\nOnce your input files are ready, proceed to the next step:\n➡️ Go to Run CDMetaPOP\nFor more detailed instructions you can refer to the CDMetaPOP user manual and several publications:\n\nManual.\nLandguth EL, Bearlin A, Day C, Dunham J (2017) CDmetaPOP: an individual-based, eco-evolutionary model for spatially-explicit simulation of landscape demogenetics. Methods in Ecology and Evolution. 8, 4-11, doi: 10.1111/2041-210X.12608\nCheck out the multispecies version too: Day CC, Landguth EL, Simmons R, Bearlin A (2023) CDMetaPOP 2: a multispecies, eco-evolutionary simulation framework for landscape demogenetics and connectivity. Ecography https://doi.org/10.1111/ecog.06566\nNew disease model coming up soon - Stay tuned!"
   },
   {
-    "objectID": "home.html",
-    "href": "home.html",
+    "objectID": "index.html",
+    "href": "index.html",
     "title": "What is CDMetaPOP?",
     "section": "",
     "text": "CDMetaPOP is an individual-based, spatially explicit, stochastic simulation model for studying how demography, movement, genetics, environment, and disease interact to shape populations over time. CDMetaPOP can be used for plant and animal applications in both aquatic and terrestrial environments.\nCDMetaPOP simulates with an individual based modeling (IBM) approach, as it allows to track every individual, capturing real-world complexity with the potential of revealing emergent patterns from simple individual decisions to more complex interactions."
   },
   {
-    "objectID": "home.html#real-world-applications",
-    "href": "home.html#real-world-applications",
+    "objectID": "index.html#real-world-applications",
+    "href": "index.html#real-world-applications",
     "title": "What is CDMetaPOP?",
     "section": "Real-World Applications",
     "text": "Real-World Applications\nCDMetaPOP is used to study disease ecology, epidemiology, invasive species, climate change adaptations, habitat restorations, species recovery programs, etc."
   },
   {
-    "objectID": "home.html#get-started",
-    "href": "home.html#get-started",
+    "objectID": "index.html#get-started",
+    "href": "index.html#get-started",
     "title": "What is CDMetaPOP?",
     "section": "Get Started",
     "text": "Get Started\n➡️ Installation Guide\nOr jump straight to the tutorials:\n\nPython Tutorial - For Python users\nR Tutorial (cdmetapopR) - For R users"
   },
   {
-    "objectID": "home.html#learn-more",
-    "href": "home.html#learn-more",
+    "objectID": "index.html#learn-more",
+    "href": "index.html#learn-more",
     "title": "What is CDMetaPOP?",
     "section": "Learn More",
     "text": "Learn More\nVisit our lab website for more information about our computational ecology tools, or explore our other software including CDPOP and UNICOR. Visit our GitHub page for many of the lab resources and data available at GitHub\nDownload the complete CDMetaPOP User Manual for detailed documentation."
   },
   {
-    "objectID": "home.html#our-research",
-    "href": "home.html#our-research",
+    "objectID": "index.html#our-research",
+    "href": "index.html#our-research",
     "title": "What is CDMetaPOP?",
     "section": "Our Research",
     "text": "Our Research\nSee how CDMetaPOP has been used in published research across many fields in our Publications section."
