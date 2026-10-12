@@ -144,35 +144,35 @@
     "href": "cdmetapopr/cdmetapopr_tutorial.html",
     "title": "Introduction to cdmetapopR",
     "section": "",
-    "text": "cdmetapopR is an R package that provides an interface for running CDMetaPOP simulations and analyzing their outputs. This package offers two main approaches for building the input files needed to run CDMetaPOP simulations.\n\n\nWhen using cdmetapopR, you have two options for creating the input files required for CDMetaPOP simulations:\n\n\nThe Shiny apps provide an interactive, user-friendly interface for building input files. This approach is ideal if you:\n\nAre new to CDMetaPOP or R programming\nPrefer a visual, guided interface\nWant step-by-step assistance with parameter selection\nNeed help understanding what each parameter does\n\nThe Shiny apps offer more guidance and built-in explanations, making it easier to get started and ensure your input files are correctly formatted.\n➡️ Learn about Shiny Apps\n\n\n\nThe wrapper functions allow you to create input files programmatically using R code. This approach is ideal if you:\n\nAre comfortable with R programming\nNeed to create multiple simulation scenarios programmatically\nWant to integrate input file creation into automated workflows\nPrefer working with code rather than a graphical interface\n\nThe wrapper functions give you more flexibility and control, allowing you to parameterize and automate input file generation.\n➡️ Learn about Wrapper Functions\n\n\n\n\nChoose Shiny Apps if: - You’re just getting started with CDMetaPOP - You want guidance on parameter selection - You prefer a visual interface - You need to build a single simulation setup\nChoose Wrapper Functions if: - You’re experienced with R - You need to create many similar simulation setups - You want to automate the process - You need programmatic control over parameters\n\n\n\nAfter creating your input files using either approach, you’ll need to:\n\nRun the CDMetaPOP simulation\nAnalyze the outputs\n\nLearn about analyzing CDMetaPOP outputs with cdmetapopR:\n➡️ Output Analysis Tutorial\n\n\n\nFor more detailed instructions, you can refer to the:\n\nCDMetaPOP User Manual\nPublications - See research papers featuring CDMetaPOP\ncdmetapopR GitHub Repository\nComputational Ecology Lab Website"
+    "text": "editor: markdown: wrap: 72 —"
   },
   {
     "objectID": "cdmetapopr/cdmetapopr_tutorial.html#two-approaches-for-building-input-files",
     "href": "cdmetapopr/cdmetapopr_tutorial.html#two-approaches-for-building-input-files",
     "title": "Introduction to cdmetapopR",
-    "section": "",
-    "text": "When using cdmetapopR, you have two options for creating the input files required for CDMetaPOP simulations:\n\n\nThe Shiny apps provide an interactive, user-friendly interface for building input files. This approach is ideal if you:\n\nAre new to CDMetaPOP or R programming\nPrefer a visual, guided interface\nWant step-by-step assistance with parameter selection\nNeed help understanding what each parameter does\n\nThe Shiny apps offer more guidance and built-in explanations, making it easier to get started and ensure your input files are correctly formatted.\n➡️ Learn about Shiny Apps\n\n\n\nThe wrapper functions allow you to create input files programmatically using R code. This approach is ideal if you:\n\nAre comfortable with R programming\nNeed to create multiple simulation scenarios programmatically\nWant to integrate input file creation into automated workflows\nPrefer working with code rather than a graphical interface\n\nThe wrapper functions give you more flexibility and control, allowing you to parameterize and automate input file generation.\n➡️ Learn about Wrapper Functions"
+    "section": "Two Approaches for Building Input Files",
+    "text": "Two Approaches for Building Input Files\nWhen using cdmetapopR, you have two options for creating the input files required for CDMetaPOP simulations:\n\n1. Shiny Apps (Recommended for New Users)\nThe Shiny apps provide an interactive, user-friendly interface for building input files. This approach is ideal if you:\n\nAre new to CDMetaPOP or R programming\nPrefer a visual, guided interface\nWant step-by-step assistance with parameter selection\nNeed help understanding what each parameter does\n\nThe Shiny apps offer more guidance and built-in explanations, making it easier to get started and ensure your input files are correctly formatted.\n➡️ Learn about Shiny Apps\n\n\n2. Wrapper Functions (For R Users)\nThe wrapper functions allow you to create input files programmatically using R code. This approach is ideal if you:\n\nAre comfortable with R programming\nNeed to create multiple simulation scenarios programmatically\nWant to integrate input file creation into automated workflows\nPrefer working with code rather than a graphical interface\n\nThe wrapper functions give you more flexibility and control, allowing you to parameterize and automate input file generation.\n➡️ Learn about Wrapper Functions"
   },
   {
     "objectID": "cdmetapopr/cdmetapopr_tutorial.html#which-approach-should-you-choose",
     "href": "cdmetapopr/cdmetapopr_tutorial.html#which-approach-should-you-choose",
     "title": "Introduction to cdmetapopR",
-    "section": "",
-    "text": "Choose Shiny Apps if: - You’re just getting started with CDMetaPOP - You want guidance on parameter selection - You prefer a visual interface - You need to build a single simulation setup\nChoose Wrapper Functions if: - You’re experienced with R - You need to create many similar simulation setups - You want to automate the process - You need programmatic control over parameters"
+    "section": "Which Approach Should You Choose?",
+    "text": "Which Approach Should You Choose?\nChoose Shiny Apps if: - You’re just getting started with CDMetaPOP - You want guidance on parameter selection - You prefer a visual interface - You need to build a single simulation setup\nChoose Wrapper Functions if: - You’re experienced with R - You need to create many similar simulation setups - You want to automate the process - You need programmatic control over parameters"
   },
   {
     "objectID": "cdmetapopr/cdmetapopr_tutorial.html#next-steps",
     "href": "cdmetapopr/cdmetapopr_tutorial.html#next-steps",
     "title": "Introduction to cdmetapopR",
-    "section": "",
-    "text": "After creating your input files using either approach, you’ll need to:\n\nRun the CDMetaPOP simulation\nAnalyze the outputs\n\nLearn about analyzing CDMetaPOP outputs with cdmetapopR:\n➡️ Output Analysis Tutorial"
+    "section": "Next Steps",
+    "text": "Next Steps\nAfter creating your input files using either approach, you’ll need to:\n\nRun the CDMetaPOP simulation\nAnalyze the outputs\n\nLearn about analyzing CDMetaPOP outputs with cdmetapopR:\n➡️ Output Analysis Tutorial"
   },
   {
     "objectID": "cdmetapopr/cdmetapopr_tutorial.html#additional-resources",
     "href": "cdmetapopr/cdmetapopr_tutorial.html#additional-resources",
     "title": "Introduction to cdmetapopR",
-    "section": "",
-    "text": "For more detailed instructions, you can refer to the:\n\nCDMetaPOP User Manual\nPublications - See research papers featuring CDMetaPOP\ncdmetapopR GitHub Repository\nComputational Ecology Lab Website"
+    "section": "Additional Resources",
+    "text": "Additional Resources\nFor more detailed instructions, you can refer to the:\n\nCDMetaPOP User Manual\nPublications - See research papers featuring CDMetaPOP\ncdmetapopR GitHub Repository\nComputational Ecology Lab Website"
   },
   {
     "objectID": "input_files/runVars.html",
@@ -607,5 +607,40 @@
     "title": "Building CDMetaPOP input files with the R wrapper",
     "section": "What gets written",
     "text": "What gets written\nThe run directory holds CDMetaPOP’s canonical layout, with every cross-reference rewritten to the right relative path:\ncdmetapop_run_20261002_143015/\n├── RunVars.csv\n├── popvars/mypopv.csv\n├── patchvars/mypv.csv\n├── classvars/mycv.csv\n├── cdmats/cdmat.csv\n└── manifest.csv\nFiles are named after the R variables that held the objects, so you can trace any csv back to where it came from. manifest.csv records that mapping explicitly."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "What is CDMetaPOP?",
+    "section": "",
+    "text": "CDMetaPOP is an individual-based, spatially explicit, stochastic simulation model for studying how demography, movement, genetics, environment, and disease interact to shape populations over time. CDMetaPOP can be used for plant and animal applications in both aquatic and terrestrial environments.\nCDMetaPOP simulates with an individual based modeling (IBM) approach, as it allows to track every individual, capturing real-world complexity with the potential of revealing emergent patterns from simple individual decisions to more complex interactions."
+  },
+  {
+    "objectID": "index.html#real-world-applications",
+    "href": "index.html#real-world-applications",
+    "title": "What is CDMetaPOP?",
+    "section": "Real-World Applications",
+    "text": "Real-World Applications\nCDMetaPOP is used to study disease ecology, epidemiology, invasive species, climate change adaptations, habitat restorations, species recovery programs, etc."
+  },
+  {
+    "objectID": "index.html#get-started",
+    "href": "index.html#get-started",
+    "title": "What is CDMetaPOP?",
+    "section": "Get Started",
+    "text": "Get Started\n➡️ Installation Guide\nOr jump straight to the tutorials:\n\nPython Tutorial - For Python users\nR Tutorial (cdmetapopR) - For R users"
+  },
+  {
+    "objectID": "index.html#learn-more",
+    "href": "index.html#learn-more",
+    "title": "What is CDMetaPOP?",
+    "section": "Learn More",
+    "text": "Learn More\nVisit our lab website for more information about our computational ecology tools, or explore our other software including CDPOP and UNICOR. Visit our GitHub page for many of the lab resources and data available at GitHub\nDownload the complete CDMetaPOP User Manual for detailed documentation."
+  },
+  {
+    "objectID": "index.html#our-research",
+    "href": "index.html#our-research",
+    "title": "What is CDMetaPOP?",
+    "section": "Our Research",
+    "text": "Our Research\nSee how CDMetaPOP has been used in published research across many fields in our Publications section."
   }
 ]
