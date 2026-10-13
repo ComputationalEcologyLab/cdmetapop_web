@@ -11,7 +11,14 @@
     "href": "about.html#papers-in-preparation",
     "title": "CDMetaPOP",
     "section": "Papers in Preparation",
-    "text": "Papers in Preparation\nAlò, D., Day, C.C., Williams, A., Roseman, M., & Landguth, E.L. (n.d.). cdmetapopR: A companion R package for the CDMetaPOP simulation software."
+    "text": "Papers in Preparation\nAlò, D., Day, C.C., Williams, A., Roseman, M., & Landguth, E.L. (n.d.). cdmetapopR: An interface to the eco-evolutionary simulation software CDMetaPOP."
+  },
+  {
+    "objectID": "about.html#papers-in-review",
+    "href": "about.html#papers-in-review",
+    "title": "CDMetaPOP",
+    "section": "Papers in Review",
+    "text": "Papers in Review\nRoseman, M.A., Williams, A.K., Day, C.C., Fortnum, T.K., Weckworth, J.K., & Landguth, E.L. (n.d.). Simulating the impact of movement strategy uncertainty on cave myotis demo-genetics. Movement Ecology (in revision)."
   },
   {
     "objectID": "about.html#papers-in-press",
@@ -21,39 +28,32 @@
     "text": "Papers in Press\nDavenport, K., Alò, D., Day, C.C., Simmons, R.K., Landguth, E.L., & Whiteley, A.R. (n.d.). Fitness regulates non-native species recovery in a simulated Trojan MYY brook trout application. Evolutionary Applications."
   },
   {
-    "objectID": "about.html#papers-in-review",
-    "href": "about.html#papers-in-review",
-    "title": "CDMetaPOP",
-    "section": "Papers in Review",
-    "text": "Papers in Review\nRoseman, M.A., Williams, A.K., Day, C.C., Fortnum, T.K., Weckworth, J.K., & Landguth, E.L. (n.d.). Simulating the impact of movement strategy uncertainty on cave myotis demo-genetics. Movement Ecology (in revision).\nDay, C., Alò, D., Landguth, E., Lukacs, P.M., Nowak, J., Baker, W.P., Walker, B., Jaecks, T., Coon, I., Witte, B., Olson, J., Rich, H., Combs, M., & Simmons, R.K. (n.d.). Survival, growth, and post-release movement patterns of YY-male Brook Trout in a mountain stream system. North American Journal of Fisheries Management (in revision)."
-  },
-  {
     "objectID": "about.html#section",
     "href": "about.html#section",
     "title": "CDMetaPOP",
     "section": "2026",
-    "text": "2026\nLandguth, E.L., Williams, A., Roseman, M., Amadi, M., Fain, B., Kouete, M., Farrer, R.A., Haeseler, A.J., Razgour, O., Richardson, C., & Weckworth, B. (2026). Simulating the landscape eco-evolution of host-pathogen systems with CDMetaPOP. Ecological Informatics, 103892. Download PDF\nSullivan, S.L., van Poorten, B.T., & Whitlock, M.C. (2026). An assessment of sampling strategies for surveying introgression in watersheds. Canadian Journal of Fisheries and Aquatic Sciences, 83, 1-17."
+    "text": "2026\nLandguth, E.L., Williams, A., Roseman, M., Amadi, M., Fain, B., Kouete, M., Farrer, R.A., Haeseler, A.J., Razgour, O., Richardson, C., Weckworth, B., Weckworth, J., Whiting-Fawcett, F., Wilson, D., & Day, C.C. (2026). Simulating the landscape eco-evolution of host-pathogen systems with CDMetaPOP. Ecological Informatics, 103892, DOI: 10.1016/j.ecoinf.2026.103892. Download PDF\nSullivan, S.L., van Poorten, B.T., & Whitlock, M.C. (2026). An assessment of sampling strategies for surveying introgression in watersheds. Canadian Journal of Fisheries and Aquatic Sciences, 83, 1-17."
   },
   {
     "objectID": "about.html#section-1",
     "href": "about.html#section-1",
     "title": "CDMetaPOP",
     "section": "2025",
-    "text": "2025\nBeaman, J.E., Gates, K., Saltré, F., Hogg, C.J., Belov, K., Ashman, K., Da Silva, K.B., Beheregaray, L.B., & Bradshaw, C.J. (2025). A Guide for Developing Demo‐Genetic Models to Simulate Genetic Rescue. Evolutionary Applications, 18(5), e70092."
+    "text": "2025\nBeaman, J.E., Gates, K., Saltré, F., Hogg, C.J., Belov, K., Ashman, K., Da Silva, K.B., Beheregaray, L.B., & Bradshaw, C.J.A. (2025). A Guide for Developing Demo‐Genetic Models to Simulate Genetic Rescue. Evolutionary Applications, 18(5), e70092."
   },
   {
     "objectID": "about.html#section-2",
     "href": "about.html#section-2",
     "title": "CDMetaPOP",
     "section": "2024",
-    "text": "2024\nDay, C.C., Alo, D., Zarn, K., Robinson, Z., Small, M., Fortin, M.-J., Simmons, R., Lukacs, P., & Landguth, E.L. (2024). Disentangling effects of dispersal, environment, and anthropogenic barriers on functional connectivity in aquatic systems. Molecular Ecology, DOI: 10.1111/mec.17500. Download PDF"
+    "text": "2024\nDay, C.C., Alò, D., Zarn, K., Robinson, Z., Small, M., Fortin, M.-J., Simmons, R., Lukacs, P., & Landguth, E.L. (2024). Disentangling effects of dispersal, environment, and anthropogenic barriers on functional connectivity in aquatic systems. Molecular Ecology, DOI: 10.1111/mec.17500. Download PDF"
   },
   {
     "objectID": "about.html#section-3",
     "href": "about.html#section-3",
     "title": "CDMetaPOP",
     "section": "2023",
-    "text": "2023\nBernos, T.A., Day, C., Hill, J., Morissette, O., Jeffries, K.M., & Mandrak, N.E. (2023). Simulating the effects of long‐distance dispersal and landscape heterogeneity on the eco‐evolutionary outcomes of range expansion in an invasive riverine fish, Tench (Tinca tinca). Molecular Ecology, 32(13), 3403-3418, DOI: 10.1111/mec.16964. Download PDF\nMendoza-Portillo, V., García-De León, F.J., & Heyden, S. (2023). Responses of population structure and genomic diversity to climate change and fishing pressure in a pelagic fish. Global Change Biology, 29(14), 4107-4125, DOI: 10.1111/gcb.16732. Download PDF\nLozada, A., Day, C.C., Landguth, E.L., & Bertin, A. (2023). Simulation-based insights into community uniqueness within fragmented landscapes. Landscape Ecology, 38(10), 2533-2546. Download PDF\nSeaborn, T., Day, C.C., Galla, S.J., Höök, T.O., Jossie, E., Landguth, E.L., Liu, R., & Simmons, R.K. (2023). Individual-based models for incorporating landscape processes in the conservation and management of aquatic systems. Current Landscape Ecology Reports, 8(3), 119-135. Download PDF\nDay, C.C., Landguth, E.L., Simmons, R.K., & Bearlin, A.R. (2023). CDMetaPOP 2: a multispecies, eco-evolutionary simulation framework for landscape demogenetics and connectivity. Ecography, DOI: 10.1111/ecog.06566. Download PDF\nSeaborn, T., Landguth, E.L., & Caudill, C.C. (2023). Simulating plasticity as a framework for understanding habitat selection and its role in adaptive capacity and extinction risk through an expansion of CDMetaPOP. Molecular Ecology Resources, 23(6), 1458-1472. Download PDF\nBernos, T., Chang, S., Giglio, R., Davenport, K., Fisher, J., Lowery, E., Bearlin, A., Simmons, R., Fortin, M.J., Day, C.C., & Landguth, E.L. (2023). Evaluating the evolutionary mechanisms maintaining alternative mating strategies in a simulated Bull Trout (Salvelinus confluentus) population. Ecology and Evolution, 13, e9965. Download PDF\nForester, B.R., Day, C.C., Ruegg, K., & Landguth, E.L. (2023). Evolutionary potential mitigates extinction risk under climate change in the endangered southwestern willow flycatcher. Journal of Heredity, 114(4), 341-353. Download PDF"
+    "text": "2023\nBernos, T.A., Day, C., Hill, J., Morissette, O., Jeffries, K.M., & Mandrak, N.E. (2023). Simulating the effects of long‐distance dispersal and landscape heterogeneity on the eco‐evolutionary outcomes of range expansion in an invasive riverine fish, Tench (Tinca tinca). Molecular Ecology, 32(13), 3403-3418, DOI: 10.1111/mec.16964. Download PDF\nMendoza-Portillo, V., García-De León, F.J., & von der Heyden, S. (2023). Responses of population structure and genomic diversity to climate change and fishing pressure in a pelagic fish. Global Change Biology, 29(14), 4107-4125, DOI: 10.1111/gcb.16732. Download PDF\nLozada, A., Day, C.C., Landguth, E.L., & Bertin, A. (2023). Simulation-based insights into community uniqueness within fragmented landscapes. Landscape Ecology, 38(10), 2533-2546. Download PDF\nSeaborn, T., Day, C.C., Galla, S.J., Höök, T.O., Jossie, E., Landguth, E.L., Liu, R., & Simmons, R.K. (2023). Individual-based models for incorporating landscape processes in the conservation and management of aquatic systems. Current Landscape Ecology Reports, 8(3), 119-135. Download PDF\nDay, C.C., Landguth, E.L., Simmons, R.K., & Bearlin, A.R. (2023). CDMetaPOP 2: a multispecies, eco-evolutionary simulation framework for landscape demogenetics and connectivity. Ecography, 2023(8), e06566, DOI: 10.1111/ecog.06566. Download PDF\nSeaborn, T., Landguth, E.L., & Caudill, C.C. (2023). Simulating plasticity as a framework for understanding habitat selection and its role in adaptive capacity and extinction risk through an expansion of CDMetaPOP. Molecular Ecology Resources, 23(6), 1458-1472. Download PDF\nBernos, T., Chang, S., Giglio, R., Davenport, K., Fisher, J., Lowery, E., Bearlin, A., Simmons, R., Fortin, M.J., Day, C.C., & Landguth, E.L. (2023). Evaluating the evolutionary mechanisms maintaining alternative mating strategies in a simulated Bull Trout (Salvelinus confluentus) population. Ecology and Evolution, 13, e9965. Download PDF\nForester, B.R., Day, C.C., Ruegg, K., & Landguth, E.L. (2023). Evolutionary potential mitigates extinction risk under climate change in the endangered southwestern willow flycatcher. Journal of Heredity, 114(4), 341-353. Download PDF"
   },
   {
     "objectID": "about.html#section-4",
@@ -81,21 +81,21 @@
     "href": "about.html#section-7",
     "title": "CDMetaPOP",
     "section": "2018",
-    "text": "2018\nEscalante, M., Leon, G., Arturo, R.L., Landguth, E.L., & Manel, S. (2018). The interplay of riverscape features and exotic introgression on the genetic structure of the Mexican golden trout (Oncorhynchus chrysogaster). Journal of Biogeography, 45, 1500-1514, DOI: 10.1111/jbi.13246. Download PDF\nDay, C.C., Landguth, E.L., Bearlin, A., Holden, Z.A., & Whiteley, A.R. (2018). Using simulation modeling to inform management of invasive species: A case study of eastern brook trout suppression and eradication. Biological Conservation, 221, 10-22. Download PDF"
+    "text": "2018\nEscalante, M.A., García-De León, F.J., Ruiz-Luna, A., Landguth, E.L., & Manel, S. (2018). The interplay of riverscape features and exotic introgression on the genetic structure of the Mexican golden trout (Oncorhynchus chrysogaster), a simulation approach. Journal of Biogeography, 45, 1500-1514, DOI: 10.1111/jbi.13246. Download PDF\nLandguth, E.L., Day, C.C., Bearlin, A., Holden, Z.A., & Whiteley, A.R. (2018). Using simulation modeling to inform management of invasive species: A case study of eastern brook trout suppression and eradication. Biological Conservation, 221, 10-22. Download PDF"
   },
   {
     "objectID": "about.html#section-8",
     "href": "about.html#section-8",
     "title": "CDMetaPOP",
     "section": "2017",
-    "text": "2017\nLandguth, E.L., Holden, Z.A., Mahalovich, M.F., & Cushman, S.A. (2017). Using landscape genetics simulations for planting blister rust resistant whitebark pine in the US Northern Rocky Mountains. Frontiers in Genetics, 8(FEB), 1-12. Download PDF\nLandguth, E.L., Bearlin, A., Day, C.C., & Dunham, J. (2017). CDmetaPOP: an individual-based, eco-evolutionary model for spatially-explicit simulation of landscape demogenetics. Methods in Ecology and Evolution, 8, 4-11, DOI: 10.1111/2041-210X.12608. Download PDF"
+    "text": "2017\nLandguth, E.L., Holden, Z.A., Mahalovich, M.F., & Cushman, S.A. (2017). Using landscape genetics simulations for planting blister rust resistant whitebark pine in the US Northern Rocky Mountains. Frontiers in Genetics, 8, 9. Download PDF\nLandguth, E.L., Bearlin, A., Day, C.C., & Dunham, J. (2017). CDMetaPOP: an individual-based, eco-evolutionary model for spatially explicit simulation of landscape demogenetics. Methods in Ecology and Evolution, 8, 4-11, DOI: 10.1111/2041-210X.12608. Download PDF"
   },
   {
     "objectID": "about.html#citation",
     "href": "about.html#citation",
     "title": "CDMetaPOP",
     "section": "Citation",
-    "text": "Citation\nWhen using CDMetaPOP or cdmetapopR, please cite the relevant publications above and the software:\n@software{cdmetapop_software,\n  title={{CDMetaPOP}: an individual-based, eco-evolutionary model for spatially-explicit simulation of landscape demogenetics}\n  author = {Landguth, Erin L. and Day, Casey C. and Bearlin, Andrew and Dunham, Jason and Simmons, Ryan K. and Forester, Brenna R. and Davenport, Kaeli and Seaborn, Travis}\n  year={2025},\n  version={3.0.8}\n  url={https://github.com/ComputationalEcologyLab/CDMetaPOP},\n  note = {Accessed: YYYY-MM-DD}\n}\n\n@software{cdmetapopr,\n  title={cdmetapopR: A companion R package for the CDMetaPOP simulation software},\n  author = {Alò, Dominique and Day, Casey C. and Williams, Allison and Roseman, Marissa and Landguth, Erin L.}\n  year={2026},\n  url={https://github.com/ComputationalEcologyLab/cdmetapopR}\n}"
+    "text": "Citation\nWhen using CDMetaPOP or cdmetapopR, please cite the relevant publications above and the software:\n@software{cdmetapop_software,\n  title={{CDMetaPOP}: an individual-based, eco-evolutionary model for spatially-explicit simulation of landscape demogenetics},\n  author = {Landguth, Erin L. and Day, Casey C. and Bearlin, Andrew and Dunham, Jason and Simmons, Ryan K. and Forester, Brenna R. and Davenport, Kaeli and Seaborn, Travis},\n  year={2025},\n  version={3.0.8},\n  url={https://github.com/ComputationalEcologyLab/CDMetaPOP},\n  note = {Accessed: YYYY-MM-DD}\n}\n\n@software{cdmetapopr,\n  title={cdmetapopR: A companion R package for the CDMetaPOP simulation software},\n  author = {Alò, Dominique and Day, Casey C. and Williams, Allison and Roseman, Marissa and Landguth, Erin L.},\n  year={2026},\n  url={https://github.com/ComputationalEcologyLab/cdmetapopR}\n}"
   },
   {
     "objectID": "about.html#related-software",
