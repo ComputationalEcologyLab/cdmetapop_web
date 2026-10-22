@@ -9,12 +9,10 @@ Alò, D., Day, C.C., Williams, A., Roseman, M., & Landguth, E.L. (n.d.). cdmetap
 
 Roseman, M.A., Williams, A.K., Day, C.C., Fortnum, T.K., Weckworth, J.K., & Landguth, E.L. (n.d.). Simulating the impact of movement strategy uncertainty on cave myotis demo-genetics. *Movement Ecology* (in revision).
 
-## Papers in Press
-
-Davenport, K., Alò, D., Day, C.C., Simmons, R.K., Landguth, E.L., & Whiteley, A.R. (n.d.). Fitness regulates non-native species recovery in a simulated Trojan MYY brook trout application. *Evolutionary Applications*.
-
-
 ## 2026
+
+Davenport, K., Alò, D., Day, C. C., Simmons, R. K., Landguth, E. L., & Whiteley, A. R. (2026). Fitness Regulates Non‐Native Species Recovery in a Simulated Trojan MYY Brook Trout Application. *Evolutionary Applications*, 19(10), e70335.
+[Download PDF](publications/Evolutionary Applications - 2026 - Davenport - Fitness Regulates Non‐Native Species Recovery in a Simulated Trojan MYY.pdf)
 
 Landguth, E.L., Williams, A., Roseman, M., Amadi, M., Fain, B., Kouete, M., Farrer, R.A., Haeseler, A.J., Razgour, O., Richardson, C., Weckworth, B., Weckworth, J., Whiting-Fawcett, F., Wilson, D., & Day, C.C. (2026). Simulating the landscape eco-evolution of host-pathogen systems with CDMetaPOP. *Ecological Informatics*, 103892, DOI: 10.1016/j.ecoinf.2026.103892.
 [Download PDF](publications/CDMetaPOP-Disease.pdf)
